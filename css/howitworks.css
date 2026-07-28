@@ -1,0 +1,347 @@
+.hiw-page {
+    position: relative;
+    overflow-x: clip;
+    padding-top: 110px;
+}
+
+.hiw-page>.hero-aurora {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hiw-page>section {
+    position: relative;
+    z-index: 1;
+}
+
+.hiw-hero {
+    padding: 50px 0 25px;
+}
+
+.hiw-hero-content {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(36px);
+    transition:
+        opacity var(--reveal-animation-duration) ease-in,
+        transform var(--reveal-animation-duration) ease-in;
+}
+
+.hiw-hero-content.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hiw-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.hiw-steps {
+    padding: 20px 0 70px;
+}
+
+.hiw-step-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    max-width: 1080px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 22px;
+    padding: 34px;
+    margin: 0 auto 48px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.05),
+        0 1px 10px rgba(0, 0, 0, 0.03),
+        0 1px 5px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(45px) scale(0.94);
+    transition:
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.75s cubic-bezier(0.34, 1.4, 0.64, 1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+    will-change: transform, opacity;
+}
+
+.hiw-step-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.68));
+    pointer-events: none;
+}
+
+.hiw-step-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.hiw-step-card.is-active-focus {
+    transform: translateY(-2px) scale(1.02);
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.08),
+        0 4px 16px rgba(0, 0, 0, 0.05),
+        0 1px 6px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hiw-hero-content,
+    .hiw-step-card,
+    .hiw-phone {
+        opacity: 1;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+.hiw-step-card--cta {
+    padding-bottom: 40px;
+}
+
+.hiw-step-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    align-items: center;
+    gap: 44px;
+    width: 100%;
+    max-width: 980px;
+}
+
+.hiw-step-grid--reverse {
+    grid-template-columns: 1fr 360px;
+}
+
+.hiw-step-grid--reverse .hiw-media {
+    order: 2;
+}
+
+.hiw-step-grid--reverse .hiw-content {
+    order: 1;
+}
+
+@media (min-width: 993px) {
+    .hiw-step-grid--reverse .hiw-content {
+        text-align: right;
+    }
+
+    .hiw-step-grid--reverse .hiw-tags {
+        justify-content: flex-end;
+    }
+
+    .hiw-step-grid--reverse .hiw-step-text {
+        margin-left: auto;
+    }
+}
+
+.hiw-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hiw-phone {
+    width: 260px;
+    height: auto;
+    display: block;
+    border-radius: 28px;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.22));
+    transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1), filter 0.4s ease;
+}
+
+.hiw-step-card.is-active-focus .hiw-phone {
+    transform: scale(1.035) translateY(-2px);
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.22));
+}
+
+.hiw-content {
+    text-align: left;
+}
+
+.hiw-step-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-blue);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.hiw-step-title {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.hiw-step-text {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #353542;
+    max-width: 520px;
+    text-align: justify;
+}
+
+.hiw-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hiw-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(14, 101, 215, 0.18);
+    background: rgba(14, 101, 215, 0.08);
+    color: var(--primary-blue);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hiw-cta-btn {
+    margin-top: 18px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.hiw-cta-btn:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 992px) {
+
+    .hiw-step-grid,
+    .hiw-step-grid--reverse {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .hiw-step-grid--reverse .hiw-media,
+    .hiw-step-grid--reverse .hiw-content {
+        order: initial;
+    }
+
+    .hiw-content {
+        text-align: center;
+    }
+
+    .hiw-tags {
+        justify-content: center;
+    }
+
+    .hiw-step-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hiw-page {
+        padding-top: 120px;
+    }
+
+    .hiw-hero {
+        padding: 35px 0 20px;
+    }
+
+    .hiw-step-card {
+        padding: 24px 20px 28px;
+        border-radius: 18px;
+        margin: 0 auto 36px;
+    }
+
+    .hiw-step-grid,
+    .hiw-step-grid--reverse {
+        gap: 16px;
+    }
+
+    .hiw-phone {
+        width: 180px;
+        border-radius: 22px;
+    }
+
+    .hiw-step-number {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .hiw-step-title {
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
+
+    .hiw-step-text {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .hiw-tags {
+        gap: 8px;
+    }
+
+    .hiw-tag {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hiw-step-card {
+        padding: 20px 16px 24px;
+        margin: 0 auto 28px;
+    }
+
+    .hiw-step-grid,
+    .hiw-step-grid--reverse {
+        gap: 12px;
+    }
+
+    .hiw-phone {
+        width: 160px;
+        border-radius: 20px;
+    }
+
+    .hiw-step-title {
+        font-size: 16px;
+    }
+
+    .hiw-step-text {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+}

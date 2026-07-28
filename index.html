@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary GEO Meta Tags -->
+    <title>DigiDr - AI Digital Infrastructure for Doctors</title>
+    <meta name="description"
+        content="DigiDr is a comprehensive digital healthcare platform helping doctors and clinics in India build their online presence, manage appointments, and grow their practice with modern technology.">
+    <meta name="keywords"
+        content="doctor platform, clinic management, online appointments, medical practice management, doctor website, patient management">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://digidr.app/">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DigiDr">
+    <meta property="og:title" content="DigiDr - AI Digital Infrastructure for Doctors">
+    <meta property="og:description"
+        content="DigiDr builds your complete digital identity as a doctor: verified profile, smart microsite, AI content, and online appointment booking. Live within minutes. Free to start.">
+    <meta property="og:url" content="https://digidr.app/">
+    <meta property="og:image" content="https://digidr.app/img/og-image-2.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="DigiDr - AI Digital Infrastructure for Doctors">
+
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DigiDr - AI Digital Infrastructure for Doctors">
+    <meta name="twitter:description"
+        content="Transform your medical practice with DigiDr's comprehensive digital platform.">
+    <meta name="twitter:image" content="https://digidr.app/img/og-image-2.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Symbols (Material Icons) -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- Root Variables -->
+    <link href="css/root.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
+
+    <!-- Navbar CSS -->
+    <link href="css/navbar.css" rel="stylesheet">
+
+    <!-- Footer CSS -->
+    <link href="css/footer.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Chatbot Widget -->
+    <link rel="stylesheet" href="css/chatbot.css">
+
+    <script>
+        (function () {
+            if (window.location.hash !== '#contact') return;
+            sessionStorage.setItem('digidrScrollToContact', '1');
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        })();
+    </script>
+
+    <!-- Preferred image for Google Search / Discover thumbnails -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": "https://digidr.app/",
+        "name": "DigiDr - Digital Healthcare Platform",
+        "description": "DigiDr is a comprehensive digital healthcare platform helping doctors and clinics in India build their online presence, manage appointments, and grow their practice with modern technology.",
+        "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://digidr.app/img/og-image-2.png",
+            "width": 1200,
+            "height": 630,
+            "caption": "DigiDr - AI Digital Infrastructure for Doctors"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "DigiDr",
+            "url": "https://digidr.app/"
+        }
+    }
+    </script>
+</head>
+
+<body class="page-home">
+
+    <div id="navbar-mount" data-nav-active="home"></div>
+    <script src="js/navbar.js"></script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-aurora" aria-hidden="true">
+            <div class="hero-aurora__mesh">
+                <div class="hero-aurora__blob hero-aurora__blob--blue">
+                    <div class="hero-aurora__blob-inner"></div>
+                </div>
+                <div class="hero-aurora__blob hero-aurora__blob--orange">
+                    <div class="hero-aurora__blob-inner"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content text-center hero-intro">
+                <div class="hero-intro__badge-wrap">
+                    <span class="badge">AI Digital Infrastructure for Doctors</span>
+                </div>
+                <h1 class="hero-intro__title">
+                    <span class="hero-intro__line hero-intro__line--1">Your patients are searching for you
+                        online.</span>
+                    <span class="hero-intro__line hero-intro__line--2 highlight"> Are they finding you?</span>
+                </h1>
+                <p class="subtitle hero-intro__subtitle">DigiDr builds and maintains your complete digital identity</p>
+
+                <div class="hero-buttons hero-intro__actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.wayindia.digidrapp" class="btn btn-store"
+                        data-store="play" aria-label="Get it on Google Play" target="_blank" rel="noopener noreferrer">
+                        <span class="btn-store-icon" aria-hidden="true">
+                            <img src="img/play_store.png" alt="">
+                        </span>
+                        <span class="btn-store-text">Play Store</span>
+                    </a>
+                    <a href="javascript:void(0)" class="btn btn-store" data-store="app"
+                        aria-label="App Store (Coming Soon)">
+                        <span class="btn-store-icon" aria-hidden="true">
+                            <img src="img/app_store.png" alt="">
+                        </span>
+                        <span class="btn-store-text">App Store</span>
+                    </a>
+                    <a href="https://web.digidr.app/" class="btn btn-store" data-store="web"
+                        aria-label="Open DigiDr on the web">
+                        <span class="btn-store-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
+                            </svg>
+                        </span>
+                        <span class="btn-store-text">View Demo</span>
+                    </a>
+                    <!-- <a href="https://web.digidr.app/" class="btn btn-store" data-store="web"
+                        aria-label="Open DigiDr on the web" target="_blank" rel="noopener noreferrer">
+                        <span class="material-symbols-outlined">desktop_mac</span>
+                        Web
+                    </a> -->
+
+                    <!-- <button class="btn btn-explore" data-open-mission-modal>
+                        View Demo
+                    </button> -->
+                </div>
+
+                <div class="phone-showcase hero-intro__phones">
+                    <div class="phone phone-left">
+                        <img src="img/Small Phone Left.png" alt="DigiDr App Preview">
+                    </div>
+                    <div class="phone phone-center">
+                        <img src="img/Big Phone Center.png" alt="DigiDr App Main Screen">
+                    </div>
+                    <div class="phone phone-right">
+                        <img src="img/Small Phone Right.png" alt="DigiDr Analytics">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics-section">
+        <div class="container">
+            <div class="statistics-card">
+                <div class="stat-item">
+                    <div class="stat-number">1k+</div>
+                    <div class="stat-label">Doctors with verified digital identities</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">30 mins</div>
+                    <div class="stat-label">Live with no developer, no agency</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Your content. Your handles. Always.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Invisible Section -->
+    <section class="why-invisible-section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title">
+                    Most doctors are experts. <span class="highlight">Very few exist online.</span>
+                </h3>
+                <p class="section-subtitle">Not because they lack expertise. Because they lack digital infrastructure.
+                </p>
+            </div>
+            <div class="reason-cards">
+                <div class="reason-card" data-index="01">
+                    <div class="reason-infographic busy-graphic" role="img"
+                        aria-label="AI manages digital presence while doctor works">
+                        <span class="time-dial"></span>
+                        <span class="patient-card"></span>
+                        <span class="automation-line"></span>
+                        <span class="ai-spark-dot"></span>
+                    </div>
+                    <h3>You’re too busy saving lives to manage a digital presence</h3>
+                    <p>DigiDr runs your entire digital infrastructure in the background — AI generates content,
+                        maintains your profile, and keeps you discoverable while you focus on patients.</p>
+                </div>
+                <div class="reason-card" data-index="02">
+                    <div class="reason-infographic entity-graphic" role="img"
+                        aria-label="Verified digital entity infographic">
+                        <span class="entity-shield"></span>
+                        <span class="entity-check"></span>
+                        <span class="entity-profile-card"></span>
+                        <span class="entity-search-ring"></span>
+                    </div>
+                    <h3>You have no verified digital entity</h3>
+                    <p>Without a structured online identity, patients can’t find you — even when they search for your
+                        exact speciality. DigiDr builds and hosts that identity permanently.</p>
+                </div>
+                <div class="reason-card" data-index="03">
+                    <div class="reason-infographic infrastructure-graphic" role="img"
+                        aria-label="Connected digital infrastructure infographic">
+                        <span class="infra-connector infra-connector-horizontal"></span>
+                        <span class="infra-connector infra-connector-vertical"></span>
+                        <span class="infra-hub"></span>
+                        <span class="infra-tile infra-tile-profile"></span>
+                        <span class="infra-tile infra-tile-content"></span>
+                        <span class="infra-tile infra-tile-appointments"></span>
+                        <span class="infra-tile infra-tile-referrals"></span>
+                    </div>
+                    <h3>You have no infrastructure to maintain it</h3>
+                    <p>A social media account is not a digital presence. DigiDr gives you the full stack: verified
+                        profile, microsite, AI content, appointment system, and referral tracking — always on.</p>
+                </div>
+            </div>
+            <div class="scroll-to-solution" data-scroll-target="#how-it-works">
+                <p class="scroll-to-solution-text">
+                    See How DigiDr Works
+                    <span class="material-symbols-outlined scroll-to-solution-arrow"
+                        aria-hidden="true">arrow_downward</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How DigiDr Works Section -->
+    <section class="how-digidoctor-works-section" id="how-it-works">
+        <div class="hero-aurora" aria-hidden="true">
+            <div class="hero-aurora__mesh">
+                <div class="hero-aurora__blob hero-aurora__blob--blue">
+                    <div class="hero-aurora__blob-inner"></div>
+                </div>
+                <div class="hero-aurora__blob hero-aurora__blob--orange">
+                    <div class="hero-aurora__blob-inner"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="works-content">
+                <!-- Doctor Image on Left -->
+                <div class="doctor-image-container">
+                    <img src="img/doctors_img.png" alt="Doctor" class="doctor-image">
+                </div>
+
+                <!-- Pills Container on Right -->
+                <div class="pills-container">
+                    <h3 class="section-title">
+                        Your digital infrastructure, <span class="highlight">live in four steps</span>
+                    </h3>
+
+                    <!-- Pill 1 -->
+                    <div class="pill-menu">
+                        <div class="pill-header" onclick="togglePill(this)">
+                            <div class="pill-icon">
+                                <span class="material-symbols-outlined">domain</span>
+                            </div>
+                            <div class="pill-text">
+                                <h4>Tell Us Who You Are</h4>
+                                <p>5 minutes. That’s all it takes.</p>
+                            </div>
+                            <div class="pill-chevron">
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+                        <div class="pill-content">
+                            <p>Share your speciality, clinic details, and consultation preferences. DigiDr’s AI
+                                instantly structures this into your verified doctor profile and smart microsite — no
+                                forms to design, no website to build.</p>
+                            <ul>
+                                <li>Verified doctor profile created instantly</li>
+                                <li>Smart microsite live with your speciality, location, and consultation details</li>
+                                <li>Appointment scheduling configured and ready</li>
+                                <li>Diagnostic referral tracking linked to your network</li>
+                            </ul>
+                            <!-- <p>Go live. Faster. Smarter. Digital.</p> -->
+                        </div>
+                    </div>
+
+                    <!-- Pill 2 -->
+                    <div class="pill-menu">
+                        <div class="pill-header" onclick="togglePill(this)">
+                            <div class="pill-icon">
+                                <span class="material-symbols-outlined">calendar_month</span>
+                            </div>
+                            <div class="pill-text">
+                                <h4>Go Live As A Digital Entity</h4>
+                                <p>Your profile. Your microsite. Your AI layer. Active.</p>
+                            </div>
+                            <div class="pill-chevron">
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+                        <div class="pill-content">
+                            <p>Your verified profile, microsite, and AI content layer go live — published from your own
+                                professional handles under your name. Your audience, your authority, your identity.</p>
+                            <ul>
+                                <li>Content published to your own social handles — not DigiDr’s</li>
+                                <li>Patients can book appointments directly from your microsite</li>
+                                <li>Your profile is indexed by Google within hours</li>
+                                <li>Diagnostic referral tracking active from day one</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pill 3 -->
+                    <div class="pill-menu">
+                        <div class="pill-header" onclick="togglePill(this)">
+                            <div class="pill-icon">
+                                <span class="material-symbols-outlined">public</span>
+                            </div>
+                            <div class="pill-text">
+                                <h4>AI Keeps You Visible And Relevant</h4>
+                                <p>Continuously. Automatically. In the background.</p>
+                            </div>
+                            <div class="pill-chevron">
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+                        <div class="pill-content">
+                            <p>DigiDr’s AI continuously generates speciality-specific posts, reels, emailers, and blog
+                                content — adjusted for your locality, patient base, and what patients are actively
+                                searching for right now.</p>
+                            <ul>
+                                <li>12–28 speciality posts per month (plan-dependent)</li>
+                                <li>Instagram Reels and YouTube Shorts scripted and ready</li>
+                                <li>Email campaigns and blog posts auto-generated</li>
+                                <li>Health awareness content aligned with disease days and seasonal trends</li>
+                                <li>All content published from your own handles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pill 4 -->
+                    <div class="pill-menu">
+                        <div class="pill-header" onclick="togglePill(this)">
+                            <div class="pill-icon">
+                                <span class="material-symbols-outlined">bar_chart</span>
+                            </div>
+                            <div class="pill-text">
+                                <h4>Track Performance. Grow Your Presence.</h4>
+                                <p>One dashboard. Complete visibility.</p>
+                            </div>
+                            <div class="pill-chevron">
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+                        <div class="pill-content">
+                            <p>Your command centre shows exactly how patients are finding you — profile visits,
+                                microsite traffic, content performance, and referral tracking — in one weekly
+                                AI-generated summary. No spreadsheets. Just clarity.</p>
+                            <ul>
+                                <li>Weekly AI summary: reach, engagement, and next steps</li>
+                                <li>Microsite traffic and Google search visibility</li>
+                                <li>Content performance by post type</li>
+                                <li>Referral tracking summary</li>
+                                <li>Growth trend over time</li>
+                            </ul>
+                            <p>Go live. Faster. Smarter. Digital.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posts Carousel Section -->
+    <section class="posts-carousel-section">
+        <div class="container">
+            <div class="carousel-header">
+                <h3 class="section-title">
+                    Your voice. Your speciality.<br>
+                    <span class="highlight">Published from your own handles.</span>
+                </h3>
+                <p class="section-subtitle">DigiDr’s AI generates speciality-specific content and publishes it — from
+                    your professional handles, under your name.</p>
+            </div>
+        </div>
+        <div class="posts-carousel-container">
+            <div class="posts-carousel-wrapper">
+                <div class="posts-carousel">
+                    <div class="post-item">
+                        <img src="img/twitter.png" alt="Twitter Post">
+                    </div>
+                    <div class="post-item">
+                        <img src="img/teeth.png" alt="Teeth Post">
+                    </div>
+                    <div class="post-item">
+                        <img src="img/drinking.png" alt="Drinking Post">
+                    </div>
+                    <div class="post-item">
+                        <img src="img/facebook post.png" alt="Facebook Post">
+                    </div>
+                    <div class="post-item">
+                        <img src="img/heart_day.png" alt="Heart Day Post">
+                    </div>
+                    <div class="post-item">
+                        <img src="img/pneumonia.png" alt="Pneumonia Post">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Healthcare Professionals Love DigiDr Section -->
+    <section class="why-love-digidoctor-section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title">Built differently. <span class="highlight">For doctors specifically.</span>
+                </h3>
+                <p class="section-subtitle">Six things no other digital platform gives you.</p>
+            </div>
+
+            <div class="love-cards-grid">
+                <!-- Box 1 -->
+                <div class="love-card">
+                    <div class="card-infographic identity-graphic" role="img"
+                        aria-label="Verified doctor identity infographic">
+                        <span class="profile-node"></span>
+                        <span class="verified-ring"></span>
+                        <span class="site-card"></span>
+                    </div>
+                    <h4 class="love-card-title">You Own Your Digital Identity</h4>
+                    <p class="love-card-description">Your verified profile and microsite belong entirely to you — not
+                        rented from a platform, not lost if you cancel.</p>
+                </div>
+
+                <!-- Box 2 -->
+                <div class="love-card">
+                    <div class="card-infographic content-graphic" role="img"
+                        aria-label="Content published from doctor handles infographic">
+                        <span class="handle-line"></span>
+                        <span class="post-card post-card-large"></span>
+                        <span class="post-card post-card-small"></span>
+                        <span class="audience-dot"></span>
+                    </div>
+                    <h4 class="love-card-title">Your Content, Your Handles</h4>
+                    <p class="love-card-description">DigiDr’s AI generates and publishes content as you — from your
+                        professional handles, under your name. Your audience grows around you, not around us.</p>
+                </div>
+
+                <!-- Box 3 -->
+                <div class="love-card">
+                    <div class="card-infographic referral-graphic" role="img"
+                        aria-label="Referral tracking infographic">
+                        <span class="referral-path"></span>
+                        <span class="referral-node referral-start"></span>
+                        <span class="referral-node referral-middle"></span>
+                        <span class="referral-node referral-end"></span>
+                        <span class="referral-check"></span>
+                    </div>
+                    <h4 class="love-card-title">Never Lose A Diagnostic Referral</h4>
+                    <p class="love-card-description">Every referral you make is auto-mapped, logged, and summarised
+                        daily. Zero manual entry. No patient falling through the gap.</p>
+                </div>
+
+                <!-- Box 4 -->
+                <div class="love-card">
+                    <div class="card-infographic discovery-graphic" role="img"
+                        aria-label="Patient search discovery infographic">
+                        <span class="search-orbit"></span>
+                        <span class="map-pin"></span>
+                        <span class="search-card"></span>
+                    </div>
+                    <h4 class="love-card-title">Patients Find You. Not A Listing.</h4>
+                    <p class="love-card-description">Your DigiDr microsite is SEO-structured so patients searching for
+                        your speciality in your city find you directly — not a generic aggregator listing.</p>
+                </div>
+
+                <!-- Box 5 -->
+                <div class="love-card">
+                    <div class="card-infographic language-graphic" role="img"
+                        aria-label="Multilingual speciality content infographic">
+                        <span class="language-chip chip-en">EN</span>
+                        <span class="language-chip chip-hi">HI</span>
+                        <span class="language-chip chip-rg">IN</span>
+                        <span class="speciality-pulse"></span>
+                    </div>
+                    <h4 class="love-card-title">Multilingual And Speciality-specific</h4>
+                    <p class="love-card-description">Content auto-generated in English, Hindi, and regional languages —
+                        calibrated to your speciality, not generic health tips.</p>
+                </div>
+
+                <!-- Box 6 -->
+                <div class="love-card">
+                    <div class="card-infographic automation-graphic" role="img"
+                        aria-label="Always-on automation infographic">
+                        <span class="automation-core"></span>
+                        <span class="automation-ring ring-one"></span>
+                        <span class="automation-ring ring-two"></span>
+                        <span class="automation-spark"></span>
+                    </div>
+                    <h4 class="love-card-title">Works While You Work</h4>
+                    <p class="love-card-description">DigiDr’s AI runs your entire digital infrastructure in the
+                        background. No tech team. No agency. No daily posting. Just your presence, always on.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title">What Doctors <span class="highlight">Say About DigiDr</span></h3>
+                <p class="section-subtitle">Indian doctors — real cities, measurable results.</p>
+            </div>
+        </div>
+        <div class="testimonials-carousel-container">
+            <div class="testimonials-carousel-wrapper">
+                <div class="testimonials-carousel">
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card">
+                        <div class="doctor-profile">
+                            <div class="doctor-image">
+                                <img src="img/female_doctor.png" alt="Dr. Priya Nair">
+                            </div>
+                            <div class="doctor-info">
+                                <h4 class="doctor-name">Dr. Priya Nair</h4>
+                                <p class="doctor-specialty">Cardiologist</p>
+                                <p class="doctor-hospital">Bengaluru, India</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                        </div>
+                        <div class="review-text">
+                            "In three weeks my Google profile visits went from near-zero to 200+ a month."
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card">
+                        <div class="doctor-profile">
+                            <div class="doctor-image">
+                                <img src="img/doctor_male.jpg" alt="Dr. Arjun Mehta">
+                            </div>
+                            <div class="doctor-info">
+                                <h4 class="doctor-name">Dr. Arjun Mehta</h4>
+                                <p class="doctor-specialty">Pediatrician</p>
+                                <p class="doctor-hospital">Mumbai, India</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                        </div>
+                        <div class="review-text">
+                            "In the first 30 days, 42 families booked through my microsite — I used to rely almost
+                            entirely on walk-ins."
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card">
+                        <div class="doctor-profile">
+                            <div class="doctor-image">
+                                <img src="img/female_doctor.png" alt="Dr. Kavita Reddy">
+                            </div>
+                            <div class="doctor-info">
+                                <h4 class="doctor-name">Dr. Kavita Reddy</h4>
+                                <p class="doctor-specialty">Dermatologist</p>
+                                <p class="doctor-hospital">Hyderabad, India</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                        </div>
+                        <div class="review-text">
+                            "My profile went live in under 4 hours; online appointment requests rose from 2–3 a week
+                            to 18 in the first month."
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 4 -->
+                    <div class="testimonial-card">
+                        <div class="doctor-profile">
+                            <div class="doctor-image">
+                                <img src="img/doctor_male.jpg" alt="Dr. Vikram Singh">
+                            </div>
+                            <div class="doctor-info">
+                                <h4 class="doctor-name">Dr. Vikram Singh</h4>
+                                <p class="doctor-specialty">Orthopedic Surgeon</p>
+                                <p class="doctor-hospital">Pune, India</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                        </div>
+                        <div class="review-text">
+                            "Referral tracking cut my follow-up admin by half; 28 new patients found me on Google in
+                            the first 6 weeks."
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 5 -->
+                    <div class="testimonial-card">
+                        <div class="doctor-profile">
+                            <div class="doctor-image">
+                                <img src="img/female_doctor.png" alt="Dr. Ananya Iyer">
+                            </div>
+                            <div class="doctor-info">
+                                <h4 class="doctor-name">Dr. Ananya Iyer</h4>
+                                <p class="doctor-specialty">General Physician</p>
+                                <p class="doctor-hospital">New Delhi, India</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                        </div>
+                        <div class="review-text">
+                            "Hindi and English content went live the same day — 35% of my new bookings now come from
+                            patients who searched in Hindi."
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 6 -->
+                    <div class="testimonial-card">
+                        <div class="doctor-profile">
+                            <div class="doctor-image">
+                                <img src="img/female_doctor.png" alt="Dr. Meera Joshi">
+                            </div>
+                            <div class="doctor-info">
+                                <h4 class="doctor-name">Dr. Meera Joshi</h4>
+                                <p class="doctor-specialty">Gynaecologist</p>
+                                <p class="doctor-hospital">Chennai, India</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                            <span class="material-symbols-outlined star">star</span>
+                        </div>
+                        <div class="review-text">
+                            "Video consult slots filled within 2 weeks of launch — 24 online sessions in month one,
+                            up from zero before DigiDr."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Pricing <span class="text-highlight-blue">& Plans</span></h2>
+                <p class="section-subtitle">Choose what suits you best — no setup hassle, no hidden cost.</p>
+            </div>
+
+            <div class="pricing-toggle-container">
+                <div class="pricing-toggle-wrapper">
+                    <span class="pricing-toggle-thumb" aria-hidden="true"></span>
+                    <button class="toggle-btn active" id="monthlyBtn" type="button">MONTHLY</button>
+                    <button class="toggle-btn toggle-btn-yearly" id="yearlyBtn" type="button">
+                        <span>YEARLY</span>
+                        <span class="yearly-badge">20% off</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row gy-4 gx-lg-5 align-items-stretch mt-40">
+                <div class="col-lg-4">
+                    <div class="pricing-card pricing-card--classic">
+                        <h3 class="plan-name">Classic</h3>
+                        <span class="plan-subtitle">Starter infrastructure</span>
+                        <p class="plan-description">Solo practitioner establishing a verified digital identity for the
+                            first time.</p>
+
+                        <div class="price-tag">
+                            <div class="price-line-with-label">
+                                <div class="price-line">
+                                    <span class="price-currency">₹</span>
+                                    <span class="price-value" data-monthly="3,499">3,499</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                            </div>
+                            <p class="price-annual-save">Save ₹8,400/yr on annual billing</p>
+                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
+                                        class="price-was-amount">3,499</span>/month</s> at monthly billing</p>
+                        </div>
+
+                        <div class="features-block">
+                            <h4 class="features-category">Digital identity</h4>
+                            <ul class="features-list">
+                                <li><span class="check-icon"></span>Verified doctor profile + smart microsite</li>
+                                <li><span class="check-icon"></span>English-language AI content layer</li>
+                                <li><span class="check-icon"></span>6 speciality posts / month</li>
+                                <li><span class="check-icon"></span>1 Reel + 1 YouTube Short / month</li>
+                                <li><span class="check-icon"></span>1 email campaign / month</li>
+                            </ul>
+                            <h4 class="features-category">Operations</h4>
+                            <ul class="features-list">
+                                <li><span class="check-icon"></span>Appointment scheduling</li>
+                                <li><span class="check-icon"></span>Standard analytics dashboard</li>
+                            </ul>
+                            <ul class="features-list features-list--excluded">
+                                <li><span class="x-icon"></span>Diagnostic referral tracking</li>
+                                <li><span class="x-icon"></span>Regional language content</li>
+                                <li><span class="x-icon"></span>Blog posts</li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                            trial</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 pricing-card-wrapper-highlighted">
+                    <div class="pricing-card highlighted">
+                        <div class="doctors-choice-badge">DOCTOR'S TOP CHOICE</div>
+
+                        <h3 class="plan-name">Premium</h3>
+                        <span class="plan-subtitle">Growing practice</span>
+                        <p class="plan-description">Active clinic expanding patient reach with richer content and deeper
+                            analytics.</p>
+
+                        <div class="price-tag">
+                            <div class="price-line-with-label">
+                                <div class="price-line">
+                                    <span class="price-currency">₹</span>
+                                    <span class="price-value" data-monthly="4,499">4,499</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                            </div>
+                            <p class="price-annual-save">Save ₹10,800/yr on annual billing</p>
+                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
+                                        class="price-was-amount">4,499</span>/month</s> at monthly billing</p>
+                        </div>
+
+                        <div class="features-block">
+                            <h4 class="features-category">Digital identity</h4>
+                            <ul class="features-list">
+                                <li><span class="check-icon"></span>Everything in Classic</li>
+                                <li><span class="check-icon"></span>English + 1 regional language</li>
+                                <li><span class="check-icon"></span>8 speciality posts / month</li>
+                                <li><span class="check-icon"></span>2 Reels + 2 YouTube Shorts</li>
+                                <li><span class="check-icon"></span>3 email campaigns + 3 blog posts / month</li>
+                            </ul>
+                            <h4 class="features-category">Operations</h4>
+                            <ul class="features-list">
+                                <li><span class="check-icon"></span>Diagnostic referral tracking</li>
+                                <li><span class="check-icon"></span>Advanced analytics dashboard</li>
+                                <li><span class="check-icon"></span>Patient reminders + follow-ups</li>
+                            </ul>
+                            <ul class="features-list features-list--excluded">
+                                <li><span class="x-icon"></span>Webinars / live Q&amp;A sessions</li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                            trial</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="pricing-card pricing-card--pro">
+                        <h3 class="plan-name">Pro</h3>
+                        <span class="plan-subtitle">Advanced infrastructure</span>
+                        <p class="plan-description">High-volume practice requiring full digital infrastructure.</p>
+
+                        <div class="price-tag">
+                            <div class="price-line-with-label">
+                                <div class="price-line">
+                                    <span class="price-currency">₹</span>
+                                    <span class="price-value" data-monthly="5,499">5,499</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                            </div>
+                            <p class="price-annual-save">Save ₹13,200/yr on annual billing</p>
+                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
+                                        class="price-was-amount">5,499</span>/month</s> at monthly billing</p>
+                        </div>
+
+                        <div class="features-block">
+                            <h4 class="features-category">Digital identity</h4>
+                            <ul class="features-list">
+                                <li><span class="check-icon"></span>Everything in Premium</li>
+                                <li><span class="check-icon"></span>English + Hindi + 1 regional language</li>
+                                <li><span class="check-icon"></span>14 speciality posts / month</li>
+                                <li><span class="check-icon"></span>4 Reels + 4 YouTube Shorts</li>
+                                <li><span class="check-icon"></span>4 blogs + 4 email campaigns / month</li>
+                            </ul>
+                            <h4 class="features-category">Operations</h4>
+                            <ul class="features-list">
+                                <li><span class="check-icon"></span>Advanced+ analytics + referral intelligence</li>
+                                <li><span class="check-icon"></span>2 webinars + 1 web Q&amp;A / month</li>
+                                <li><span class="check-icon"></span>Priority support + onboarding call</li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                            trial</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-detail-link-container">
+                <a href="pricing.html" class="pricing-detail-link">
+                    View Detailed Plan Comparison
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="go-digital-section" id="contact">
+        <div class="container">
+            <div class="go-digital-header">
+                <h2 class="go-digital-title">Go Digital <span class="text-highlight-blue">Today</span></h2>
+            </div>
+
+            <div class="go-digital-card">
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-lg-7">
+                        <form class="go-digital-form" action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="go-digital-field">
+                                        <label class="go-digital-label" for="goDigitalFullName">Full Name</label>
+                                        <input class="go-digital-input" id="goDigitalFullName" name="fullName" type="text" placeholder="Sarah Smith" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="go-digital-field">
+                                        <label class="go-digital-label" for="goDigitalClinic">Hospital/Clinic Name</label>
+                                        <input class="go-digital-input" id="goDigitalClinic" name="clinicName" type="text" placeholder="Apollo Hospitals" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="go-digital-field">
+                                        <label class="go-digital-label" for="goDigitalEmail">Email</label>
+                                        <input class="go-digital-input" id="goDigitalEmail" name="email" type="email" placeholder="xyz@gmail.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="go-digital-field">
+                                        <label class="go-digital-label" for="goDigitalPhone">Phone Number</label>
+                                        <input class="go-digital-input" id="missionPhone" name="phone" type="tel" placeholder="+123456789" pattern="[0-9+]+" maxlength="14" oninput="this.value = this.value.replace(/[^0-9+]/g, '');" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="go-digital-actions">
+                                <button class="go-digital-btn go-digital-btn-primary" type="submit">
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                    Book A Free Demo
+                                </button>
+                                <button class="go-digital-btn go-digital-btn-outline" type="button">
+                                    <span class="material-symbols-outlined">download</span>
+                                    Download App
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="go-digital-image">
+                            <img src="img/welcome_screen.png" alt="DigiDr App Preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <div id="footer-mount"></div>
+    <script src="js/footer.js"></script>
+
+    <div id="modalMount"></div>
+    <div id="downloadModalMount"></div>
+
+    <!-- Floating Download Button (Mobile Only) -->
+    <div class="floating-download-btn" id="floatingDownloadBtn">
+        <span class="material-symbols-outlined">download</span>
+        Download
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/download.js"></script>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-mount"></div>
+    <script src="js/chatbot.js"></script>
+
+</body>
+
+</html>

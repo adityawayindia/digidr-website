@@ -1,0 +1,123 @@
+/* Policy Pages Section */
+.policy-section {
+    padding: 120px 0;
+    /* background-color: #f8f9fa; */
+    background: linear-gradient(135deg, #e3f2fd 0%, #fff3e0 100%);
+    line-height: 1.7;
+    color: #333;
+}
+
+.policy-header {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(36px);
+}
+
+.policy-header.is-visible {
+    animation: reasonCardIn var(--reveal-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.policy-header .subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+.policy-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(240, 230, 140, 0.3);
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    opacity: 0;
+    transform: translateY(36px);
+}
+
+.policy-content.is-visible {
+    animation: reasonCardIn var(--reveal-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .policy-header,
+    .policy-content {
+        opacity: 1;
+        transform: none;
+        animation: none !important;
+    }
+}
+
+.policy-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 1.5px;
+    background: var(--gradient-blue-orange);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.policy-content h3 {
+    color: #1a237e;
+    margin: 30px 0 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.policy-content p {
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 1rem;
+}
+
+.policy-content ul {
+    margin-bottom: 20px;
+    padding-left: 25px;
+}
+
+.policy-content li {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.policy-content address {
+    font-style: normal;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+.policy-content .final-statement {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1a237e;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .policy-section {
+        padding: 120px 0;
+    }
+    
+    .policy-content {
+        padding: 25px 20px;
+        margin: 0 15px;
+    }
+    
+    .policy-content h3 {
+        font-size: 1.3rem;
+    }
+}
