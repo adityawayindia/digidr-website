@@ -317,6 +317,45 @@
         }
     });
 
+    /* ── Collapse/Expand FAB on scroll ── */
+    function initScrollCollapse() {
+        if (!fab) return;
+        var lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+        var ticking = false;
+        var threshold = 10;
+
+        function onScroll() {
+            var currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScrollY <= 50) {
+                fab.classList.remove('is-collapsed');
+                lastScrollY = currentScrollY;
+                ticking = false;
+                return;
+            }
+
+            var diff = currentScrollY - lastScrollY;
+            if (Math.abs(diff) >= threshold) {
+                if (diff > 0) {
+                    fab.classList.add('is-collapsed');
+                } else {
+                    fab.classList.remove('is-collapsed');
+                }
+                lastScrollY = currentScrollY;
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(onScroll);
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
     initHeroFabVisibility();
+    initScrollCollapse();
 
 })();

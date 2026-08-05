@@ -18,9 +18,9 @@
 
 .chatbot-fab {
     width: auto;
-    min-width: 94px;
-    height: 46px;
-    padding: 7px 14px 7px 9px;
+    min-width: 100px;
+    height: 50px;
+    padding: 7px 16px 7px 10px;
     box-sizing: border-box;
     border-radius: 999px;
     background:
@@ -32,14 +32,19 @@
             #FF8A00 240deg,
             #0E65D7 360deg
         ) border-box;
-    border: 2px solid transparent;
+    border: 3px solid transparent;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
+    gap: 8px;
     box-shadow: 0 6px 24px rgba(14, 101, 215, 0.18), 0 2px 8px rgba(0, 0, 0, 0.10);
     transition:
+        width 0.35s cubic-bezier(0.34, 1.25, 0.64, 1),
+        min-width 0.35s cubic-bezier(0.34, 1.25, 0.64, 1),
+        height 0.35s cubic-bezier(0.34, 1.25, 0.64, 1),
+        padding 0.35s cubic-bezier(0.34, 1.25, 0.64, 1),
+        gap 0.35s ease,
         transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
         box-shadow 0.25s ease,
         opacity 0.22s ease,
@@ -52,6 +57,14 @@
     isolation: isolate;
 }
 
+.chatbot-fab.is-collapsed {
+    min-width: 54px;
+    width: 54px;
+    height: 54px;
+    padding: 5px;
+    gap: 0;
+}
+
 .chatbot-fab:hover {
     transform: scale(1.08);
     box-shadow: 0 10px 32px rgba(14, 101, 215, 0.24), 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -62,14 +75,19 @@
 }
 
 .chatbot-fab img {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     border-radius: 50%;
-    transition: opacity 0.2s ease;
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.2s ease;
     flex-shrink: 0;
     position: relative;
     z-index: 1;
+}
+
+.chatbot-fab.is-collapsed img {
+    width: 36px;
+    height: 36px;
 }
 
 .chatbot-fab-text {
@@ -81,6 +99,16 @@
     white-space: nowrap;
     position: relative;
     z-index: 1;
+    max-width: 140px;
+    opacity: 1;
+    transition: max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.chatbot-fab.is-collapsed .chatbot-fab-text {
+    max-width: 0;
+    opacity: 0;
 }
 
 .chatbot-fab-wrap.is-open .chatbot-fab {
@@ -635,14 +663,27 @@
     }
 
     .chatbot-fab {
-        min-width: 88px;
-        height: 44px;
-        padding: 7px 13px 7px 9px;
+        min-width: 90px;
+        height: 46px;
+        padding: 7px 14px 7px 9px;
+    }
+
+    .chatbot-fab.is-collapsed {
+        min-width: 50px;
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        gap: 0;
     }
 
     .chatbot-fab img {
         width: 28px;
         height: 28px;
+    }
+
+    .chatbot-fab.is-collapsed img {
+        width: 32px;
+        height: 32px;
     }
 
     .chatbot-fab-text {

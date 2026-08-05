@@ -187,11 +187,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const originalCount = originalItems.length;
     if (originalCount === 0) return;
 
+    const firstChild = postsCarousel.firstChild;
     originalItems.forEach(function (item) {
         const clone = item.cloneNode(true);
         clone.classList.add('post-item-clone');
         clone.setAttribute('aria-hidden', 'true');
-        postsCarousel.insertBefore(clone, postsCarousel.firstChild);
+        postsCarousel.insertBefore(clone, firstChild);
     });
     originalItems.forEach(function (item) {
         const clone = item.cloneNode(true);
@@ -792,11 +793,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const originalCount = originalCards.length;
     if (originalCount === 0) return;
 
+    const firstCard = testimonialsCarousel.firstChild;
     originalCards.forEach(function (card) {
         const clone = card.cloneNode(true);
         clone.classList.add('testimonial-card-clone');
         clone.setAttribute('aria-hidden', 'true');
-        testimonialsCarousel.insertBefore(clone, testimonialsCarousel.firstChild);
+        testimonialsCarousel.insertBefore(clone, firstCard);
     });
     originalCards.forEach(function (card) {
         const clone = card.cloneNode(true);

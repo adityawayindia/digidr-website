@@ -23,7 +23,8 @@
 }
 
 .policy-content {
-    background: #fff;
+    background: linear-gradient(#ffffff, #ffffff) padding-box, var(--gradient-blue-orange) border-box;
+    border: 2px solid transparent;
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(240, 230, 140, 0.3);
     padding: 40px;
@@ -48,20 +49,7 @@
 }
 
 .policy-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 16px;
-    padding: 1.5px;
-    background: var(--gradient-blue-orange);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
+    display: none;
 }
 
 .policy-content h3 {

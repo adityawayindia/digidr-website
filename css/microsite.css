@@ -117,26 +117,14 @@
     font-weight: 600;
     letter-spacing: 0.02em;
     margin-bottom: 20px;
-    background: var(--gradient-blue-orange);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    background: linear-gradient(#ffffff, #ffffff) padding-box, var(--gradient-blue-orange) border-box;
+    border: 2px solid transparent;
+    color: var(--primary-blue);
     position: relative;
-    border: 1.5px solid transparent;
 }
 
 .ms-hero-badge::before {
-    content: '';
-    position: absolute;
-    inset: -1.5px;
-    background: var(--gradient-blue-orange);
-    border-radius: inherit;
-    z-index: -1;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    padding: 1.5px;
+    display: none;
 }
 
 .ms-hero-tagline {
@@ -213,6 +201,11 @@
                 filter 1s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.6s ease;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.ms-showcase-frame-wrap.ms-showcase-inview:hover {
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
+    transform: scale(1.01) translateY(-4px);
 }
 
 .ms-showcase-frame-wrap.ms-showcase-inview {
@@ -475,10 +468,10 @@
 
 .ms-benefit-card {
     padding: 32px;
-    background: #fff;
+    background: linear-gradient(#ffffff, #ffffff) padding-box, var(--gradient-blue-orange) border-box;
     border-radius: 24px 24px 24px 10px;
     text-align: left;
-    border: 0;
+    border: 2px solid transparent;
     position: relative;
     z-index: 0;
     overflow: hidden;
@@ -487,18 +480,7 @@
 }
 
 .ms-benefit-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.5px;
-    background: var(--gradient-blue-orange);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 1;
+    display: none;
 }
 
 .ms-benefit-card::after {
@@ -1171,7 +1153,8 @@
     gap: 18px;
     padding: 22px 24px;
     margin-bottom: 18px;
-    background: rgba(255, 255, 255, 0.92);
+    background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)) padding-box, var(--gradient-blue-orange) border-box;
+    border: 2px solid transparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px 20px 20px 8px;
@@ -1182,17 +1165,7 @@
 }
 
 .ms-inside-layer::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.5px;
-    background: var(--gradient-blue-orange);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
+    display: none;
 }
 
 .ms-inside-layer::after {
@@ -1299,6 +1272,11 @@
     padding: 28px 28px 32px;
     position: relative;
     overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.ms-compare-col:hover {
+    transform: translateY(-5px);
 }
 
 .ms-compare-col--own {
@@ -1307,10 +1285,18 @@
     box-shadow: 0 16px 40px rgba(22, 163, 74, 0.1);
 }
 
+.ms-compare-col--own:hover {
+    box-shadow: 0 24px 52px rgba(22, 163, 74, 0.15);
+}
+
 .ms-compare-col--rent {
     background: linear-gradient(165deg, #f8f9fb 0%, #f1f3f6 100%);
     border: 1.5px solid rgba(148, 163, 184, 0.35);
     box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);
+}
+
+.ms-compare-col--rent:hover {
+    box-shadow: 0 22px 48px rgba(15, 23, 42, 0.1);
 }
 
 .ms-compare-col-head {
@@ -1439,25 +1425,20 @@
     margin: 0 auto 48px;
     padding: 32px 28px;
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1.5px solid rgba(14, 101, 215, 0.12);
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)) padding-box, var(--gradient-blue-orange) border-box;
+    border: 2px solid transparent;
     box-shadow: 0 20px 48px rgba(14, 101, 215, 0.1);
     position: relative;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.ms-proof-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 28px 60px rgba(14, 101, 215, 0.15);
 }
 
 .ms-proof-stat::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.5px;
-    background: var(--gradient-blue-orange);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0.65;
+    display: none;
 }
 
 .ms-proof-stat-number {
@@ -1520,7 +1501,8 @@
 .ms-proof-quote {
     margin: 0;
     padding: 28px;
-    background: #fff;
+    background: linear-gradient(#ffffff, #ffffff) padding-box, var(--gradient-blue-orange) border-box;
+    border: 2px solid transparent;
     border-radius: 24px 24px 24px 10px;
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
     position: relative;
@@ -1528,17 +1510,7 @@
 }
 
 .ms-proof-quote::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.5px;
-    background: var(--gradient-blue-orange);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
+    display: none;
 }
 
 .ms-proof-quote:hover {
@@ -1781,9 +1753,9 @@
     width: 140px;
     height: 140px;
     border-radius: 24px;
-    background: #fff;
+    background: linear-gradient(#ffffff, #ffffff) padding-box, var(--gradient-blue-orange) border-box;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border: 1.5px solid transparent;
+    border: 2px solid transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1794,17 +1766,7 @@
 }
 
 .ms-feature-visual-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    padding: 1.5px;
-    background: var(--gradient-blue-orange);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
+    display: none;
 }
 
 .ms-feature-row:hover .ms-feature-visual-box {
@@ -1849,25 +1811,15 @@
 .ms-pillar {
     text-align: center;
     padding: 28px 20px;
-    background: #f0f7ff;
+    background: linear-gradient(#f0f7ff, #f0f7ff) padding-box, var(--gradient-blue-orange) border-box;
     border-radius: 20px;
-    border: 1.5px solid transparent;
+    border: 2px solid transparent;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ms-pillar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    padding: 1.5px;
-    background: var(--gradient-blue-orange);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
+    display: none;
 }
 
 .ms-pillar:hover {
@@ -1917,7 +1869,8 @@
     margin: 0 auto;
     border-radius: 28px;
     padding: 48px 46px;
-    background: linear-gradient(135deg, rgba(227, 242, 253, 0.75) 0%, rgba(255, 243, 224, 0.75) 100%);
+    background: linear-gradient(135deg, rgba(227, 242, 253, 0.75) 0%, rgba(255, 243, 224, 0.75) 100%) padding-box, linear-gradient(#ffffff, #ffffff) padding-box, var(--gradient-blue-orange) border-box;
+    border: 2px solid transparent;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     display: flex;
     align-items: center;
@@ -1928,17 +1881,7 @@
 }
 
 .ms-cta-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 28px;
-    padding: 1.5px;
-    background: var(--gradient-blue-orange);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
+    display: none;
 }
 
 /* Simple CTA card: centered, no image */
