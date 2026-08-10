@@ -42,7 +42,7 @@
         '                    <div class="navbar-action-group">\n' +
         '                        <div class="navbar-auth-group">\n' +
         '                            <a href="#login" class="navbar-btn navbar-btn-link">Log In</a>\n' +
-        '                            <a href="#register" class="navbar-btn navbar-btn-primary">Register</a>\n' +
+        '                            <a href="https://digidr.app/intrest" class="navbar-btn navbar-btn-primary">Register</a>\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         '                    <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarLinks">\n' +
