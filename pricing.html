@@ -61,6 +61,53 @@
 
     <!-- Chatbot Widget -->
     <link rel="stylesheet" href="css/chatbot.css">
+
+    <!-- Pricing structured data: exact plan names/prices as shown on this page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "DigiDr",
+        "description": "AI digital infrastructure plans for doctors: verified profile, smart microsite, AI content, and appointment booking.",
+        "brand": { "@type": "Brand", "name": "DigiDr" },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "lowPrice": "3499",
+            "highPrice": "5499",
+            "offerCount": "3",
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "name": "Classic",
+                    "description": "Starter infrastructure for a solo practitioner establishing a verified digital identity for the first time.",
+                    "price": "3499",
+                    "priceCurrency": "INR",
+                    "billingIncrement": "P1M",
+                    "url": "https://digidr.app/pricing.html"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Premium",
+                    "description": "For a growing practice with richer content, deeper analytics, and stronger patient engagement.",
+                    "price": "4499",
+                    "priceCurrency": "INR",
+                    "billingIncrement": "P1M",
+                    "url": "https://digidr.app/pricing.html"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Pro",
+                    "description": "Full-stack digital infrastructure across content, referrals, and analytics for an individual doctor.",
+                    "price": "5499",
+                    "priceCurrency": "INR",
+                    "billingIncrement": "P1M",
+                    "url": "https://digidr.app/pricing.html"
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 
 <body class="page-pricing page-rounded">

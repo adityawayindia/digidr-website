@@ -45,6 +45,28 @@
 
     <!-- Chatbot Widget -->
     <link rel="stylesheet" href="css/chatbot.css">
+
+    <!-- Service structured data: mirrors the microsite offering described on this page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Doctor Microsite / Digital Profile",
+        "provider": { "@type": "Organization", "name": "DigiDr", "url": "https://digidr.app/" },
+        "areaServed": { "@type": "Country", "name": "India" },
+        "description": "DigiDr builds a doctor's smart microsite automatically: verified profile, services, reviews, appointment booking, and consultation payments, live in minutes with no developer or agency needed.",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Microsite features",
+            "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Verified doctor profile" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Direct appointment booking" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Patient reviews and ratings" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO / local discovery layer" } }
+            ]
+        }
+    }
+    </script>
 </head>
 
 <body class="page-rounded page-microsite">

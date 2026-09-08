@@ -1,0 +1,39 @@
+# DigiDr
+
+> DigiDr is an AI-powered digital infrastructure platform for doctors and clinics in India. It builds and maintains a doctor's complete digital identity: a verified doctor profile, an AI-built smart microsite, AI-generated speciality content (social posts, reels, shorts, blog posts, email campaigns), and an integrated appointment booking and payments system. It is live within minutes and free to start.
+
+## What DigiDr provides
+
+- **Verified doctor profile**: a permanent, AI-built, SEO/GEO-structured online identity for a doctor (speciality, credentials, clinic details, languages spoken).
+- **Smart microsite**: a mobile-first, always-on website at a doctor's own link (e.g. yourname.digidr.app), including services, patient reviews, and appointment booking. The doctor owns the URL and content, unlike aggregator listings (e.g. Practo, Justdial) where the platform owns the page and controls visibility.
+- **AI content layer**: speciality-specific social posts, Instagram Reels, YouTube Shorts, blog posts, and email campaigns generated and published from the doctor's own handles, not a generic brand account.
+- **Consultation & appointment infrastructure**: real-time scheduling for in-clinic, video, and home consultations; automated reminders and follow-ups; integrated payment gateway (advance payments, refunds, no-show handling).
+- **Referral intelligence**: automatic mapping, tracking, and daily-summary logging of diagnostic referrals to partner diagnostic centres.
+- **Command Centre / analytics dashboard**: a single view of engagement, reach, microsite traffic, content status, and a weekly AI-generated performance summary.
+
+## Pricing (as of 2026, INR, monthly billing; ~20% discount on annual billing)
+
+- **Classic** — ₹3,499/month — starter infrastructure for a solo practitioner establishing a verified digital identity for the first time.
+- **Premium** — ₹4,499/month — for a growing practice; richer content, deeper analytics, stronger patient engagement. Most popular plan.
+- **Pro** — ₹5,499/month — full-stack digital infrastructure across content, referrals, and analytics for an individual doctor.
+
+All plans include a free trial, no setup fees, and no lock-in (cancel anytime).
+
+## Who it's for
+
+Doctors and clinics in India — solo practitioners, growing practices, and multi-location healthcare organisations — who want an online presence, patient discoverability via Google/local search, and appointment management without hiring a developer or agency.
+
+## Key pages
+
+- Homepage: https://digidr.app/
+- Features: https://digidr.app/features.html
+- How it works: https://digidr.app/howitworks.html
+- Microsite product page: https://digidr.app/microsite.html
+- Pricing: https://digidr.app/pricing.html
+- Privacy policy: https://digidr.app/privacy-policy.html
+- Terms of service: https://digidr.app/terms-of-service.html
+- Cancellation & refund policy: https://digidr.app/cancellation-refund-policy.html
+
+## Official app
+
+- Android app (Google Play): https://play.google.com/store/apps/details?id=com.wayindia.digidrapp

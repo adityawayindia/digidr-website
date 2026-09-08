@@ -114,31 +114,36 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: transparent !important;
+    gap: 5px;
+    background: #fff !important;
     border: none !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
     cursor: pointer;
     padding: 0;
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
     flex-shrink: 0;
     z-index: 1001;
-    transition: opacity 0.3s ease;
+    transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
 }
 
 .hamburger-menu:hover {
-    background: transparent !important;
-    box-shadow: none !important;
-    opacity: 0.7;
+    background: #fff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    opacity: 1;
+}
+
+.hamburger-menu:active {
+    transform: scale(0.92);
 }
 
 .hamburger-line {
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-    margin: 3px 0;
-    transition: 0.3s;
+    width: 20px;
+    height: 2px;
+    background-color: #111;
     border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, width 0.25s ease;
 }
 
 /* Download Button */
@@ -302,16 +307,28 @@ a.download-btn {
     }
     
     /* Hamburger animation */
-    .hamburger-menu.active .hamburger-line:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
+    .hamburger-menu.active {
+        background: #fff !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
     }
-    
+
+    .hamburger-menu.active .hamburger-line {
+        background-color: var(--primary-blue, #2563eb);
+    }
+
+    .hamburger-menu.active .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+        width: 20px;
+    }
+
     .hamburger-menu.active .hamburger-line:nth-child(2) {
         opacity: 0;
+        transform: scaleX(0);
     }
-    
+
     .hamburger-menu.active .hamburger-line:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
+        transform: translateY(-7px) rotate(-45deg);
+        width: 20px;
     }
 }
 

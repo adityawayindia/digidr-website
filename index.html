@@ -98,6 +98,94 @@
         }
     }
     </script>
+
+    <!-- Organization identity: helps AI/answer engines resolve "DigiDr" as a specific entity -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://digidr.app/#organization",
+        "name": "DigiDr",
+        "legalName": "DigiDr",
+        "url": "https://digidr.app/",
+        "logo": "https://digidr.app/img/logo.png",
+        "description": "DigiDr is an AI-powered digital infrastructure platform for doctors and clinics in India, providing verified doctor profiles, smart microsites, AI-generated content, appointment booking, and patient engagement tools.",
+        "sameAs": [
+            "https://play.google.com/store/apps/details?id=com.wayindia.digidrapp"
+        ],
+        "areaServed": {
+            "@type": "Country",
+            "name": "India"
+        },
+        "knowsAbout": [
+            "doctor digital identity",
+            "medical practice management",
+            "clinic appointment booking",
+            "healthcare marketing automation",
+            "doctor website builder"
+        ]
+    }
+    </script>
+
+    <!-- WebSite + SearchAction -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://digidr.app/#website",
+        "url": "https://digidr.app/",
+        "name": "DigiDr",
+        "publisher": { "@id": "https://digidr.app/#organization" },
+        "inLanguage": "en-IN"
+    }
+    </script>
+
+    <!-- SoftwareApplication: what DigiDr is, priced, for whom -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DigiDr",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Healthcare Practice Management Software",
+        "operatingSystem": "Android, Web",
+        "description": "DigiDr builds and maintains a doctor's complete digital identity: a verified profile, AI-generated speciality content, a smart microsite, and integrated appointment booking with payments. Live within minutes, free to start.",
+        "url": "https://digidr.app/",
+        "publisher": { "@id": "https://digidr.app/#organization" },
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Classic Plan",
+                "price": "3499",
+                "priceCurrency": "INR",
+                "priceValidUntil": "2027-12-31",
+                "billingIncrement": "P1M",
+                "url": "https://digidr.app/pricing.html",
+                "category": "Starter infrastructure for solo practitioners"
+            },
+            {
+                "@type": "Offer",
+                "name": "Premium Plan",
+                "price": "4499",
+                "priceCurrency": "INR",
+                "priceValidUntil": "2027-12-31",
+                "billingIncrement": "P1M",
+                "url": "https://digidr.app/pricing.html",
+                "category": "Growing practice plan"
+            },
+            {
+                "@type": "Offer",
+                "name": "Pro Plan",
+                "price": "5499",
+                "priceCurrency": "INR",
+                "priceValidUntil": "2027-12-31",
+                "billingIncrement": "P1M",
+                "url": "https://digidr.app/pricing.html",
+                "category": "Full-stack digital infrastructure plan"
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body class="page-home">
