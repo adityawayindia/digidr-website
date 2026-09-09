@@ -399,16 +399,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Pricing Toggle (Monthly/Yearly) — yearly = 20% off monthly rate
+// Pricing Toggle (6 months/12 months) — 6mo = 10% off, 12mo = 20% off base monthly rate
 document.addEventListener('DOMContentLoaded', function () {
-    const monthlyBtn = document.getElementById('monthlyBtn');
-    const yearlyBtn = document.getElementById('yearlyBtn');
+    const sixBtn = document.getElementById('sixMonthBtn');
+    const twelveBtn = document.getElementById('twelveMonthBtn');
     const pricingSection = document.getElementById('pricing');
-    const priceValues = document.querySelectorAll('.price-value');
+    const priceValues = document.querySelectorAll('.price-value[data-monthly]');
+    const billingNote = document.getElementById('billing-note');
 
-    if (!monthlyBtn || !yearlyBtn) return;
+    if (!sixBtn || !twelveBtn) return;
 
-    const toggleWrapper = monthlyBtn.closest('.pricing-toggle-wrapper');
+    const toggleWrapper = sixBtn.closest('.pricing-toggle-wrapper');
     const toggleThumb = toggleWrapper && toggleWrapper.querySelector('.pricing-toggle-thumb');
 
     function parseINR(str) {
@@ -419,10 +420,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return n.toLocaleString('en-IN');
     }
 
-    function yearlyFromMonthly(monthlyStr) {
+    function discountedFromMonthly(monthlyStr, discount) {
         const base = parseINR(monthlyStr);
         if (!base) return monthlyStr;
-        return formatINR(Math.round(base * 0.8));
+        return formatINR(Math.round(base * (1 - discount)));
     }
 
     function updateToggleThumb(activeBtn) {
@@ -436,68 +437,125 @@ document.addEventListener('DOMContentLoaded', function () {
         toggleThumb.style.transform = 'translate3d(' + left + 'px, 0, 0)';
     }
 
-    function setActiveToggle(activeBtn, isYearly) {
-        monthlyBtn.classList.toggle('active', activeBtn === monthlyBtn);
-        yearlyBtn.classList.toggle('active', activeBtn === yearlyBtn);
+    function setActiveToggle(activeBtn, term) {
+        sixBtn.classList.toggle('active', activeBtn === sixBtn);
+        twelveBtn.classList.toggle('active', activeBtn === twelveBtn);
         requestAnimationFrame(function () {
             updateToggleThumb(activeBtn);
         });
-        setBillingMode(isYearly);
+        setBillingMode(term);
         // Dispatch event for height equalization
         window.dispatchEvent(new CustomEvent('pricing-mode-changed'));
     }
 
-    function setBillingMode(isYearly) {
+    function setBillingMode(term) {
+        const isTwelve = term === '12';
+        const discount = isTwelve ? 0.20 : 0.10;
+        const months = isTwelve ? 12 : 6;
+
         if (pricingSection) {
-            pricingSection.classList.toggle('billing-yearly', isYearly);
+            pricingSection.classList.toggle('billing-twelve', isTwelve);
         }
 
         priceValues.forEach(function (pv) {
             const monthlyStr = pv.getAttribute('data-monthly');
             if (!monthlyStr) return;
 
-            if (isYearly) {
-                pv.textContent = yearlyFromMonthly(monthlyStr);
-            } else {
-                pv.textContent = monthlyStr;
-            }
+            pv.textContent = discountedFromMonthly(monthlyStr, discount);
 
-            const wasAmt = pv.closest('.price-tag') && pv.closest('.price-tag').querySelector('.price-was-amount');
+            const priceTag = pv.closest('.price-tag');
+            const wasAmt = priceTag && priceTag.querySelector('.price-was-amount');
             if (wasAmt) {
                 wasAmt.textContent = monthlyStr;
             }
+
+            const saveEl = priceTag && priceTag.querySelector('.price-annual-save');
+            if (saveEl) {
+                const base = parseINR(monthlyStr);
+                const billedTotal = Math.round(base * (1 - discount)) * months;
+                saveEl.textContent = 'Billed ₹' + formatINR(billedTotal) + ' every ' + months + ' months · Save ' + Math.round(discount * 100) + '%';
+            }
         });
+
+        if (billingNote) {
+            billingNote.textContent = isTwelve
+                ? 'Prices shown are per month, billed every 12 months — you save 20% vs the base rate.'
+                : 'Prices shown are per month, billed every 6 months — you save 10% vs the base rate.';
+        }
     }
 
-    monthlyBtn.addEventListener('click', function () {
-        if (monthlyBtn.classList.contains('active')) return;
-        setActiveToggle(monthlyBtn, false);
+    sixBtn.addEventListener('click', function () {
+        if (sixBtn.classList.contains('active')) return;
+        setActiveToggle(sixBtn, '6');
     });
 
-    yearlyBtn.addEventListener('click', function () {
-        if (yearlyBtn.classList.contains('active')) return;
-        setActiveToggle(yearlyBtn, true);
+    twelveBtn.addEventListener('click', function () {
+        if (twelveBtn.classList.contains('active')) return;
+        setActiveToggle(twelveBtn, '12');
     });
 
     var resizeTimer;
     window.addEventListener('resize', function () {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
-            var activeBtn = monthlyBtn.classList.contains('active') ? monthlyBtn : yearlyBtn;
+            var activeBtn = twelveBtn.classList.contains('active') ? twelveBtn : sixBtn;
             updateToggleThumb(activeBtn);
         }, 100);
     });
 
     if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(function () {
-            updateToggleThumb(monthlyBtn.classList.contains('active') ? monthlyBtn : yearlyBtn);
+            updateToggleThumb(twelveBtn.classList.contains('active') ? twelveBtn : sixBtn);
         });
     }
 
     setActiveToggle(
-        yearlyBtn.classList.contains('active') ? yearlyBtn : monthlyBtn,
-        yearlyBtn.classList.contains('active')
+        twelveBtn.classList.contains('active') ? twelveBtn : sixBtn,
+        twelveBtn.classList.contains('active') ? '12' : '6'
     );
+});
+
+// Pricing view toggle: plan cards vs full comparison table
+document.addEventListener('DOMContentLoaded', function () {
+    const viewButtons = document.querySelectorAll('#pricing-view-toggle button');
+    const cardsWrap = document.getElementById('pricing-cards-wrap');
+    const compareWrap = document.getElementById('pricing-compare-wrap');
+    if (!viewButtons.length || !cardsWrap || !compareWrap) return;
+
+    viewButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            viewButtons.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            const isCompare = btn.getAttribute('data-view') === 'compare';
+            cardsWrap.classList.toggle('is-hidden', isCompare);
+            compareWrap.classList.toggle('is-visible', isCompare);
+            window.dispatchEvent(new CustomEvent('pricing-mode-changed'));
+        });
+    });
+});
+
+// Pricing FAQ accordion
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pricing-faq-item').forEach(function (item) {
+        const q = item.querySelector('.pricing-faq-q');
+        const a = item.querySelector('.pricing-faq-a');
+        if (!q || !a) return;
+        q.addEventListener('click', function () {
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.pricing-faq-item.open').forEach(function (openItem) {
+                if (openItem === item) return;
+                openItem.classList.remove('open');
+                openItem.querySelector('.pricing-faq-a').style.maxHeight = null;
+            });
+            if (isOpen) {
+                item.classList.remove('open');
+                a.style.maxHeight = null;
+            } else {
+                item.classList.add('open');
+                a.style.maxHeight = a.scrollHeight + 'px';
+            }
+        });
+    });
 });
 
 // Mobile pricing card carousel

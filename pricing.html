@@ -73,10 +73,18 @@
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "INR",
-            "lowPrice": "3499",
+            "lowPrice": "0",
             "highPrice": "5499",
-            "offerCount": "3",
+            "offerCount": "4",
             "offers": [
+                {
+                    "@type": "Offer",
+                    "name": "Lite",
+                    "description": "Free, forever verified digital identity for any doctor — no card required.",
+                    "price": "0",
+                    "priceCurrency": "INR",
+                    "url": "https://digidr.app/pricing.html"
+                },
                 {
                     "@type": "Offer",
                     "name": "Classic",
@@ -124,25 +132,122 @@
         <div class="container">
             <div class="text-center">
                 <h3 class="section-title">Pricing <span class="text-highlight-blue">& Plans</span></h3>
-                <p class="section-subtitle">Choose what suits you best — no setup hassle, no hidden cost.</p>
+                <p class="section-subtitle">Start free. Every doctor gets a verified digital identity at no cost —
+                    upgrade whenever your practice needs deeper infrastructure.</p>
             </div>
 
             <div class="pricing-toggle-container">
                 <div class="pricing-toggle-wrapper">
                     <span class="pricing-toggle-thumb" aria-hidden="true"></span>
-                    <button class="toggle-btn active" id="monthlyBtn" type="button">MONTHLY</button>
-                    <button class="toggle-btn toggle-btn-yearly" id="yearlyBtn" type="button">
-                        <span>YEARLY</span>
-                        <span class="yearly-badge">20% off</span>
+                    <button class="toggle-btn" id="sixMonthBtn" type="button">
+                        <span>6 MONTHS</span>
+                        <span class="yearly-badge">Save 10%</span>
+                    </button>
+                    <button class="toggle-btn toggle-btn-yearly active" id="twelveMonthBtn" type="button">
+                        <span>12 MONTHS</span>
+                        <span class="yearly-badge">Save 20%</span>
                     </button>
                 </div>
+            </div>
+            <p class="pricing-billing-note" id="billing-note">Prices shown are per month, billed every 12 months —
+                you save 20% vs the base rate.</p>
+
+            <div class="pricing-proof-strip">
+                <div class="proof-avatars">
+                    <span>SK</span>
+                    <span>RM</span>
+                    <span>AP</span>
+                    <span>+</span>
+                </div>
+                <p class="pricing-proof-text"><strong>2,300+ doctors</strong> across India already run their digital
+                    infrastructure on DigiDr</p>
+            </div>
+
+            <div class="pricing-view-toggle" id="pricing-view-toggle">
+                <button data-view="cards" class="active" type="button">Plan cards</button>
+                <button data-view="compare" type="button">Compare all features</button>
             </div>
 
             <p class="pricing-carousel-hint">Swipe to compare plans <i class="fa-solid fa-arrow-right-long"
                     aria-hidden="true"></i></p>
 
-            <div class="row gy-4 gx-lg-5 align-items-stretch mt-40 pricing-card-deck" data-pricing-card-deck>
-                <div class="col-lg-4">
+            <div class="pricing-cards-wrap" id="pricing-cards-wrap">
+            <div class="row gy-4 gx-lg-4 align-items-stretch mt-40 pricing-card-deck" data-pricing-card-deck>
+                <div class="col-lg-3">
+                    <div class="pricing-card pricing-card--lite">
+                        <div class="pricing-free-badge">Free forever</div>
+                        <h3 class="plan-name">Lite</h3>
+                        <span class="plan-subtitle">Verified presence</span>
+                        <p class="plan-description">A verified digital identity online for any doctor — no cost, no
+                            card required.</p>
+
+                        <div class="price-tag">
+                            <div class="price-line-with-label">
+                                <div class="price-line">
+                                    <span class="price-free-value">Free</span>
+                                </div>
+                            </div>
+                            <p class="price-forever">Free forever. No card needed.</p>
+                        </div>
+
+                        <div class="features-block pricing-feature-groups">
+                            <div class="pricing-feature-group">
+                                <h4 class="features-category">Digital Identity Layer</h4>
+                                <div class="pricing-feature-row">
+                                    <div class="pricing-feature-copy">
+                                        <span class="pricing-feature-name">Verified doctor profile</span>
+                                        <span class="pricing-feature-note">Permanent, AI-built, SEO-structured</span>
+                                    </div>
+                                    <span class="pricing-feature-status"><span class="check-icon"></span></span>
+                                </div>
+                                <div class="pricing-feature-row">
+                                    <div class="pricing-feature-copy">
+                                        <span class="pricing-feature-name">Basic microsite</span>
+                                        <span class="pricing-feature-note">Mobile-first digital address</span>
+                                    </div>
+                                    <span class="pricing-feature-status"><span class="check-icon"></span></span>
+                                </div>
+                                <div class="pricing-feature-row pricing-feature-row--value">
+                                    <span class="pricing-feature-name">Content language</span>
+                                    <span class="pricing-feature-value">English only</span>
+                                </div>
+                            </div>
+
+                            <div class="pricing-feature-group">
+                                <h4 class="features-category">AI Content Layer</h4>
+                                <div class="pricing-feature-row pricing-feature-row--value">
+                                    <span class="pricing-feature-name">Social posts / month</span>
+                                    <span class="pricing-feature-value">2 / week · 2 platforms</span>
+                                </div>
+                                <div class="pricing-feature-row pricing-feature-row--value">
+                                    <span class="pricing-feature-name">Email campaigns / month</span>
+                                    <span class="pricing-feature-value">1</span>
+                                </div>
+                            </div>
+
+                            <div class="pricing-feature-group">
+                                <h4 class="features-category">Consultation &amp; Appointment Infrastructure</h4>
+                                <div class="pricing-feature-row pricing-feature-row--value">
+                                    <span class="pricing-feature-name">Appointment scheduling</span>
+                                    <span class="pricing-feature-value">Manual listing</span>
+                                </div>
+                            </div>
+
+                            <div class="pricing-feature-group">
+                                <h4 class="features-category">Support &amp; Onboarding</h4>
+                                <div class="pricing-feature-row pricing-feature-row--value">
+                                    <span class="pricing-feature-name">Support level</span>
+                                    <span class="pricing-feature-value">Community</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-dark-custom" type="button" data-download-modal-open>Create free
+                            profile</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
                     <div class="pricing-card pricing-card--classic">
                         <h3 class="plan-name">Classic</h3>
                         <span class="plan-subtitle">Starter infrastructure</span>
@@ -153,13 +258,11 @@
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="3,499">3,499</span>
+                                    <span class="price-value" data-monthly="3,499">2,799</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Save ₹8,400/yr on annual billing</p>
-                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
-                                        class="price-was-amount">3,499</span>/month</s> at monthly billing</p>
+                            <p class="price-annual-save">Billed ₹33,588 every 12 months · Save 20%</p>
                         </div>
 
                         <div class="features-block pricing-feature-groups">
@@ -347,7 +450,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 pricing-card-wrapper-highlighted">
+                <div class="col-lg-3 pricing-card-wrapper-highlighted">
                     <div class="pricing-card highlighted">
                         <div class="doctors-choice-badge">DOCTOR'S TOP CHOICE</div>
 
@@ -360,13 +463,11 @@
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="4,499">4,499</span>
+                                    <span class="price-value" data-monthly="4,499">3,599</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Save ₹10,800/yr on annual billing</p>
-                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
-                                        class="price-was-amount">4,499</span>/month</s> at monthly billing</p>
+                            <p class="price-annual-save">Billed ₹43,188 every 12 months · Save 20%</p>
                         </div>
 
                         <div class="features-block pricing-feature-groups">
@@ -554,7 +655,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="pricing-card pricing-card--pro">
                         <h3 class="plan-name">Pro</h3>
                         <span class="plan-subtitle">Full-stack digital infrastructure</span>
@@ -565,13 +666,11 @@
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="5,499">5,499</span>
+                                    <span class="price-value" data-monthly="5,499">4,399</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Save ₹13,200/yr on annual billing</p>
-                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
-                                        class="price-was-amount">5,499</span>/month</s> at monthly billing</p>
+                            <p class="price-annual-save">Billed ₹52,788 every 12 months · Save 20%</p>
                         </div>
 
                         <div class="features-block pricing-feature-groups">
@@ -760,9 +859,172 @@
                 </div>
             </div>
             <div class="pricing-carousel-dots" data-pricing-carousel-dots aria-label="Pricing plan carousel navigation">
-                <button class="pricing-carousel-dot is-active" type="button" aria-label="Show Classic plan"></button>
+                <button class="pricing-carousel-dot is-active" type="button" aria-label="Show Lite plan"></button>
+                <button class="pricing-carousel-dot" type="button" aria-label="Show Classic plan"></button>
                 <button class="pricing-carousel-dot" type="button" aria-label="Show Premium plan"></button>
                 <button class="pricing-carousel-dot" type="button" aria-label="Show Pro plan"></button>
+            </div>
+            </div>
+
+            <div class="pricing-compare-wrap" id="pricing-compare-wrap">
+                <table class="pricing-compare">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Lite</th>
+                            <th>Classic</th>
+                            <th class="col-premium">Premium</th>
+                            <th>Pro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="section-row">
+                            <td colspan="5">Digital Identity</td>
+                        </tr>
+                        <tr>
+                            <td>Verified doctor profile</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Smart microsite</td>
+                            <td>Basic</td>
+                            <td>Full</td>
+                            <td>Full</td>
+                            <td>Full</td>
+                        </tr>
+                        <tr>
+                            <td>Google SEO optimisation</td>
+                            <td class="dim">—</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Content languages</td>
+                            <td>English</td>
+                            <td>English</td>
+                            <td>+1 regional</td>
+                            <td>+Hindi +1 regional</td>
+                        </tr>
+
+                        <tr class="section-row">
+                            <td colspan="5">Verified Content</td>
+                        </tr>
+                        <tr>
+                            <td>Social posts / month</td>
+                            <td>2/week</td>
+                            <td>6</td>
+                            <td>8</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>Reels / Shorts / month</td>
+                            <td class="dim">—</td>
+                            <td>1 / 1</td>
+                            <td>2 / 2</td>
+                            <td>4 / 4</td>
+                        </tr>
+                        <tr>
+                            <td>Email / mailers / month</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>SEO blog posts / month</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+
+                        <tr class="section-row">
+                            <td colspan="5">Appointments &amp; Referrals</td>
+                        </tr>
+                        <tr>
+                            <td>Appointment scheduling</td>
+                            <td>Manual listing</td>
+                            <td>Full + payments</td>
+                            <td>Full + payments</td>
+                            <td>Full + payments</td>
+                        </tr>
+                        <tr>
+                            <td>Patient reminders &amp; follow-ups</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Diagnostic referral tracking</td>
+                            <td class="dim">—</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Partner diagnostic centre mapping</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Referral intelligence reporting</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td>✓</td>
+                        </tr>
+
+                        <tr class="section-row">
+                            <td colspan="5">Thought Leadership</td>
+                        </tr>
+                        <tr>
+                            <td>Webinars / month</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Patient Q&amp;A sessions / month</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr class="section-row">
+                            <td colspan="5">Analytics &amp; Support</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics dashboard</td>
+                            <td class="dim">—</td>
+                            <td>Standard</td>
+                            <td>Advanced</td>
+                            <td>Advanced+</td>
+                        </tr>
+                        <tr>
+                            <td>Support level</td>
+                            <td>Community</td>
+                            <td>Standard</td>
+                            <td>Priority</td>
+                            <td>Priority+</td>
+                        </tr>
+                        <tr>
+                            <td>Dedicated onboarding call</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td class="dim">—</td>
+                            <td>✓</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="pricing-trust-strip" aria-label="Pricing highlights">
@@ -791,6 +1053,50 @@
                     </h4>
                     <p>Experience your full digital infrastructure before you commit to any plan.</p>
                 </article>
+            </div>
+
+            <div class="pricing-faq">
+                <h2>Common questions</h2>
+                <div class="pricing-faq-item">
+                    <button class="pricing-faq-q" type="button">Can I switch plans later? <span
+                            class="plus">+</span></button>
+                    <div class="pricing-faq-a">
+                        <p>Yes. Move between Lite, Classic, Premium and Pro anytime from your dashboard. Upgrades
+                            apply immediately; downgrades apply from your next billing cycle.</p>
+                    </div>
+                </div>
+                <div class="pricing-faq-item">
+                    <button class="pricing-faq-q" type="button">How long is the free trial on paid plans? <span
+                            class="plus">+</span></button>
+                    <div class="pricing-faq-a">
+                        <p>Every paid plan includes a full-feature trial before your card is charged. You'll get a
+                            reminder before the trial ends, and you can cancel anytime with no penalty.</p>
+                    </div>
+                </div>
+                <div class="pricing-faq-item">
+                    <button class="pricing-faq-q" type="button">What happens to my profile if I stay on Lite? <span
+                            class="plus">+</span></button>
+                    <div class="pricing-faq-a">
+                        <p>Nothing expires. Lite is free forever — your verified profile, microsite, and content stay
+                            live for as long as you want, with no upgrade requirement.</p>
+                    </div>
+                </div>
+                <div class="pricing-faq-item">
+                    <button class="pricing-faq-q" type="button">Do the 6-month and 12-month discounts auto-renew?
+                        <span class="plus">+</span></button>
+                    <div class="pricing-faq-a">
+                        <p>Yes, at the same discounted rate you locked in, unless you cancel before renewal. You'll
+                            always see the upcoming charge in your dashboard in advance.</p>
+                    </div>
+                </div>
+                <div class="pricing-faq-item">
+                    <button class="pricing-faq-q" type="button">Is patient data secure and India-compliant? <span
+                            class="plus">+</span></button>
+                    <div class="pricing-faq-a">
+                        <p>Yes. All patient and appointment data is encrypted and stored in compliance with Indian
+                            data protection requirements for healthcare platforms.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
