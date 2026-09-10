@@ -83,7 +83,7 @@
 .navbar-btn-link {
     text-decoration: none;
     color: #000000 !important;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     padding: 8px 18px;
     border-radius: 50px;
@@ -173,7 +173,7 @@ a.download-btn {
     border: none;
     border-radius: 25px;
     padding: 8px 16px;
-    font-size: 12px;
+    font-size: var(--font-size-xs);
     font-weight: 600;
     cursor: pointer;
     display: flex;
@@ -189,7 +189,7 @@ a.download-btn {
 }
 
 .download-btn .material-symbols-outlined {
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     color: #000000;
     background-color: #ffffff;
@@ -263,7 +263,7 @@ a.download-btn {
     }
     
     .nav-link {
-        font-size: 16px;
+        font-size: var(--font-size-base);
         padding: 12px 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         width: 100%;
@@ -292,7 +292,7 @@ a.download-btn {
         width: 100%;
         justify-content: center;
         padding: 12px 20px;
-        font-size: 14px;
+        font-size: var(--font-size-sm);
         margin-top: 5px;
     }
     
@@ -344,7 +344,7 @@ a.download-btn {
     }
     
     .nav-link {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
     
     .navbar-right-actions {
@@ -353,16 +353,16 @@ a.download-btn {
     
     .download-btn {
         padding: 8px 12px;
-        font-size: 11px;
+        font-size: var(--font-size-xxs);
     }
     
     .download-btn i {
-        font-size: 12px;
+        font-size: var(--font-size-xs);
     }
 
     .navbar-action-group .navbar-btn-link,
     .navbar-action-group .navbar-btn-primary {
-        font-size: 13px;
+        font-size: var(--font-size-xs);
         padding: 6px 12px;
     }
 }
@@ -376,7 +376,7 @@ a.download-btn {
 
 .navbar-btn-secondary {
     text-decoration: none;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     padding: 10px 22px;
     border-radius: 24px;
@@ -405,7 +405,7 @@ a.download-btn {
 
 .navbar-btn-primary {
     text-decoration: none;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     padding: 10px 22px;
     border-radius: 24px;
@@ -447,7 +447,7 @@ a.download-btn {
     .navbar-mobile-actions .navbar-btn-secondary {
         width: 100%;
         padding: 12px 20px;
-        font-size: 16px;
+        font-size: var(--font-size-base);
         box-sizing: border-box;
         border: 1.5px solid var(--primary-blue) !important;
         border-radius: 24px;
@@ -474,7 +474,7 @@ a.download-btn {
 }
 
 .navbar-auth-group .navbar-btn-link {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     padding: 10px 24px;
     border-radius: 36px;
@@ -497,7 +497,7 @@ a.download-btn {
 }
 
 .navbar-auth-group .navbar-btn-primary {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     padding: 10px 26px;
     border-radius: 36px;
@@ -529,7 +529,7 @@ a.download-btn {
     }
 
     .navbar-auth-group .navbar-btn-primary {
-        font-size: 15px;
+        font-size: var(--font-size-base);
         padding: 10px 22px;
         border-radius: 24px;
         background-color: var(--primary-blue);

@@ -69,7 +69,7 @@
 }
 
 .footer-tagline {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: #2D3135;
     line-height: 1.55;
     margin: 0;
@@ -88,13 +88,13 @@
     gap: 8px;
     color: #333333;
     text-decoration: none;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .footer-contact a .material-symbols-outlined {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     color: var(--primary-blue, #0E65D7);
 }
 
@@ -130,7 +130,7 @@
 }
 
 .footer-social i {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     line-height: 1;
     color: var(--primary-blue, #0E65D7);
     transition: color 0.25s ease;
@@ -142,7 +142,7 @@
 
 .footer-column-title {
     font-family: var(--font-family-heading, 'Plus Jakarta Sans', sans-serif);
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 700;
     color: #1A1D20;
     letter-spacing: 0.2px;
@@ -161,7 +161,7 @@
 .footer-links a {
     text-decoration: none;
     color: #2D3135;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 500;
     display: inline-block;
     transition: all 0.2s ease;
@@ -226,7 +226,7 @@
 }
 
 .footer-store-sub {
-    font-size: 10px;
+    font-size: var(--font-size-xxs);
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #4A505A;
@@ -234,7 +234,7 @@
 }
 
 .footer-store-main {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 700;
     color: #1A1D20;
     line-height: 1.2;
@@ -253,13 +253,13 @@
 }
 
 .footer-copyright {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: #3C4045;
     margin: 0;
 }
 
 .footer-subtext {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: #3C4045;
     font-weight: 500;
     margin: 0;
@@ -320,7 +320,7 @@
     }
 
     .footer-store-main {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
 
     .footer-bottom {

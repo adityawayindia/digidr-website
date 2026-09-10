@@ -1,3 +1,14 @@
+// Pin scroll to top on the pricing page: the toggle/card-height JS below
+// reflows content above the fold after load, and the browser's default
+// scroll restoration on refresh then lands at a slightly wrong offset.
+(function () {
+    if (!document.body.classList.contains('page-pricing')) return;
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+})();
+
 // Hero intro sequence + shared scroll reveal animations
 document.addEventListener('DOMContentLoaded', function () {
     var heroIntro = document.querySelector('.hero-content.hero-intro');
@@ -473,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (saveEl) {
                 const base = parseINR(monthlyStr);
                 const billedTotal = Math.round(base * (1 - discount)) * months;
-                saveEl.textContent = 'Billed ₹' + formatINR(billedTotal) + ' every ' + months + ' months · Save ' + Math.round(discount * 100) + '%';
+                saveEl.innerHTML = 'Billed ₹' + formatINR(billedTotal) + ' every ' + months + ' months.<br><strong class="price-save-highlight">Save ' + Math.round(discount * 100) + '%</strong>';
             }
         });
 
@@ -552,6 +563,33 @@ document.addEventListener('DOMContentLoaded', function () {
                 a.style.maxHeight = null;
             } else {
                 item.classList.add('open');
+                a.style.maxHeight = a.scrollHeight + 'px';
+            }
+        });
+    });
+});
+
+// Home page FAQ accordion
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+        const q = item.querySelector('.faq-q');
+        const a = item.querySelector('.faq-a');
+        if (!q || !a) return;
+        q.addEventListener('click', function () {
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+                if (openItem === item) return;
+                openItem.classList.remove('open');
+                openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+                openItem.querySelector('.faq-a').style.maxHeight = null;
+            });
+            if (isOpen) {
+                item.classList.remove('open');
+                q.setAttribute('aria-expanded', 'false');
+                a.style.maxHeight = null;
+            } else {
+                item.classList.add('open');
+                q.setAttribute('aria-expanded', 'true');
                 a.style.maxHeight = a.scrollHeight + 'px';
             }
         });

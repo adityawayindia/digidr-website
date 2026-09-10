@@ -216,7 +216,7 @@ body.page-rounded>main>section:first-of-type {
     border: 2px solid transparent;
     border-radius: 24px;
     padding: 10px 22px;
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     letter-spacing: 0.02em;
     color: var(--primary-blue);
@@ -234,7 +234,7 @@ body.page-rounded>main>section:first-of-type {
 
 .hero-content h1 {
     font-family: var(--font-family-hero);
-    font-size: 56px;
+    font-size: var(--font-size-6xl);
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 16px;
@@ -359,7 +359,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .hero-content .subtitle {
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     color: var(--text-secondary);
     margin-bottom: 40px;
 }
@@ -376,7 +376,7 @@ body.page-rounded>main>section:first-of-type {
     border: none;
     border-radius: 50px;
     padding: 12px 24px;
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -422,7 +422,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .btn-store .material-symbols-outlined {
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     font-weight: 400;
     color: #ffffff;
     flex-shrink: 0;
@@ -572,7 +572,7 @@ body.page-rounded>main>section:first-of-type {
 /* Responsive adjustments */
 @media (max-width: 992px) {
     .hero-content h1 {
-        font-size: 48px;
+        font-size: var(--font-size-5xl);
     }
 
     .phone-showcase {
@@ -596,11 +596,11 @@ body.page-rounded>main>section:first-of-type {
 
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 30px;
+        font-size: var(--font-size-3xl);
     }
 
     .hero-content .subtitle {
-        font-size: 18px;
+        font-size: var(--font-size-md);
     }
 
     .hero-section {
@@ -649,7 +649,7 @@ body.page-rounded>main>section:first-of-type {
         width: 100%;
         min-width: 0;
         padding: 10px 12px;
-        font-size: 13px;
+        font-size: var(--font-size-xs);
     }
 
     .hero-buttons .btn-store[data-store="web"] {
@@ -659,7 +659,7 @@ body.page-rounded>main>section:first-of-type {
         min-width: 140px;
         max-width: none;
         padding: 10px 24px;
-        font-size: 13px;
+        font-size: var(--font-size-xs);
     }
 
     .phone-showcase {
@@ -704,7 +704,7 @@ body.page-rounded>main>section:first-of-type {
 
 /* Statistics Section */
 .statistics-section {
-    padding: 60px 0;
+    padding: 40px 0;
     background: transparent;
 }
 
@@ -734,7 +734,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .stat-number {
-    font-size: 48px;
+    font-size: var(--font-size-5xl);
     font-weight: 700;
     color: #0360d9;
     margin-bottom: 8px;
@@ -742,7 +742,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .stat-label {
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: 500;
     color: #000000;
     line-height: 1.4;
@@ -826,6 +826,12 @@ body.page-rounded>main>section:first-of-type {
     animation-delay: 1.1s;
 }
 
+@media (max-width: 992px) {
+    .statistics-section {
+        padding: 32px 0;
+    }
+}
+
 /* Responsive adjustments for statistics section */
 @media (max-width: 768px) {
     body.page-home>section {
@@ -860,7 +866,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .statistics-section {
-        padding: 40px 20px;
+        padding: 24px 16px;
     }
 
     .statistics-card {
@@ -874,11 +880,11 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .stat-number {
-        font-size: 36px;
+        font-size: var(--font-size-4xl);
     }
 
     .stat-label {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
 
     .stat-divider {
@@ -889,23 +895,27 @@ body.page-rounded>main>section:first-of-type {
 }
 
 @media (max-width: 480px) {
+    .statistics-section {
+        padding: 16px 12px;
+    }
+
     .statistics-card {
         padding: 25px 15px;
         gap: 25px;
     }
 
     .stat-number {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
     }
 
     .stat-label {
-        font-size: 13px;
+        font-size: var(--font-size-xs);
     }
 }
 
 /* Why Invisible Section */
 .why-invisible-section {
-    padding: 80px 0;
+    padding: 40px 0;
     background: #f7f8fc;
 }
 
@@ -918,14 +928,14 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .why-invisible-section .section-subtitle {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
 }
 
 .section-title {
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     text-align: left;
     margin-bottom: 60px;
@@ -1367,13 +1377,13 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .card-icon .material-symbols-outlined {
-    font-size: 32px;
+    font-size: var(--font-size-3xl);
     color: var(--primary-blue);
     font-weight: 400;
 }
 
 .reason-card .card-icon .material-symbols-outlined {
-    font-size: 26px;
+    font-size: var(--font-size-2xl);
     color: #ffffff;
     font-weight: 400;
     -webkit-text-fill-color: currentColor;
@@ -1381,7 +1391,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .reason-card h3 {
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     font-weight: 650;
     color: #0d0d0d;
     margin-bottom: 14px;
@@ -1390,7 +1400,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .reason-card p {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: #353542;
     line-height: 1.7;
     margin: 0;
@@ -1407,21 +1417,25 @@ body.page-rounded>main>section:first-of-type {
     justify-content: center;
     gap: 6px;
     margin: 0;
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     color: var(--primary-blue);
     cursor: default;
 }
 
 .scroll-to-solution-arrow {
-    font-size: 22px;
+    font-size: var(--font-size-xl);
     line-height: 1;
 }
 
 /* Responsive adjustments for why invisible section */
 @media (max-width: 992px) {
+    .why-invisible-section {
+        padding: 32px 0;
+    }
+
     .section-title {
-        font-size: 40px;
+        font-size: var(--font-size-4xl);
         margin-bottom: 50px;
     }
 
@@ -1434,7 +1448,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .why-invisible-section .section-subtitle {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .reason-cards {
@@ -1466,7 +1480,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .card-icon .material-symbols-outlined {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
     }
 
     .reason-card .card-icon {
@@ -1476,26 +1490,26 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .reason-card .card-icon .material-symbols-outlined {
-        font-size: 24px;
+        font-size: var(--font-size-xl);
     }
 
     .reason-card h3 {
-        font-size: 18px;
+        font-size: var(--font-size-md);
         margin-bottom: 12px;
     }
 
     .reason-card p {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 }
 
 @media (max-width: 768px) {
     .why-invisible-section {
-        padding: 60px 20px;
+        padding: 24px 16px;
     }
 
     .section-title {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
         margin-bottom: 40px;
     }
 
@@ -1508,7 +1522,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .why-invisible-section .section-subtitle {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .reason-cards {
@@ -1532,7 +1546,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .card-icon .material-symbols-outlined {
-        font-size: 36px;
+        font-size: var(--font-size-4xl);
     }
 
     .reason-card .card-icon {
@@ -1542,33 +1556,33 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .reason-card .card-icon .material-symbols-outlined {
-        font-size: 22px;
+        font-size: var(--font-size-xl);
     }
 
     .reason-card h3 {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .reason-card p {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
 
     .scroll-to-solution-text {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
 
     .scroll-to-solution-arrow {
-        font-size: 20px;
+        font-size: var(--font-size-lg);
     }
 }
 
 @media (max-width: 480px) {
     .why-invisible-section {
-        padding: 40px 15px;
+        padding: 16px 12px;
     }
 
     .section-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
         margin-bottom: 30px;
     }
 
@@ -1581,7 +1595,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .why-invisible-section .section-subtitle {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
 
     .reason-cards {
@@ -1604,7 +1618,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .card-icon .material-symbols-outlined {
-        font-size: 34px;
+        font-size: var(--font-size-4xl);
     }
 
     .reason-card .card-icon {
@@ -1614,15 +1628,15 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .reason-card .card-icon .material-symbols-outlined {
-        font-size: 20px;
+        font-size: var(--font-size-lg);
     }
 
     .reason-card h3 {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .reason-card p {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
     }
 }
 
@@ -1637,7 +1651,7 @@ body.page-rounded>main>section:first-of-type {
     border: none;
     border-radius: 50px;
     padding: 12px 20px;
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     font-weight: 600;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     z-index: 1000;
@@ -1647,7 +1661,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .floating-download-btn .material-symbols-outlined {
-    font-size: 16px;
+    font-size: var(--font-size-base);
     background-color: #ffffff;
     color: #000000;
     border-radius: 50%;
@@ -1676,7 +1690,7 @@ body.page-rounded>main>section:first-of-type {
 
 /* How DigiDr Works Section */
 .how-digidoctor-works-section {
-    padding: 80px 0;
+    padding: 40px 0;
     /* background: linear-gradient(135deg, #f8fbff 0%, #fff9f0 100%); */
     background: var(--background-primary);
     position: relative;
@@ -1828,7 +1842,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .pill-icon .material-symbols-outlined {
-    font-size: 24px;
+    font-size: var(--font-size-xl);
     color: #ffffff;
     font-weight: 400;
 }
@@ -1839,7 +1853,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .pill-text h4 {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     font-weight: 600;
     color: #000000;
     margin: 0 0 4px 0;
@@ -1847,7 +1861,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .pill-text p {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     margin: 0;
     line-height: 1.4;
@@ -1861,7 +1875,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .pill-chevron .material-symbols-outlined {
-    font-size: 24px;
+    font-size: var(--font-size-xl);
     color: var(--text-muted);
     font-weight: 400;
 }
@@ -1894,7 +1908,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .pill-content p {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: #353542;
     line-height: 1.6;
     margin: 0 0 12px 0;
@@ -1908,7 +1922,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .pill-content li {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: #353542;
     line-height: 1.6;
     margin-bottom: 8px;
@@ -1922,7 +1936,7 @@ body.page-rounded>main>section:first-of-type {
     left: 0;
     color: var(--primary-blue);
     font-weight: bold;
-    font-size: 16px;
+    font-size: var(--font-size-base);
 }
 
 .pill-content::-webkit-scrollbar {
@@ -1958,7 +1972,7 @@ body.page-rounded>main>section:first-of-type {
 /* Responsive adjustments for How DigiDr Works section */
 @media (max-width: 992px) {
     .how-digidoctor-works-section {
-        padding: 60px 0;
+        padding: 32px 0;
     }
 
     .works-content {
@@ -1992,15 +2006,15 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pill-icon .material-symbols-outlined {
-        font-size: 24px;
+        font-size: var(--font-size-xl);
     }
 
     .pill-text h4 {
-        font-size: 18px;
+        font-size: var(--font-size-md);
     }
 
     .pill-text p {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .pill-content p {
@@ -2016,7 +2030,7 @@ body.page-rounded>main>section:first-of-type {
 
 @media (max-width: 768px) {
     .how-digidoctor-works-section {
-        padding: 40px 20px;
+        padding: 24px 16px;
     }
 
     .works-content {
@@ -2028,7 +2042,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pills-container .section-title {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
         margin-bottom: 30px;
     }
 
@@ -2049,23 +2063,23 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pill-icon .material-symbols-outlined {
-        font-size: 24px;
+        font-size: var(--font-size-xl);
     }
 
     .pill-text h4 {
-        font-size: 18px;
+        font-size: var(--font-size-md);
     }
 
     .pill-text p {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .pill-chevron .material-symbols-outlined {
-        font-size: 24px;
+        font-size: var(--font-size-xl);
     }
 
     .pill-content p {
-        font-size: 15px;
+        font-size: var(--font-size-base);
         padding-left: 0;
         text-align: left;
     }
@@ -2078,7 +2092,7 @@ body.page-rounded>main>section:first-of-type {
 
 @media (max-width: 480px) {
     .how-digidoctor-works-section {
-        padding: 30px 15px;
+        padding: 16px 12px;
     }
 
     .works-content {
@@ -2090,7 +2104,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pills-container .section-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
         margin-bottom: 25px;
     }
 
@@ -2111,15 +2125,15 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pill-icon .material-symbols-outlined {
-        font-size: 20px;
+        font-size: var(--font-size-lg);
     }
 
     .pill-text h4 {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .pill-text p {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
     }
 
     .pill-chevron {
@@ -2127,11 +2141,11 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pill-chevron .material-symbols-outlined {
-        font-size: 20px;
+        font-size: var(--font-size-lg);
     }
 
     .pill-content p {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
         padding-left: 0;
         text-align: left;
     }
@@ -2158,23 +2172,23 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pill-icon .material-symbols-outlined {
-        font-size: 24px;
+        font-size: var(--font-size-xl);
     }
 
     .pill-text h4 {
-        font-size: 18px;
+        font-size: var(--font-size-md);
     }
 
     .pill-text p {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .pill-chevron .material-symbols-outlined {
-        font-size: 24px;
+        font-size: var(--font-size-xl);
     }
 
     .pill-content p {
-        font-size: 15px;
+        font-size: var(--font-size-base);
         padding-left: 0;
         text-align: left;
     }
@@ -2187,7 +2201,7 @@ body.page-rounded>main>section:first-of-type {
 
 @media (max-width: 480px) {
     .how-digidoctor-works-section {
-        padding: 30px 15px;
+        padding: 16px 12px;
     }
 
     .works-content {
@@ -2199,7 +2213,7 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pills-container .section-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
         margin-bottom: 25px;
     }
 
@@ -2220,15 +2234,15 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pill-icon .material-symbols-outlined {
-        font-size: 20px;
+        font-size: var(--font-size-lg);
     }
 
     .pill-text h4 {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .pill-text p {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
     }
 
     .pill-chevron {
@@ -2236,11 +2250,11 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pill-chevron .material-symbols-outlined {
-        font-size: 20px;
+        font-size: var(--font-size-lg);
     }
 
     .pill-content p {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
         padding-left: 0;
         text-align: left;
     }
@@ -2251,13 +2265,13 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .pill-content li {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
     }
 }
 
 /* Posts Carousel Section */
 .posts-carousel-section {
-    padding: 140px 0;
+    padding: 40px 0;
     background: white;
     position: relative;
     overflow: hidden;
@@ -2271,7 +2285,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .carousel-header .section-title {
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     margin-bottom: 16px;
     color: #000000;
@@ -2280,7 +2294,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .carousel-header .section-subtitle {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
@@ -2396,16 +2410,16 @@ body.page-rounded>main>section:first-of-type {
 /* Responsive adjustments for Posts Carousel section */
 @media (max-width: 992px) {
     .posts-carousel-section {
-        padding: 60px 0;
+        padding: 32px 0;
     }
 
     .carousel-header .section-title {
-        font-size: 40px;
+        font-size: var(--font-size-4xl);
         margin-bottom: 14px;
     }
 
     .carousel-header .section-subtitle {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .post-item img {
@@ -2420,7 +2434,7 @@ body.page-rounded>main>section:first-of-type {
 
 @media (max-width: 768px) {
     .posts-carousel-section {
-        padding: 40px 20px;
+        padding: 24px 16px;
     }
 
     .carousel-header {
@@ -2428,12 +2442,12 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .carousel-header .section-title {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
         margin-bottom: 12px;
     }
 
     .carousel-header .section-subtitle {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .post-item img {
@@ -2448,7 +2462,7 @@ body.page-rounded>main>section:first-of-type {
 
 @media (max-width: 480px) {
     .posts-carousel-section {
-        padding: 30px 15px;
+        padding: 16px 12px;
     }
 
     .carousel-header {
@@ -2456,12 +2470,12 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .carousel-header .section-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
         margin-bottom: 10px;
     }
 
     .carousel-header .section-subtitle {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
 
     .post-item img {
@@ -2476,8 +2490,11 @@ body.page-rounded>main>section:first-of-type {
 
 /* Why Healthcare Professionals Love DigiDr Section */
 .why-love-digidoctor-section {
-    padding: 80px 0;
-    background: #ffffff;
+    padding: 40px 0;
+    background-color: #ffffff;
+    background-image: radial-gradient(rgba(14, 101, 215, 0.11) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+    position: relative;
 }
 
 .why-love-digidoctor-section .section-header {
@@ -2486,7 +2503,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .why-love-digidoctor-section .section-title {
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     margin-bottom: 16px;
     color: #000000;
@@ -2495,7 +2512,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .why-love-digidoctor-section .section-subtitle {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
@@ -2923,7 +2940,7 @@ body.page-rounded>main>section:first-of-type {
     border-radius: 12px 12px 12px 4px;
     background: #ffffff;
     color: #063b8c;
-    font-size: 13px;
+    font-size: var(--font-size-xs);
     font-weight: 700;
     line-height: 34px;
     text-align: center;
@@ -3018,7 +3035,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .love-card-title {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     font-weight: 650;
     color: #000000;
     margin-bottom: 12px;
@@ -3027,7 +3044,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .love-card-description {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: #353542;
     line-height: 1.6;
     margin: 0;
@@ -3036,16 +3053,16 @@ body.page-rounded>main>section:first-of-type {
 /* Responsive adjustments for Why Love DigiDr section */
 @media (max-width: 992px) {
     .why-love-digidoctor-section {
-        padding: 60px 0;
+        padding: 32px 0;
     }
 
     .why-love-digidoctor-section .section-title {
-        font-size: 40px;
+        font-size: var(--font-size-4xl);
         margin-bottom: 14px;
     }
 
     .why-love-digidoctor-section .section-subtitle {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .love-cards-grid {
@@ -3064,18 +3081,18 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .love-card-title {
-        font-size: 16px;
+        font-size: var(--font-size-base);
         margin-bottom: 10px;
     }
 
     .love-card-description {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
     }
 }
 
 @media (max-width: 768px) {
     .why-love-digidoctor-section {
-        padding: 40px 20px;
+        padding: 24px 16px;
     }
 
     .why-love-digidoctor-section .section-header {
@@ -3083,12 +3100,12 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .why-love-digidoctor-section .section-title {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
         margin-bottom: 12px;
     }
 
     .why-love-digidoctor-section .section-subtitle {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .love-cards-grid {
@@ -3107,18 +3124,18 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .love-card-title {
-        font-size: 15px;
+        font-size: var(--font-size-base);
         margin-bottom: 8px;
     }
 
     .love-card-description {
-        font-size: 12px;
+        font-size: var(--font-size-xs);
     }
 }
 
 @media (max-width: 480px) {
     .why-love-digidoctor-section {
-        padding: 30px 15px;
+        padding: 16px 12px;
     }
 
     .why-love-digidoctor-section .section-header {
@@ -3126,12 +3143,12 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .why-love-digidoctor-section .section-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
         margin-bottom: 10px;
     }
 
     .why-love-digidoctor-section .section-subtitle {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
 
     .love-card {
@@ -3144,21 +3161,29 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .love-card-title {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
         margin-bottom: 6px;
     }
 
     .love-card-description {
-        font-size: 11px;
+        font-size: var(--font-size-xxs);
     }
 }
 
 /* Testimonials Section */
 .testimonials-section {
-    padding: 80px 0;
+    padding: 40px 0;
     background: white;
     position: relative;
     overflow: hidden;
+}
+
+body.page-home .testimonials-section {
+    padding-bottom: 16px;
+}
+
+body.page-home #pricing.pricing-section {
+    padding-top: 16px;
 }
 
 .testimonials-section .section-header {
@@ -3167,7 +3192,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .testimonials-section .section-title {
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     margin-bottom: 16px;
     color: #000000;
@@ -3176,7 +3201,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .testimonials-section .section-subtitle {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
@@ -3327,7 +3352,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .doctor-name {
-    font-size: 19px;
+    font-size: var(--font-size-lg);
     font-weight: 700;
     color: #1a1a1a;
     margin: 0 0 6px 0;
@@ -3335,7 +3360,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .doctor-specialty {
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     color: #0077FF;
     margin: 0 0 3px 0;
     font-weight: 600;
@@ -3343,7 +3368,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .doctor-hospital {
-    font-size: 13px;
+    font-size: var(--font-size-xs);
     color: #6c757d;
     margin: 0;
     font-weight: 400;
@@ -3358,13 +3383,13 @@ body.page-rounded>main>section:first-of-type {
 
 .rating .star {
     color: #FFA500;
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     filter: drop-shadow(0 1px 2px rgba(255, 165, 0, 0.3));
     font-variation-settings: 'FILL' 1;
 }
 
 .review-text {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     line-height: 1.7;
     color: #111827;
     text-align: center;
@@ -3378,16 +3403,16 @@ body.page-rounded>main>section:first-of-type {
 /* Responsive adjustments for Testimonials section */
 @media (max-width: 992px) {
     .testimonials-section {
-        padding: 60px 0;
+        padding: 32px 0;
     }
 
     .testimonials-section .section-title {
-        font-size: 40px;
+        font-size: var(--font-size-4xl);
         margin-bottom: 14px;
     }
 
     .testimonials-section .section-subtitle {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .testimonial-card {
@@ -3402,7 +3427,7 @@ body.page-rounded>main>section:first-of-type {
 
 @media (max-width: 768px) {
     .testimonials-section {
-        padding: 40px 20px;
+        padding: 24px 16px;
     }
 
     .testimonials-section .section-header {
@@ -3410,12 +3435,12 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .testimonials-section .section-title {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
         margin-bottom: 12px;
     }
 
     .testimonials-section .section-subtitle {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .testimonial-card {
@@ -3433,15 +3458,15 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .doctor-name {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .doctor-specialty {
-        font-size: 13px;
+        font-size: var(--font-size-xs);
     }
 
     .doctor-hospital {
-        font-size: 12px;
+        font-size: var(--font-size-xs);
     }
 
     .testimonials-carousel {
@@ -3456,7 +3481,7 @@ body.page-rounded>main>section:first-of-type {
 
 @media (max-width: 480px) {
     .testimonials-section {
-        padding: 30px 15px;
+        padding: 16px 12px;
     }
 
     .testimonials-section .section-header {
@@ -3464,12 +3489,12 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .testimonials-section .section-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
         margin-bottom: 10px;
     }
 
     .testimonials-section .section-subtitle {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
     }
 
     .testimonial-card {
@@ -3492,21 +3517,21 @@ body.page-rounded>main>section:first-of-type {
     }
 
     .doctor-name {
-        font-size: 16px;
+        font-size: var(--font-size-base);
         line-height: 1.25;
     }
 
     .doctor-specialty {
-        font-size: 13px;
+        font-size: var(--font-size-xs);
         line-height: 1.25;
     }
 
     .doctor-hospital {
-        font-size: 12px;
+        font-size: var(--font-size-xs);
     }
 
     .review-text {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
         line-height: 1.6;
     }
 
@@ -3516,14 +3541,36 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .pricing-section {
-    padding: 80px 0;
+    padding: 40px 0;
     background: #ffffff;
+}
+
+.pricing-section.pricing-hero-section {
+    padding-top: 130px;
+}
+
+@media (max-width: 992px) {
+    .pricing-section.pricing-hero-section {
+        padding-top: 96px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-section.pricing-hero-section {
+        padding-top: 96px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-section.pricing-hero-section {
+        padding-top: 88px;
+    }
 }
 
 .pricing-section .section-title {
     /* Base; page-pricing main heading typography in root.css */
     font-weight: 700;
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     text-align: center;
     margin-bottom: 16px;
     color: #000000;
@@ -3531,7 +3578,7 @@ body.page-rounded>main>section:first-of-type {
 }
 
 .pricing-section .section-subtitle {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     color: var(--text-secondary);
     line-height: 1.6;
     margin-top: 10px;
@@ -3539,12 +3586,12 @@ body.page-rounded>main>section:first-of-type {
 }
 
 body.page-pricing .pricing-section .section-subtitle {
-    font-size: 16px;
+    font-size: var(--font-size-base);
 }
 
 /* Go Digital Today Section */
 .go-digital-section {
-    padding: 80px 0;
+    padding: 40px 0;
     background: var(--background-primary);
 }
 
@@ -3558,7 +3605,7 @@ body.page-pricing .pricing-section .section-subtitle {
 
 .go-digital-title {
     font-weight: 700;
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     text-align: left;
     margin: 0;
     color: #000000;
@@ -3595,7 +3642,7 @@ body.page-pricing .pricing-section .section-subtitle {
 
 .go-digital-label {
     display: block;
-    font-size: 12px;
+    font-size: var(--font-size-xs);
     font-weight: 600;
     color: #000000;
     margin-bottom: 8px;
@@ -3607,7 +3654,7 @@ body.page-pricing .pricing-section .section-subtitle {
     border-bottom: 1px solid #cfcfcf;
     border-radius: 0;
     padding: 6px 0 10px;
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     color: #000000;
     outline: none;
     background: transparent;
@@ -3628,7 +3675,7 @@ body.page-pricing .pricing-section .section-subtitle {
 .go-digital-btn {
     border-radius: 999px;
     padding: 10px 18px;
-    font-size: 13px;
+    font-size: var(--font-size-sm);
     font-weight: 600;
     border: 1px solid transparent;
     display: inline-flex;
@@ -3642,7 +3689,7 @@ body.page-pricing .pricing-section .section-subtitle {
 }
 
 .go-digital-btn .material-symbols-outlined {
-    font-size: 18px;
+    font-size: var(--font-size-md);
 }
 
 .go-digital-btn-primary {
@@ -3694,10 +3741,10 @@ body.page-pricing .pricing-section .section-subtitle {
 .pricing-toggle-wrapper {
     background-color: #f0f1f4;
     border-radius: 50px;
-    padding: 4px;
+    padding: 5px;
     display: flex;
-    width: min(100%, 340px);
-    max-width: 340px;
+    width: min(100%, 410px);
+    max-width: 410px;
     box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.06);
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -3729,21 +3776,24 @@ body.page-pricing .pricing-section .section-subtitle {
 .toggle-btn {
     border: none;
     background: none;
-    padding: 10px 12px;
+    padding: 10px 14px;
     border-radius: 50px;
     font-family: var(--font-family-heading);
     font-weight: 800;
-    font-size: 12px;
-    letter-spacing: 0.4px;
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.2px;
     cursor: pointer;
     transition: color 0.25s ease;
     color: var(--text-secondary);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     flex: 1 1 0;
     min-width: 0;
+    white-space: nowrap;
     width: 50%;
     position: relative;
     z-index: 1;
@@ -3753,17 +3803,8 @@ body.page-pricing .pricing-section .section-subtitle {
     color: #ffffff;
 }
 
-.toggle-btn-yearly {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    gap: 6px 10px;
-}
-
 @media (max-width: 520px) {
-    .toggle-btn-yearly {
+    .toggle-btn {
         flex-direction: column;
         flex-wrap: nowrap;
         gap: 6px;
@@ -3777,15 +3818,16 @@ body.page-pricing .pricing-section .section-subtitle {
     transform: none;
     background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
     color: #333333;
-    font-size: 11px;
+    font-size: var(--font-size-xs);
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
     line-height: 1;
-    padding: 5px 10px;
+    padding: 4px 9px;
     border-radius: 999px;
     white-space: nowrap;
+    flex-shrink: 0;
     margin-left: 0;
-    margin-top: 4px;
+    margin-top: 0;
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: none;
 }
@@ -3821,7 +3863,7 @@ body.page-pricing .pricing-section .section-subtitle {
 }
 
 .price-tag {
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     margin-bottom: 6px;
     display: flex;
@@ -3846,33 +3888,40 @@ body.page-pricing .pricing-section .section-subtitle {
 
 .price-annual-save {
     margin: 0;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 1.4;
     max-width: 100%;
     display: inline-flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     min-height: 28px;
-    padding: 5px 12px;
-    border-radius: 999px;
+    padding: 8px 12px;
+    border-radius: 16px;
     color: #1e3a8a;
     background: linear-gradient(90deg, rgba(37, 99, 235, 0.14) 0%, rgba(59, 130, 246, 0.08) 100%);
     border: 1px solid rgba(59, 130, 246, 0.28);
 }
 
+.price-save-highlight {
+    color: #15803d;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 .price-currency {
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
 }
 
 .price-period {
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     color: var(--text-secondary);
     font-weight: 500;
     margin-left: 6px;
 }
 
 .plan-name {
-    font-size: 28px;
+    font-size: var(--font-size-2xl);
     font-weight: 800;
     margin-bottom: 4px;
     margin-top: 0;
@@ -3885,14 +3934,14 @@ body.page-pricing .pricing-section .section-subtitle {
 
 .plan-subtitle {
     color: var(--text-secondary);
-    font-size: 15px;
+    font-size: var(--font-size-base);
     margin-bottom: 8px;
     display: block;
 }
 
 .plan-description {
     color: var(--text-secondary);
-    font-size: 15px;
+    font-size: var(--font-size-base);
     line-height: 1.5;
     margin-bottom: 20px;
     font-weight: 500;
@@ -3904,7 +3953,7 @@ body.page-pricing .pricing-section .section-subtitle {
 }
 
 .features-category {
-    font-size: 11px;
+    font-size: var(--font-size-xxs);
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -3936,7 +3985,7 @@ body.page-pricing .pricing-section .section-subtitle {
     display: flex;
     align-items: flex-start;
     color: var(--text-primary);
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 600;
 }
 
@@ -4004,21 +4053,21 @@ body.page-pricing .pricing-section .section-subtitle {
 }
 
 .btn-dark-custom {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: var(--primary-blue);
     width: 100%;
-    padding: 10px 16px;
+    padding: 9px 16px;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 13px;
-    border: none;
+    font-size: var(--font-size-sm);
+    border: 1px solid var(--primary-blue);
     margin-top: auto;
     flex-shrink: 0;
 }
 
 .btn-dark-custom:hover {
-    background-color: #333333;
-    color: #ffffff;
+    background-color: rgba(14, 101, 215, 0.06);
+    color: var(--primary-blue);
 }
 
 .btn-blue-custom {
@@ -4028,7 +4077,7 @@ body.page-pricing .pricing-section .section-subtitle {
     padding: 10px 16px;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 13px;
+    font-size: var(--font-size-sm);
     border: none;
     margin-top: auto;
     flex-shrink: 0;
@@ -4062,30 +4111,35 @@ body.page-pricing .pricing-section .section-subtitle {
     .col-lg-4:not(.pricing-card-wrapper-highlighted) {
         z-index: 1;
     }
+
+    body.page-home .pricing-card-wrapper-highlighted {
+        transform: none;
+    }
 }
 
 .doctors-choice-badge {
     position: absolute;
-    top: 14px;
-    right: 14px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
     color: #333333;
-    font-size: 10px;
+    font-size: var(--font-size-xxs);
     font-weight: 700;
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: 50px;
     text-transform: uppercase;
     white-space: nowrap;
     box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.5);
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
     z-index: 10;
     overflow: hidden;
 }
 
 .doctors-choice-badge:hover {
-    transform: translateY(-1px);
+    transform: translate(-50%, calc(-50% - 1px));
 }
 
 .doctors-choice-badge::after {
@@ -4127,12 +4181,31 @@ body.page-pricing .pricing-section .section-subtitle {
     }
 }
 
+.full-stack-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111111;
+    color: #ffffff;
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
 @media (min-width: 992px) {
-    body.page-pricing .pricing-section .container {
+    body.page-pricing .pricing-section .container,
+    body.page-home .pricing-section .container {
         max-width: 1380px;
     }
 
-    body.page-pricing .pricing-card-deck {
+    body.page-pricing .pricing-card-deck,
+    body.page-home .pricing-section .row {
         --bs-gutter-x: 1.25rem;
     }
 }
@@ -4144,19 +4217,36 @@ body.page-pricing .pricing-card {
     overflow: hidden;
 }
 
+body.page-pricing .pricing-card.highlighted,
+body.page-pricing .pricing-card--pro {
+    overflow: visible;
+}
+
 body.page-pricing .pricing-card.highlighted {
     background: linear-gradient(#ffffff, #ffffff) padding-box, var(--gradient-blue-orange) border-box;
     border: 2px solid transparent;
 }
 
-body.page-pricing .pricing-card .price-tag {
+body.page-pricing .pricing-card .price-tag,
+body.page-home .pricing-card .price-tag {
     padding-bottom: 18px;
     border-bottom: 1px solid rgba(14, 101, 215, 0.12);
     margin-bottom: 22px;
 }
 
-body.page-pricing .pricing-card .plan-description {
+body.page-pricing .pricing-card .plan-description,
+body.page-home .pricing-card .plan-description {
     min-height: 58px;
+}
+
+body.page-pricing .pricing-card .features-list,
+body.page-home .pricing-card .features-list {
+    flex: 1 1 auto;
+}
+
+body.page-pricing .pricing-card .features-list li,
+body.page-home .pricing-card .features-list li {
+    font-size: var(--font-size-sm);
 }
 
 body.page-pricing .pricing-feature-groups {
@@ -4180,7 +4270,7 @@ body.page-pricing .pricing-card.highlighted .pricing-feature-group {
 
 body.page-pricing .pricing-feature-group .features-category {
     color: var(--primary-blue);
-    font-size: 10px;
+    font-size: var(--font-size-xxs);
     line-height: 1.35;
     margin: 0 0 10px;
 }
@@ -4213,14 +4303,14 @@ body.page-pricing .pricing-feature-copy {
 
 body.page-pricing .pricing-feature-name {
     color: #111827;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 700;
     line-height: 1.35;
 }
 
 body.page-pricing .pricing-feature-note {
     color: var(--text-secondary);
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-style: normal;
     font-weight: 500;
     line-height: 1.35;
@@ -4231,7 +4321,7 @@ body.page-pricing .pricing-feature-status {
     flex: 0 0 auto;
     max-width: 48%;
     color: #111827;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 800;
     line-height: 1.35;
     text-align: right;
@@ -4311,7 +4401,7 @@ body.page-pricing .pricing-trust-strip__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     color: #ffffff;
     background: var(--gradient-blue);
     box-shadow: 0 8px 18px rgba(14, 101, 215, 0.28);
@@ -4320,7 +4410,7 @@ body.page-pricing .pricing-trust-strip__icon {
 
 body.page-pricing .pricing-trust-strip__item p {
     margin: 0;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     line-height: 1.58;
     color: var(--text-primary);
     max-width: 36ch;
@@ -4359,7 +4449,7 @@ body.page-pricing .pricing-trust-strip__item--green {
     border-radius: 999px;
     background: rgba(14, 101, 215, 0.1);
     color: var(--primary-blue);
-    font-size: 12px;
+    font-size: var(--font-size-xs);
     font-weight: 800;
     letter-spacing: 0.08em;
     line-height: 1;
@@ -4374,7 +4464,7 @@ body.page-pricing .pricing-trust-strip__item--green {
     max-width: 360px;
     margin: 0 auto 24px;
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     font-weight: 500;
     line-height: 1.5;
     text-align: center;
@@ -4436,7 +4526,7 @@ body.page-pricing .pricing-trust-strip__item--green {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    font-size: var(--font-size-2xl);
 }
 
 .download-modal .download-modal-option__store-icon {
@@ -4456,14 +4546,14 @@ body.page-pricing .pricing-trust-strip__item--green {
 }
 
 .download-modal .download-modal-option__title {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 800;
     line-height: 1.25;
 }
 
 .download-modal .download-modal-option__meta {
     color: var(--text-secondary);
-    font-size: 12px;
+    font-size: var(--font-size-xs);
     font-weight: 600;
     line-height: 1.35;
 }
@@ -4476,7 +4566,8 @@ body.page-pricing .pricing-trust-strip__item--green {
 }
 
 @media (max-width: 1199px) {
-    body.page-pricing .pricing-card {
+    body.page-pricing .pricing-card,
+    body.page-home .pricing-section .pricing-card {
         padding: 30px 20px;
     }
 
@@ -4537,14 +4628,14 @@ body.page-pricing .pricing-trust-strip__item--green {
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.76);
         color: var(--primary-blue);
-        font-size: 12px;
+        font-size: var(--font-size-xs);
         font-weight: 700;
         letter-spacing: 0.01em;
         box-shadow: 0 8px 22px rgba(14, 101, 215, 0.08);
     }
 
     body.page-pricing .pricing-carousel-hint i {
-        font-size: 13px;
+        font-size: var(--font-size-xs);
         line-height: 1;
     }
 
@@ -4599,11 +4690,11 @@ body.page-pricing .pricing-trust-strip__item--green {
     body.page-pricing .pricing-trust-strip__icon {
         width: 34px;
         height: 34px;
-        font-size: 18px;
+        font-size: var(--font-size-md);
     }
 
     body.page-pricing .pricing-trust-strip__item p {
-        font-size: 14px;
+        font-size: var(--font-size-sm);
         max-width: 100%;
     }
 
@@ -4664,11 +4755,15 @@ body.page-pricing .pricing-trust-strip__item--green {
 
 @media (max-width: 992px) {
     .pricing-section {
-        padding: 60px 0;
+        padding: 32px 0;
+    }
+
+    .go-digital-section {
+        padding: 32px 0;
     }
 
     .pricing-section .section-title {
-        font-size: 40px;
+        font-size: var(--font-size-4xl);
     }
 
     .pricing-toggle-container {
@@ -4733,7 +4828,7 @@ body.page-pricing .pricing-trust-strip__item--green {
     right: 14px;
     background: rgba(14, 101, 215, 0.1);
     color: var(--primary-blue);
-    font-size: 10px;
+    font-size: var(--font-size-xxs);
     font-weight: 700;
     padding: 6px 14px;
     border-radius: 50px;
@@ -4742,21 +4837,21 @@ body.page-pricing .pricing-trust-strip__item--green {
 }
 
 .price-free-value {
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     font-weight: 800;
     color: var(--primary-blue);
 }
 
 .price-forever {
     margin: 0;
-    font-size: 13px;
+    font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--text-secondary);
 }
 
 .pricing-billing-note {
     text-align: center;
-    font-size: 13.5px;
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     font-weight: 500;
     margin: 0;
@@ -4786,7 +4881,7 @@ body.page-pricing .pricing-trust-strip__item--green {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
+    font-size: var(--font-size-xxs);
     font-weight: 700;
     color: #ffffff;
     background: var(--gradient-blue);
@@ -4809,9 +4904,11 @@ body.page-pricing .pricing-trust-strip__item--green {
 }
 
 .pricing-proof-text {
-    font-size: 14px;
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     font-weight: 500;
+    line-height: 32px;
+    margin: 0;
 }
 
 .pricing-proof-text strong {
@@ -4831,7 +4928,7 @@ body.page-pricing .pricing-trust-strip__item--green {
     border: none;
     background: none;
     font-family: var(--font-family-primary);
-    font-size: 14px;
+    font-size: var(--font-size-base);
     font-weight: 700;
     color: var(--text-secondary);
     padding: 8px 4px;
@@ -4873,11 +4970,12 @@ table.pricing-compare {
 
 table.pricing-compare th,
 table.pricing-compare td {
-    padding: 13px 18px;
+    padding: 8px 18px;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
     border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-    color: var(--text-primary);
+    color: #1a1a24;
 }
 
 table.pricing-compare td:first-child,
@@ -4887,7 +4985,7 @@ table.pricing-compare th:first-child {
 
 table.pricing-compare thead th {
     font-family: var(--font-family-heading);
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: 700;
     background: #ffffff;
     color: #000000;
@@ -4900,10 +4998,10 @@ table.pricing-compare thead th.col-premium {
 table.pricing-compare tbody tr.section-row td {
     background: var(--background-primary);
     font-weight: 700;
-    font-size: 11px;
+    font-size: var(--font-size-base);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: #9ca3af;
+    color: var(--primary-blue);
 }
 
 table.pricing-compare td.dim {
@@ -4922,7 +5020,7 @@ table.pricing-compare tbody tr:last-child td {
 
 .pricing-faq h2 {
     font-family: var(--font-family-heading);
-    font-size: 32px;
+    font-size: var(--font-size-3xl);
     font-weight: 700;
     text-align: center;
     color: #000000;
@@ -4945,7 +5043,7 @@ table.pricing-compare tbody tr:last-child td {
     cursor: pointer;
     padding: 20px 4px;
     font-family: var(--font-family-primary);
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: 700;
     color: #000000;
     display: flex;
@@ -4956,7 +5054,7 @@ table.pricing-compare tbody tr:last-child td {
 
 .pricing-faq-q .plus {
     flex: none;
-    font-size: 22px;
+    font-size: var(--font-size-xl);
     font-weight: 400;
     color: var(--primary-blue);
     transition: transform 0.18s ease;
@@ -4973,11 +5071,15 @@ table.pricing-compare tbody tr:last-child td {
 }
 
 .pricing-faq-a p {
-    font-size: 15px;
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     line-height: 1.65;
     padding: 0 4px 20px;
     margin: 0;
+}
+
+.pricing-faq-a p.pricing-faq-a--dark {
+    color: var(--text-primary);
 }
 
 @media (max-width: 991px) {
@@ -4986,7 +5088,7 @@ table.pricing-compare tbody tr:last-child td {
     }
 
     .pricing-faq h2 {
-        font-size: 26px;
+        font-size: var(--font-size-2xl);
     }
 }
 
@@ -5001,7 +5103,7 @@ table.pricing-compare tbody tr:last-child td {
     }
 
     .pricing-view-toggle button {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
     }
 
     table.pricing-compare {
@@ -5013,19 +5115,19 @@ table.pricing-compare tbody tr:last-child td {
 
 @media (max-width: 768px) {
     .pricing-section {
-        padding: 40px 20px;
+        padding: 24px 16px;
     }
 
     body:not(.page-pricing) .pricing-section .section-title {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
     }
 
     .go-digital-section {
-        padding: 40px 20px;
+        padding: 24px 16px;
     }
 
     .go-digital-title {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
     }
 
     .go-digital-card .row {
@@ -5053,7 +5155,7 @@ table.pricing-compare tbody tr:last-child td {
     }
 
     .yearly-badge {
-        font-size: 11px;
+        font-size: var(--font-size-xs);
         padding: 5px 11px;
     }
 
@@ -5064,19 +5166,19 @@ table.pricing-compare tbody tr:last-child td {
 
 @media (max-width: 480px) {
     .pricing-section {
-        padding: 30px 15px;
+        padding: 16px 12px;
     }
 
     body:not(.page-pricing) .pricing-section .section-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
     }
 
     .go-digital-section {
-        padding: 30px 15px;
+        padding: 16px 12px;
     }
 
     .go-digital-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
     }
 
     .go-digital-actions {
@@ -5104,7 +5206,7 @@ table.pricing-compare tbody tr:last-child td {
 
     .price-tag,
     .price-currency {
-        font-size: 36px;
+        font-size: var(--font-size-4xl);
     }
 }
 
@@ -5115,7 +5217,7 @@ h1.ms-hero-title,
 .policy-header h1,
 body.page-pricing .pricing-section .section-title {
     font-family: var(--font-family-heading);
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0;
@@ -5135,7 +5237,7 @@ body.page-pricing .pricing-section .section-title {
 /* Global Mobile Typography Optimization — Ensure clear, legible body text across all mobile views */
 @media (max-width: 768px) {
     body {
-        font-size: 15px;
+        font-size: var(--font-size-base);
         line-height: 1.6;
     }
 
@@ -5162,7 +5264,7 @@ body.page-pricing .pricing-section .section-title {
     .step-description,
     .pill-text p,
     .modal-body p {
-        font-size: 15px !important;
+        font-size: var(--font-size-base) !important;
         line-height: 1.6;
     }
 
@@ -5175,7 +5277,7 @@ body.page-pricing .pricing-section .section-title {
     .ms-hero-tagline,
     .policy-header .subtitle,
     body.page-pricing .pricing-section .section-subtitle {
-        font-size: 16px !important;
+        font-size: var(--font-size-base) !important;
         line-height: 1.5;
     }
 
@@ -5187,7 +5289,7 @@ body.page-pricing .pricing-section .section-title {
     .hero-buttons .btn-store,
     .badge-text,
     .caption-text {
-        font-size: 14px !important;
+        font-size: var(--font-size-sm) !important;
     }
 }
 
@@ -5202,7 +5304,7 @@ body.page-pricing .pricing-section .section-title {
     align-items: center;
     gap: 8px;
     font-family: var(--font-family-heading, 'Plus Jakarta Sans', sans-serif);
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     color: var(--primary-blue, #0E65D7);
     text-decoration: none;
@@ -5222,10 +5324,156 @@ body.page-pricing .pricing-section .section-title {
 }
 
 .pricing-detail-link .material-symbols-outlined {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     transition: transform 0.25s ease;
 }
 
 .pricing-detail-link:hover .material-symbols-outlined {
     transform: translateX(4px);
+}
+
+/* Index FAQ section */
+.faq-section {
+    padding: 40px 0;
+    background-color: var(--background-primary);
+    background-image: radial-gradient(rgba(14, 101, 215, 0.08) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+    position: relative;
+}
+
+.faq-section .section-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-section .section-title {
+    text-align: center;
+}
+
+.faq-section .section-subtitle {
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.faq-accordion {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: #ffffff;
+    border: 1px solid rgba(14, 101, 215, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 1px 4px rgba(20, 30, 60, 0.04);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    overflow: hidden;
+}
+
+.faq-item:hover {
+    border-color: rgba(14, 101, 215, 0.25);
+    box-shadow: 0 6px 18px rgba(20, 30, 60, 0.07);
+    transform: translateY(-1px);
+}
+
+.faq-item.open {
+    border-color: rgba(14, 101, 215, 0.35);
+    box-shadow: 0 8px 22px rgba(14, 101, 215, 0.1);
+}
+
+.faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 16px 20px;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.faq-item.open .faq-q-text {
+    color: var(--primary-blue);
+}
+
+.faq-icon {
+    flex: none;
+    font-size: var(--font-size-lg);
+    color: var(--primary-blue);
+    background: rgba(14, 101, 215, 0.08);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.faq-item.open .faq-icon {
+    transform: rotate(180deg);
+    background: var(--primary-blue);
+    color: #ffffff;
+}
+
+.faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+
+.faq-a p {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 0 20px 16px;
+    margin: 0;
+}
+
+@media (max-width: 991px) {
+    .faq-section {
+        padding: 32px 0;
+    }
+
+    .faq-section .section-title {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+@media (max-width: 767px) {
+    .faq-section {
+        padding: 24px 16px;
+    }
+
+    .faq-section .section-header {
+        margin-bottom: 18px;
+    }
+
+    .faq-q {
+        padding: 14px 16px;
+        font-size: var(--font-size-sm);
+    }
+
+    .faq-a p {
+        padding: 0 16px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-section {
+        padding: 16px 12px;
+    }
+
+    .faq-section .section-header {
+        margin-bottom: 16px;
+    }
 }

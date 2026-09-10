@@ -798,22 +798,68 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title">Pricing <span class="text-highlight-blue">& Plans</span></h2>
-                <p class="section-subtitle">Choose what suits you best — no setup hassle, no hidden cost.</p>
+                <p class="section-subtitle">Start free. Every doctor gets a verified digital identity at no cost —
+                    upgrade whenever your practice needs deeper infrastructure.</p>
             </div>
 
             <div class="pricing-toggle-container">
                 <div class="pricing-toggle-wrapper">
                     <span class="pricing-toggle-thumb" aria-hidden="true"></span>
-                    <button class="toggle-btn active" id="monthlyBtn" type="button">MONTHLY</button>
-                    <button class="toggle-btn toggle-btn-yearly" id="yearlyBtn" type="button">
-                        <span>YEARLY</span>
-                        <span class="yearly-badge">20% off</span>
+                    <button class="toggle-btn" id="sixMonthBtn" type="button">
+                        <span>6 MONTHS</span>
+                        <span class="yearly-badge">Save 10%</span>
+                    </button>
+                    <button class="toggle-btn toggle-btn-yearly active" id="twelveMonthBtn" type="button">
+                        <span>12 MONTHS</span>
+                        <span class="yearly-badge">Save 20%</span>
                     </button>
                 </div>
             </div>
+            <p class="pricing-billing-note" id="billing-note">Prices shown are per month, billed every 12 months —
+                you save 20% vs the base rate.</p>
 
-            <div class="row gy-4 gx-lg-5 align-items-stretch mt-40">
-                <div class="col-lg-4">
+            <div class="pricing-proof-strip">
+                <div class="proof-avatars">
+                    <span>SK</span>
+                    <span>RM</span>
+                    <span>AP</span>
+                    <span>+</span>
+                </div>
+                <p class="pricing-proof-text"><strong>2,300+ doctors</strong> across India already run their digital
+                    infrastructure on DigiDr</p>
+            </div>
+
+            <div class="row gy-4 gx-lg-4 align-items-stretch mt-40">
+                <div class="col-lg-3">
+                    <div class="pricing-card pricing-card--lite">
+                        <h3 class="plan-name">Lite</h3>
+                        <span class="plan-subtitle">Verified presence</span>
+                        <p class="plan-description">A verified digital identity online for any doctor — no cost, no
+                            card required.</p>
+
+                        <div class="price-tag">
+                            <div class="price-line-with-label">
+                                <div class="price-line">
+                                    <span class="price-free-value">Free</span>
+                                </div>
+                            </div>
+                            <p class="price-forever">Free forever. No card needed.</p>
+                        </div>
+
+                        <ul class="features-list">
+                            <li><span class="check-icon"></span>Verified doctor profile</li>
+                            <li><span class="check-icon"></span>Basic microsite</li>
+                            <li><span class="check-icon"></span><strong>2</strong>&nbsp;weekly posts · 2 platforms</li>
+                            <li><span class="check-icon"></span><strong>1</strong>&nbsp;mailer / month</li>
+                            <li><span class="check-icon"></span>Manual appointment listing</li>
+                        </ul>
+
+                        <button class="btn btn-dark-custom" type="button" data-download-modal-open>Create free
+                            profile</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
                     <div class="pricing-card pricing-card--classic">
                         <h3 class="plan-name">Classic</h3>
                         <span class="plan-subtitle">Starter infrastructure</span>
@@ -824,129 +870,85 @@
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="3,499">3,499</span>
+                                    <span class="price-value" data-monthly="3,499">2,799</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Save ₹8,400/yr on annual billing</p>
-                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
-                                        class="price-was-amount">3,499</span>/month</s> at monthly billing</p>
+                            <p class="price-annual-save">Billed ₹33,588 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
                         </div>
 
-                        <div class="features-block">
-                            <h4 class="features-category">Digital identity</h4>
-                            <ul class="features-list">
-                                <li><span class="check-icon"></span>Verified doctor profile + smart microsite</li>
-                                <li><span class="check-icon"></span>English-language AI content layer</li>
-                                <li><span class="check-icon"></span>6 speciality posts / month</li>
-                                <li><span class="check-icon"></span>2-3 Additional posts for Health and special Days /
-                                    month</li>
-                                <li><span class="check-icon"></span>1 Reel + 1 YouTube Short / month</li>
-                                <li><span class="check-icon"></span>1 email campaign / month</li>
-                            </ul>
-                            <h4 class="features-category">Operations</h4>
-                            <ul class="features-list">
-                                <li><span class="check-icon"></span>Appointment scheduling</li>
-                                <li><span class="check-icon"></span>Standard analytics dashboard</li>
-                            </ul>
-                            <ul class="features-list features-list--excluded">
-                                <li><span class="x-icon"></span>Diagnostic referral tracking</li>
-                                <li><span class="x-icon"></span>Regional language content</li>
-                                <li><span class="x-icon"></span>Blog posts</li>
-                            </ul>
-                        </div>
+                        <ul class="features-list">
+                            <li><span class="check-icon"></span>Smart microsite + Google SEO</li>
+                            <li><span class="check-icon"></span><strong>6</strong>&nbsp;social posts / month</li>
+                            <li><span class="check-icon"></span>1 Reel · 1 Short · 1 email/month</li>
+                            <li><span class="check-icon"></span>Scheduling + payment gateway</li>
+                            <li><span class="check-icon"></span>Standard analytics + support</li>
+                        </ul>
 
                         <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
                             trial</button>
                     </div>
                 </div>
 
-                <div class="col-lg-4 pricing-card-wrapper-highlighted">
+                <div class="col-lg-3 pricing-card-wrapper-highlighted">
                     <div class="pricing-card highlighted">
                         <div class="doctors-choice-badge">DOCTOR'S TOP CHOICE</div>
 
                         <h3 class="plan-name">Premium</h3>
                         <span class="plan-subtitle">Growing practice</span>
-                        <p class="plan-description">Active clinic expanding patient reach with richer content and deeper
-                            analytics.</p>
+                        <p class="plan-description">Growing practice with richer content, deeper analytics, and stronger
+                            patient engagement.</p>
 
                         <div class="price-tag">
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="4,499">4,499</span>
+                                    <span class="price-value" data-monthly="4,499">3,599</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Save ₹10,800/yr on annual billing</p>
-                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
-                                        class="price-was-amount">4,499</span>/month</s> at monthly billing</p>
+                            <p class="price-annual-save">Billed ₹43,188 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
                         </div>
 
-                        <div class="features-block">
-                            <h4 class="features-category">Digital identity</h4>
-                            <ul class="features-list">
-                                <li><span class="check-icon"></span>Everything in Classic</li>
-                                <li><span class="check-icon"></span>English + 1 regional language</li>
-                                <li><span class="check-icon"></span>8 speciality posts / month</li>
-                                <li><span class="check-icon"></span>2-3 Additional posts for Health and special Days /
-                                    month</li>
-                                <li><span class="check-icon"></span>2 Reels + 2 YouTube Shorts</li>
-                                <li><span class="check-icon"></span>3 email campaigns + 3 blog posts / month</li>
-                            </ul>
-                            <h4 class="features-category">Operations</h4>
-                            <ul class="features-list">
-                                <li><span class="check-icon"></span>Diagnostic referral tracking</li>
-                                <li><span class="check-icon"></span>Advanced analytics dashboard</li>
-                                <li><span class="check-icon"></span>Patient reminders + follow-ups</li>
-                            </ul>
-                            <ul class="features-list features-list--excluded">
-                                <li><span class="x-icon"></span>Webinars / live Q&amp;A sessions</li>
-                            </ul>
-                        </div>
+                        <ul class="features-list">
+                            <li><span class="check-icon"></span>Everything in Classic, plus:</li>
+                            <li><span class="check-icon"></span>English + 1 regional language</li>
+                            <li><span class="check-icon"></span><strong>8</strong>&nbsp;posts · 3 blogs · 3 emails/month</li>
+                            <li><span class="check-icon"></span>Patient reminders &amp; follow-ups</li>
+                            <li><span class="check-icon"></span>Advanced analytics + priority support</li>
+                        </ul>
 
                         <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
                             trial</button>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="pricing-card pricing-card--pro">
+                        <div class="full-stack-badge">Full-stack</div>
                         <h3 class="plan-name">Pro</h3>
-                        <span class="plan-subtitle">Advanced infrastructure</span>
-                        <p class="plan-description">High-volume practice requiring full digital infrastructure.</p>
+                        <span class="plan-subtitle">Full-stack digital infrastructure</span>
+                        <p class="plan-description">Individual doctor requiring full-stack digital infrastructure across
+                            content, referrals, and analytics.</p>
 
                         <div class="price-tag">
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="5,499">5,499</span>
+                                    <span class="price-value" data-monthly="5,499">4,399</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Save ₹13,200/yr on annual billing</p>
-                            <p class="price-was-row"><s><span class="price-was-currency">₹</span><span
-                                        class="price-was-amount">5,499</span>/month</s> at monthly billing</p>
+                            <p class="price-annual-save">Billed ₹52,788 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
                         </div>
 
-                        <div class="features-block">
-                            <h4 class="features-category">Digital identity</h4>
-                            <ul class="features-list">
-                                <li><span class="check-icon"></span>Everything in Premium</li>
-                                <li><span class="check-icon"></span>English + Hindi + 1 regional language</li>
-                                <li><span class="check-icon"></span>14 speciality posts / month</li>
-                                <li><span class="check-icon"></span>2-3 Additional posts for Health and special Days /
-                                    month</li>
-                                <li><span class="check-icon"></span>4 Reels + 4 YouTube Shorts</li>
-                                <li><span class="check-icon"></span>4 blogs + 4 email campaigns / month</li>
-                            </ul>
-                            <h4 class="features-category">Operations</h4>
-                            <ul class="features-list">
-                                <li><span class="check-icon"></span>Advanced+ analytics + referral intelligence</li>
-                                <li><span class="check-icon"></span>2 webinars + 1 web Q&amp;A / month</li>
-                                <li><span class="check-icon"></span>Priority support + onboarding call</li>
-                            </ul>
-                        </div>
+                        <ul class="features-list">
+                            <li><span class="check-icon"></span>Everything in Premium, plus:</li>
+                            <li><span class="check-icon"></span>English + Hindi + 1 regional</li>
+                            <li><span class="check-icon"></span><strong>14</strong>&nbsp;posts · 4 blogs · 4 emails/month</li>
+                            <li><span class="check-icon"></span>Full referral intelligence + 2 webinars/month</li>
+                            <li><span class="check-icon"></span>Advanced+ analytics, dedicated onboarding</li>
+                        </ul>
 
                         <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
                             trial</button>
@@ -1025,6 +1027,72 @@
             </div>
         </div>
     </section> -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title">Frequently Asked <span class="highlight">Questions</span></h3>
+                <p class="section-subtitle">Everything you need to know before going digital.</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span class="faq-q-text">What is DigiDr?</span>
+                        <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="faq-a">
+                        <p>DigiDr is an autonomous AI agent system that builds and manages a doctor's digital identity, profile, content, appointments, and referrals, without manual effort.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span class="faq-q-text">Is DigiDr an app or an AI system?</span>
+                        <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="faq-a">
+                        <p>DigiDr is not a standalone app. It's an agentic product: an orchestrator coordinating specialised AI agents (research, content creation, publishing, analytics) that work together automatically.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span class="faq-q-text">Who owns the content DigiDr publishes?</span>
+                        <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="faq-a">
+                        <p>The doctor. All content publishes from the doctor's own professional handles, under their own name, DigiDr never owns or rents the identity.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span class="faq-q-text">How is DigiDr different from a social media manager or content agency?</span>
+                        <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="faq-a">
+                        <p>DigiDr runs continuously and autonomously via AI agents, no manual posting, no retainer, no delays. It's infrastructure, not a service.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span class="faq-q-text">Does DigiDr work in regional languages?</span>
+                        <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="faq-a">
+                        <p>Yes. Content is generated in English, Hindi, and regional languages depending on plan, calibrated to the doctor's speciality and locality.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span class="faq-q-text">How fast can a doctor go live on DigiDr?</span>
+                        <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="faq-a">
+                        <p>A verified profile, microsite, and content layer can go live within minutes to hours of onboarding, no developer or design work required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div id="footer-mount"></div>
     <script src="js/footer.js"></script>
 

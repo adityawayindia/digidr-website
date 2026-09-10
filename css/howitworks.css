@@ -1,7 +1,7 @@
 .hiw-page {
     position: relative;
     overflow-x: clip;
-    padding-top: 110px;
+    padding-top: 80px;
 }
 
 .hiw-page>.hero-aurora {
@@ -35,7 +35,7 @@
 }
 
 .hiw-subtitle {
-    font-size: 16px;
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     margin: 0;
 }
@@ -181,21 +181,21 @@
     justify-content: center;
     background: var(--gradient-blue);
     color: #ffffff;
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     font-weight: 700;
     margin-bottom: 12px;
 }
 
 .hiw-step-title {
     margin: 0 0 10px 0;
-    font-size: 18px;
+    font-size: var(--font-size-md);
     font-weight: 700;
     color: #000000;
 }
 
 .hiw-step-text {
     margin: 0 0 14px 0;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     line-height: 1.7;
     color: #353542;
     max-width: 520px;
@@ -217,7 +217,7 @@
     border: 1px solid rgba(14, 101, 215, 0.18);
     background: rgba(14, 101, 215, 0.08);
     color: var(--primary-blue);
-    font-size: 12px;
+    font-size: var(--font-size-xs);
     font-weight: 600;
 }
 
@@ -228,7 +228,7 @@
     border: none;
     border-radius: 25px;
     padding: 12px 22px;
-    font-size: 13px;
+    font-size: var(--font-size-xs);
     font-weight: 700;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -269,11 +269,11 @@
 
 @media (max-width: 768px) {
     .hiw-page {
-        padding-top: 120px;
+        padding-top: 96px;
     }
 
     .hiw-hero {
-        padding: 35px 0 20px;
+        padding: 0 0 20px;
     }
 
     .hiw-step-card {
@@ -295,17 +295,17 @@
     .hiw-step-number {
         width: 24px;
         height: 24px;
-        font-size: 12px;
+        font-size: var(--font-size-xs);
         margin-bottom: 8px;
     }
 
     .hiw-step-title {
-        font-size: 17px;
+        font-size: var(--font-size-md);
         margin-bottom: 8px;
     }
 
     .hiw-step-text {
-        font-size: 13px;
+        font-size: var(--font-size-sm);
         line-height: 1.5;
         margin-bottom: 10px;
     }
@@ -316,7 +316,7 @@
 
     .hiw-tag {
         padding: 5px 10px;
-        font-size: 11px;
+        font-size: var(--font-size-xxs);
     }
 }
 
@@ -337,11 +337,11 @@
     }
 
     .hiw-step-title {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .hiw-step-text {
-        font-size: 12px;
+        font-size: var(--font-size-xs);
         line-height: 1.45;
     }
 }

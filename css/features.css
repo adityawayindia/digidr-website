@@ -1,6 +1,6 @@
 
 .features-page-why-love-section {
-    padding: 140px 0;
+    padding: 130px 0 140px;
     position: relative;
     background: transparent;
 }
@@ -71,7 +71,7 @@
 }
 
 .features-page-offers-item-chevron .material-symbols-outlined {
-    font-size: 24px;
+    font-size: var(--font-size-xl);
 }
 
 .features-page-offers-inline-body {
@@ -138,13 +138,13 @@
 }
 
 .features-page-offers-item-icon .material-symbols-outlined {
-    font-size: 22px;
+    font-size: var(--font-size-xl);
     color: #ffffff;
     font-weight: 400;
 }
 
 .features-page-offers-item-title {
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     color: #000000;
     line-height: 1.35;
@@ -237,7 +237,7 @@
     gap: 16px;
     width: 100%;
     font-family: var(--font-family-primary);
-    font-size: 15px;
+    font-size: var(--font-size-base);
     font-weight: 400;
     line-height: 1.65;
     color: #353542;
@@ -260,7 +260,7 @@
 
 .features-page-offers-panel-heading {
     font-family: var(--font-family-heading);
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     font-weight: 700;
     color: #000000;
     line-height: 1.4;
@@ -364,7 +364,7 @@
 }
 
 .features-page-mission-title {
-    font-size: 40px;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     margin: 0 0 18px;
     color: #000000;
@@ -372,7 +372,7 @@
 }
 
 .features-page-mission-quote {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     color: #333333;
     line-height: 1.7;
     margin: 0 0 26px;
@@ -382,7 +382,7 @@
 .features-page-mission-quote-mark {
     color: var(--primary-blue);
     font-weight: 700;
-    font-size: 22px;
+    font-size: var(--font-size-xl);
     line-height: 0;
     position: relative;
     top: 2px;
@@ -398,12 +398,12 @@
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
+    font-size: var(--font-size-base);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .features-page-mission-btn .material-symbols-outlined {
-    font-size: 20px;
+    font-size: var(--font-size-lg);
 }
 
 .features-page-mission-btn:hover {
@@ -447,11 +447,11 @@
     }
 
     .features-page-offers-stack-panel-content {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .features-page-offers-panel-heading {
-        font-size: 19px;
+        font-size: var(--font-size-lg);
     }
 
     .features-page-mission-card {
@@ -459,7 +459,7 @@
     }
 
     .features-page-mission-title {
-        font-size: 36px;
+        font-size: var(--font-size-4xl);
     }
 
     .features-page-mission-image {
@@ -470,7 +470,7 @@
 
 @media (max-width: 768px) {
     .features-page-why-love-section {
-        padding: 40px 20px;
+        padding: 96px 20px 40px;
     }
 
     .features-page-why-love-header {
@@ -544,11 +544,11 @@
     }
 
     .features-page-offers-item-icon .material-symbols-outlined {
-        font-size: 20px;
+        font-size: var(--font-size-lg);
     }
 
     .features-page-offers-item-title {
-        font-size: 15px;
+        font-size: var(--font-size-base);
         flex: 1;
         min-width: 0;
     }
@@ -582,7 +582,7 @@
 
     .features-page-offers-inline-body {
         font-family: var(--font-family-primary);
-        font-size: 15px;
+        font-size: var(--font-size-base);
         font-weight: 400;
         line-height: 1.65;
         color: #353542;
@@ -629,11 +629,11 @@
     }
 
     .features-page-mission-title {
-        font-size: 32px;
+        font-size: var(--font-size-3xl);
     }
 
     .features-page-mission-quote {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 
     .features-page-mission-image {
@@ -645,7 +645,7 @@
 
 @media (max-width: 480px) {
     .features-page-why-love-section {
-        padding: 140px 15px;
+        padding: 88px 15px 30px;
     }
 
     .features-page-why-love-header {
@@ -653,15 +653,15 @@
     }
 
     .features-page-offers-item-title {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .features-page-offers-stack-panel-content {
-        font-size: 15px;
+        font-size: var(--font-size-base);
     }
 
     .features-page-offers-panel-heading {
-        font-size: 18px;
+        font-size: var(--font-size-md);
     }
 
     .features-page-mission-card {
@@ -669,7 +669,7 @@
     }
 
     .features-page-mission-title {
-        font-size: 28px;
+        font-size: var(--font-size-2xl);
     }
 
     .features-page-mission-image {
