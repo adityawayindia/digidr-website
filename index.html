@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJND0R16D5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-EJND0R16D5');
+    </script>
 
     <!-- Primary GEO Meta Tags -->
     <title>DigiDr | AI Digital Infrastructure for Doctors</title>
@@ -192,6 +201,7 @@
 
     <div id="navbar-mount" data-nav-active="home"></div>
     <script src="js/navbar.js"></script>
+    <script src="js/analytics.js"></script>
 
 
     <!-- Bootstrap JS -->
@@ -223,21 +233,22 @@
 
                 <div class="hero-buttons hero-intro__actions">
                     <a href="https://play.google.com/store/apps/details?id=com.wayindia.digidrapp" class="btn btn-store"
-                        data-store="play" aria-label="Get it on Google Play" target="_blank" rel="noopener noreferrer">
+                        data-store="play" aria-label="Get it on Google Play" target="_blank" rel="noopener noreferrer"
+                        data-ga="cta_play_store">
                         <span class="btn-store-icon" aria-hidden="true">
                             <img src="img/play_store.png" alt="">
                         </span>
                         <span class="btn-store-text">Play Store</span>
                     </a>
                     <a href="javascript:void(0)" class="btn btn-store" data-store="app"
-                        aria-label="App Store (Coming Soon)">
+                        aria-label="App Store (Coming Soon)" data-ga="cta_app_store_soon">
                         <span class="btn-store-icon" aria-hidden="true">
                             <img src="img/app_store.png" alt="">
                         </span>
                         <span class="btn-store-text">App Store</span>
                     </a>
                     <a href="https://web.digidr.app/" class="btn btn-store" data-store="web"
-                        aria-label="Open DigiDr on the web">
+                        aria-label="Open DigiDr on the web" data-ga="cta_view_demo_web">
                         <span class="btn-store-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
@@ -346,7 +357,7 @@
                         profile, microsite, AI content, appointment system, and referral tracking — always on.</p>
                 </div>
             </div>
-            <div class="scroll-to-solution" data-scroll-target="#how-it-works">
+            <div class="scroll-to-solution" data-scroll-target="#how-it-works" data-ga="scroll_to_how_it_works">
                 <p class="scroll-to-solution-text">
                     See How DigiDr Works
                     <span class="material-symbols-outlined scroll-to-solution-arrow"
@@ -854,7 +865,7 @@
                             <li><span class="check-icon"></span>Manual appointment listing</li>
                         </ul>
 
-                        <button class="btn btn-dark-custom" type="button" data-download-modal-open>Create free
+                        <button class="btn btn-dark-custom" type="button" data-download-modal-open data-ga="cta_start_free_lite">Create free
                             profile</button>
                     </div>
                 </div>
@@ -885,7 +896,7 @@
                             <li><span class="check-icon"></span>Standard analytics + support</li>
                         </ul>
 
-                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open data-ga="cta_start_trial_classic">Start free
                             trial</button>
                     </div>
                 </div>
@@ -918,7 +929,7 @@
                             <li><span class="check-icon"></span>Advanced analytics + priority support</li>
                         </ul>
 
-                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open data-ga="cta_start_trial_premium">Start free
                             trial</button>
                     </div>
                 </div>
@@ -950,14 +961,14 @@
                             <li><span class="check-icon"></span>Advanced+ analytics, dedicated onboarding</li>
                         </ul>
 
-                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open data-ga="cta_start_trial_pro">Start free
                             trial</button>
                     </div>
                 </div>
             </div>
 
             <div class="pricing-detail-link-container">
-                <a href="pricing.html" class="pricing-detail-link">
+                <a href="pricing.html" class="pricing-detail-link" data-ga="cta_view_plan_comparison">
                     View Detailed Plan Comparison
                     <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                 </a>

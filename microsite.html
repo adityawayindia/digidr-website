@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJND0R16D5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-EJND0R16D5');
+    </script>
+
     <title>DigiDr Microsite | Your Doctor's Smart Website</title>
     <meta name="description"
         content="Every doctor gets a ready-to-use, GEO-optimized microsite with profile, services, reviews, and booking. Build your digital presence in minutes with DigiDr.">
@@ -72,6 +82,7 @@
 <body class="page-rounded page-microsite">
     <div id="navbar-mount" data-nav-active="microsite"></div>
     <script src="js/navbar.js"></script>
+    <script src="js/analytics.js"></script>
 
 
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
@@ -95,7 +106,7 @@
             reviews, appointment booking, and consultation payments. Live in minutes. No developer. No agency.
         </p>
         <div class="ms-hero-actions">
-            <a class="ms-hero-btn" href="#" data-download-modal-open>Get your microsite free <span
+            <a class="ms-hero-btn" href="#" data-download-modal-open data-ga="cta_microsite_get_free_hero">Get your microsite free <span
                     class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
             <p class="ms-hero-trust">Live in minutes &nbsp;·&nbsp; No developer needed &nbsp;·&nbsp; Cancel anytime</p>
         </div>
@@ -470,7 +481,7 @@
                             name.</span></h2>
                     <p class="ms-cta-text">Get your verified doctor profile and smart microsite live in under 60
                         minutes.</p>
-                    <a class="ms-cta-btn" id="openMissionModal" href="#">Get your microsite free<span
+                    <a class="ms-cta-btn" id="openMissionModal" href="#" data-ga="cta_microsite_get_free_bottom">Get your microsite free<span
                             class="material-symbols-outlined">arrow_forward</span></a>
                 </div>
             </div>

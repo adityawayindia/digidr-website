@@ -52,6 +52,7 @@
                 lastFocusedElement = document.activeElement;
                 modal.classList.add('is-visible');
                 modal.setAttribute('aria-hidden', 'false');
+                if (window.digidrTrack) window.digidrTrack('mission_modal_open');
                 previousBodyOverflow = document.body.style.overflow;
                 document.body.style.overflow = 'hidden';
 
@@ -259,6 +260,13 @@
             modal.__digidrBound = true;
 
             initCustomSelects(modal);
+
+            var form = modal.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function () {
+                    if (window.digidrTrack) window.digidrTrack('mission_form_submit');
+                });
+            }
 
             modal.addEventListener('click', function (e) {
                 var target = e.target;

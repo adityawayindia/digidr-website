@@ -181,6 +181,7 @@
 
     function openChat() {
         isOpen = true;
+        if (window.digidrTrack) window.digidrTrack('chatbot_open');
         wrap.classList.add('is-open');
         wrap.classList.remove('chatbot-fab-wrap--hero-hidden');
         fab.setAttribute('aria-expanded', 'true');
@@ -277,7 +278,10 @@
     inputEl.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
-            if (!sendBtn.disabled) sendMessage(inputEl.value);
+            if (!sendBtn.disabled) {
+                if (window.digidrTrack) window.digidrTrack('chatbot_message_sent');
+                sendMessage(inputEl.value);
+            }
         }
     });
 
@@ -295,6 +299,7 @@
     }
 
     sendBtn.addEventListener('click', function () {
+        if (window.digidrTrack) window.digidrTrack('chatbot_message_sent');
         sendMessage(inputEl.value);
     });
 
@@ -302,6 +307,7 @@
     suggestions.addEventListener('click', function (e) {
         var chip = e.target.closest('.chatbot-suggestion-chip');
         if (!chip) return;
+        if (window.digidrTrack) window.digidrTrack('chatbot_suggestion_click', { suggestion: chip.textContent.trim() });
         sendMessage(chip.textContent);
     });
 

@@ -185,7 +185,13 @@ function togglePill(header) {
     });
 
     // Toggle current pill menu
+    const willOpen = !pillMenu.classList.contains('active');
     pillMenu.classList.toggle('active');
+
+    if (willOpen && window.digidrTrack) {
+        const titleEl = header.querySelector('.pill-text h4');
+        window.digidrTrack('howitworks_pill_toggle', { step_title: titleEl ? titleEl.textContent.trim() : '' });
+    }
 }
 
 // Posts Carousel — Continuous Super-Smooth Infinite Scroll Engine
@@ -459,9 +465,17 @@ document.addEventListener('DOMContentLoaded', function () {
         window.dispatchEvent(new CustomEvent('pricing-mode-changed'));
     }
 
+    // 6-month discount is flat across every plan; 12-month discount cascades
+    // by plan so higher tiers carry a bigger annual saving.
+    var DISCOUNT_12MO_BY_PLAN = { classic: 0.15, premium: 0.20, pro: 0.25 };
+
+    function discountFor(plan, isTwelve) {
+        if (!isTwelve) return 0.10;
+        return DISCOUNT_12MO_BY_PLAN[plan] || 0.20;
+    }
+
     function setBillingMode(term) {
         const isTwelve = term === '12';
-        const discount = isTwelve ? 0.20 : 0.10;
         const months = isTwelve ? 12 : 6;
 
         if (pricingSection) {
@@ -471,6 +485,8 @@ document.addEventListener('DOMContentLoaded', function () {
         priceValues.forEach(function (pv) {
             const monthlyStr = pv.getAttribute('data-monthly');
             if (!monthlyStr) return;
+
+            const discount = discountFor(pv.getAttribute('data-plan'), isTwelve);
 
             pv.textContent = discountedFromMonthly(monthlyStr, discount);
 
@@ -490,19 +506,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (billingNote) {
             billingNote.textContent = isTwelve
-                ? 'Prices shown are per month, billed every 12 months — you save 20% vs the base rate.'
-                : 'Prices shown are per month, billed every 6 months — you save 10% vs the base rate.';
+                ? 'Prices shown are per month, billed every 12 months — savings grow with your plan, up to 25% on Pro.'
+                : 'Prices shown are per month, billed every 6 months — you save 10% on any plan.';
         }
     }
 
     sixBtn.addEventListener('click', function () {
         if (sixBtn.classList.contains('active')) return;
         setActiveToggle(sixBtn, '6');
+        if (window.digidrTrack) window.digidrTrack('pricing_billing_toggle', { period: '6_months' });
     });
 
     twelveBtn.addEventListener('click', function () {
         if (twelveBtn.classList.contains('active')) return;
         setActiveToggle(twelveBtn, '12');
+        if (window.digidrTrack) window.digidrTrack('pricing_billing_toggle', { period: '12_months' });
     });
 
     var resizeTimer;
@@ -541,30 +559,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cardsWrap.classList.toggle('is-hidden', isCompare);
             compareWrap.classList.toggle('is-visible', isCompare);
             window.dispatchEvent(new CustomEvent('pricing-mode-changed'));
-        });
-    });
-});
-
-// Pricing FAQ accordion
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.pricing-faq-item').forEach(function (item) {
-        const q = item.querySelector('.pricing-faq-q');
-        const a = item.querySelector('.pricing-faq-a');
-        if (!q || !a) return;
-        q.addEventListener('click', function () {
-            const isOpen = item.classList.contains('open');
-            document.querySelectorAll('.pricing-faq-item.open').forEach(function (openItem) {
-                if (openItem === item) return;
-                openItem.classList.remove('open');
-                openItem.querySelector('.pricing-faq-a').style.maxHeight = null;
-            });
-            if (isOpen) {
-                item.classList.remove('open');
-                a.style.maxHeight = null;
-            } else {
-                item.classList.add('open');
-                a.style.maxHeight = a.scrollHeight + 'px';
-            }
+            if (window.digidrTrack) window.digidrTrack('pricing_view_toggle', { view: isCompare ? 'compare' : 'cards' });
         });
     });
 });
@@ -591,6 +586,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 item.classList.add('open');
                 q.setAttribute('aria-expanded', 'true');
                 a.style.maxHeight = a.scrollHeight + 'px';
+                if (window.digidrTrack) {
+                    var qText = item.querySelector('.faq-q-text');
+                    window.digidrTrack('faq_toggle', { question: qText ? qText.textContent.trim() : '' });
+                }
             }
         });
     });
@@ -763,6 +762,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 left: cards[index].offsetLeft - deck.offsetLeft,
                 behavior: 'smooth'
             });
+            if (window.digidrTrack) window.digidrTrack('pricing_carousel_dot', { plan_index: index });
         });
     });
 
@@ -795,6 +795,18 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.addEventListener('click', function (event) {
             if (event.target && event.target.closest('[data-download-modal-close]')) {
                 closeModal();
+            }
+        });
+
+        modal.addEventListener('click', function (event) {
+            var webOption = event.target.closest('.download-modal-option--web');
+            if (webOption && window.digidrTrack) {
+                window.digidrTrack('download_modal_option_web');
+                return;
+            }
+            var playOption = event.target.closest('.download-modal-option[href*="play.google.com"]');
+            if (playOption && window.digidrTrack) {
+                window.digidrTrack('download_modal_option_play');
             }
         });
     }
@@ -830,6 +842,7 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.classList.add('is-visible');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        if (window.digidrTrack) window.digidrTrack('download_modal_open');
 
         requestAnimationFrame(function () {
             modal.classList.add('is-open');

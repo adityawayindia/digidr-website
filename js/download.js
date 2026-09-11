@@ -52,7 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event to floating download button
     const floatingDownloadBtn = document.getElementById('floatingDownloadBtn');
     if (floatingDownloadBtn) {
-        floatingDownloadBtn.addEventListener('click', downloadApp);
+        floatingDownloadBtn.addEventListener('click', function () {
+            if (window.digidrTrack) window.digidrTrack('floating_download_click');
+            downloadApp();
+        });
     }
 });
 

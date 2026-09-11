@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJND0R16D5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-EJND0R16D5');
+    </script>
+
     <title>DigiDr Pricing</title>
     <meta name="description"
         content="Explore DigiDr's flexible pricing plans for doctors and clinics. Affordable digital healthcare solutions with AI-powered features, appointment management, and patient engagement tools.">
@@ -74,7 +84,7 @@
             "@type": "AggregateOffer",
             "priceCurrency": "INR",
             "lowPrice": "0",
-            "highPrice": "5499",
+            "highPrice": "4949",
             "offerCount": "4",
             "offers": [
                 {
@@ -88,8 +98,8 @@
                 {
                     "@type": "Offer",
                     "name": "Classic",
-                    "description": "Starter infrastructure for a solo practitioner establishing a verified digital identity for the first time.",
-                    "price": "3499",
+                    "description": "Your first verified, SEO-ready identity.",
+                    "price": "3149",
                     "priceCurrency": "INR",
                     "billingIncrement": "P1M",
                     "url": "https://digidr.app/pricing.html"
@@ -97,8 +107,8 @@
                 {
                     "@type": "Offer",
                     "name": "Premium",
-                    "description": "For a growing practice with richer content, deeper analytics, and stronger patient engagement.",
-                    "price": "4499",
+                    "description": "Richer content, deeper patient engagement.",
+                    "price": "4049",
                     "priceCurrency": "INR",
                     "billingIncrement": "P1M",
                     "url": "https://digidr.app/pricing.html"
@@ -106,8 +116,8 @@
                 {
                     "@type": "Offer",
                     "name": "Pro",
-                    "description": "Full-stack digital infrastructure across content, referrals, and analytics for an individual doctor.",
-                    "price": "5499",
+                    "description": "Full-stack: content, referrals, analytics.",
+                    "price": "4949",
                     "priceCurrency": "INR",
                     "billingIncrement": "P1M",
                     "url": "https://digidr.app/pricing.html"
@@ -122,6 +132,7 @@
 
     <div id="navbar-mount" data-nav-active="pricing"></div>
     <script src="js/navbar.js"></script>
+    <script src="js/analytics.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
@@ -145,12 +156,12 @@
                     </button>
                     <button class="toggle-btn toggle-btn-yearly active" id="twelveMonthBtn" type="button">
                         <span>12 MONTHS</span>
-                        <span class="yearly-badge">Save 20%</span>
+                        <span class="yearly-badge">Save 25%</span>
                     </button>
                 </div>
             </div>
             <p class="pricing-billing-note" id="billing-note">Prices shown are per month, billed every 12 months —
-                you save 20% vs the base rate.</p>
+                savings grow with your plan, up to 25% on Pro.</p>
 
             <div class="pricing-proof-strip">
                 <div class="proof-avatars">
@@ -177,8 +188,7 @@
                     <div class="pricing-card pricing-card--lite">
                         <h3 class="plan-name">Lite</h3>
                         <span class="plan-subtitle">Verified presence</span>
-                        <p class="plan-description">A verified digital identity online for any doctor — no cost, no
-                            card required.</p>
+                        <p class="plan-description">A verified presence online — no cost, no card.</p>
 
                         <div class="price-tag">
                             <div class="price-line-with-label">
@@ -186,18 +196,18 @@
                                     <span class="price-free-value">Free</span>
                                 </div>
                             </div>
-                            <p class="price-forever">Free forever. No card needed.</p>
+                            <p class="price-forever">Free forever.</p>
                         </div>
 
                         <ul class="features-list">
                             <li><span class="check-icon"></span>Verified doctor profile</li>
                             <li><span class="check-icon"></span>Basic microsite</li>
-                            <li><span class="check-icon"></span><strong>2</strong>&nbsp;weekly posts · 2 platforms</li>
+                            <li><span class="check-icon"></span><strong>1</strong>&nbsp;weekly post · 2 platforms</li>
                             <li><span class="check-icon"></span><strong>1</strong>&nbsp;mailer / month</li>
                             <li><span class="check-icon"></span>Manual appointment listing</li>
                         </ul>
 
-                        <button class="btn btn-dark-custom" type="button" data-download-modal-open>Create free
+                        <button class="btn btn-dark-custom" type="button" data-download-modal-open data-ga="cta_start_free_lite">Create free
                             profile</button>
                     </div>
                 </div>
@@ -206,29 +216,30 @@
                     <div class="pricing-card pricing-card--classic">
                         <h3 class="plan-name">Classic</h3>
                         <span class="plan-subtitle">Starter infrastructure</span>
-                        <p class="plan-description">Solo practitioner establishing a verified digital identity for the
-                            first time.</p>
+                        <p class="plan-description">Your first verified, SEO-ready identity.</p>
 
                         <div class="price-tag">
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="3,499">2,799</span>
+                                    <span class="price-value" data-monthly="3,499" data-plan="classic">3,149</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Billed ₹33,588 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
+                            <p class="price-annual-save">Billed ₹18,895 every 6 months.<br><strong class="price-save-highlight">Save 10%</strong></p>
                         </div>
 
                         <ul class="features-list">
-                            <li><span class="check-icon"></span>Smart microsite + Google SEO</li>
-                            <li><span class="check-icon"></span><strong>6</strong>&nbsp;social posts / month</li>
-                            <li><span class="check-icon"></span>1 Reel · 1 Short · 1 email/month</li>
+                            <li><span class="check-icon"></span>Smart microsite</li>
+                            <li><span class="check-icon"></span><span class="feat-with-icons"><span class="channel-icons"><span class="channel-icon channel-icon--google"><i class="fa-brands fa-google"></i></span></span>Google search-ready</span></li>
+                            <li><span class="check-icon"></span><strong>6</strong>&nbsp;posts / month · 3 platforms</li>
+                            <li><span class="check-icon"></span>1 Reel · 1 Short · <strong>2</strong>&nbsp;mailers/mo</li>
                             <li><span class="check-icon"></span>Scheduling + payment gateway</li>
+                            <li><span class="check-icon"></span>Referral tracking</li>
                             <li><span class="check-icon"></span>Standard analytics + support</li>
                         </ul>
 
-                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open data-ga="cta_start_trial_classic">Start free
                             trial</button>
                     </div>
                 </div>
@@ -239,29 +250,31 @@
 
                         <h3 class="plan-name">Premium</h3>
                         <span class="plan-subtitle">Growing practice</span>
-                        <p class="plan-description">Growing practice with richer content, deeper analytics, and stronger
-                            patient engagement.</p>
+                        <p class="plan-description">Richer content, deeper patient engagement.</p>
 
                         <div class="price-tag">
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="4,499">3,599</span>
+                                    <span class="price-value" data-monthly="4,499" data-plan="premium">4,049</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Billed ₹43,188 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
+                            <p class="price-annual-save">Billed ₹24,295 every 6 months.<br><strong class="price-save-highlight">Save 10%</strong></p>
                         </div>
 
                         <ul class="features-list">
                             <li><span class="check-icon"></span>Everything in Classic, plus:</li>
                             <li><span class="check-icon"></span>English + 1 regional language</li>
-                            <li><span class="check-icon"></span><strong>8</strong>&nbsp;posts · 3 blogs · 3 emails/month</li>
+                            <li><span class="check-icon"></span><span class="feat-with-icons"><span class="channel-icons"><span class="channel-icon channel-icon--google"><i class="fa-brands fa-google"></i></span><span class="channel-icon channel-icon--ai"><span class="material-symbols-outlined">auto_awesome</span></span></span>Found on Google + AI search</span></li>
+                            <li><span class="check-icon"></span><strong>8</strong>&nbsp;posts/mo · 4 platforms</li>
+                            <li><span class="check-icon"></span>2 Reels · 2 Shorts · 3 blogs · 3 mailers/mo</li>
                             <li><span class="check-icon"></span>Patient reminders &amp; follow-ups</li>
+                            <li><span class="check-icon"></span>Referral tracking + partner network</li>
                             <li><span class="check-icon"></span>Advanced analytics + priority support</li>
                         </ul>
 
-                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open data-ga="cta_start_trial_premium">Start free
                             trial</button>
                     </div>
                 </div>
@@ -271,29 +284,31 @@
                         <div class="full-stack-badge">Full-stack</div>
                         <h3 class="plan-name">Pro</h3>
                         <span class="plan-subtitle">Full-stack digital infrastructure</span>
-                        <p class="plan-description">Individual doctor requiring full-stack digital infrastructure across
-                            content, referrals, and analytics.</p>
+                        <p class="plan-description">Full-stack: content, referrals, analytics.</p>
 
                         <div class="price-tag">
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="5,499">4,399</span>
+                                    <span class="price-value" data-monthly="5,499" data-plan="pro">4,949</span>
                                     <span class="price-period">/month</span>
                                 </div>
                             </div>
-                            <p class="price-annual-save">Billed ₹52,788 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
+                            <p class="price-annual-save">Billed ₹29,695 every 6 months.<br><strong class="price-save-highlight">Save 10%</strong></p>
                         </div>
 
                         <ul class="features-list">
                             <li><span class="check-icon"></span>Everything in Premium, plus:</li>
                             <li><span class="check-icon"></span>English + Hindi + 1 regional</li>
-                            <li><span class="check-icon"></span><strong>14</strong>&nbsp;posts · 4 blogs · 4 emails/month</li>
-                            <li><span class="check-icon"></span>Full referral intelligence + 2 webinars/month</li>
-                            <li><span class="check-icon"></span>Advanced+ analytics, dedicated onboarding</li>
+                            <li><span class="check-icon"></span><span class="feat-with-icons"><span class="channel-icons"><span class="channel-icon channel-icon--google"><i class="fa-brands fa-google"></i></span><span class="channel-icon channel-icon--ai"><span class="material-symbols-outlined">auto_awesome</span></span><span class="channel-icon channel-icon--youtube"><i class="fa-brands fa-youtube"></i></span></span>+ YouTube search optimisation</span></li>
+                            <li><span class="check-icon"></span><strong>14</strong>&nbsp;posts/mo · 5 platforms</li>
+                            <li><span class="check-icon"></span>4 Reels · 4 Shorts · 4 blogs · 4 mailers/mo</li>
+                            <li><span class="check-icon"></span>Full referral reporting + 2 webinars/mo</li>
+                            <li><span class="check-icon"></span>Advanced+ analytics + priority support</li>
+                            <li><span class="check-icon"></span>Dedicated onboarding call</li>
                         </ul>
 
-                        <button class="btn btn-blue-custom" type="button" data-download-modal-open>Start free
+                        <button class="btn btn-blue-custom" type="button" data-download-modal-open data-ga="cta_start_trial_pro">Start free
                             trial</button>
                     </div>
                 </div>
@@ -310,7 +325,7 @@
                 <table class="pricing-compare">
                     <thead>
                         <tr>
-                            <th>Feature</th>
+                            <th>What you get</th>
                             <th>Lite</th>
                             <th>Classic</th>
                             <th class="col-premium">Premium</th>
@@ -319,135 +334,96 @@
                     </thead>
                     <tbody>
                         <tr class="section-row">
-                            <td colspan="5">Digital Identity</td>
+                            <td colspan="5">Your Online Presence</td>
                         </tr>
                         <tr>
-                            <td>Verified doctor profile</td>
-                            <td>✓</td>
-                            <td>✓</td>
-                            <td>✓</td>
-                            <td>✓</td>
-                        </tr>
-                        <tr>
-                            <td>Smart microsite</td>
+                            <td>Verified profile &amp; microsite</td>
                             <td>Basic</td>
-                            <td>Full</td>
-                            <td>Full</td>
-                            <td>Full</td>
+                            <td>Full + SEO</td>
+                            <td>Full + SEO</td>
+                            <td>Full + SEO</td>
                         </tr>
                         <tr>
-                            <td>Google SEO optimisation</td>
+                            <td>Languages</td>
+                            <td>English</td>
+                            <td>English</td>
+                            <td>+ 1 regional</td>
+                            <td>+ Hindi + 1 regional</td>
+                        </tr>
+                        <tr>
+                            <td>Where you're found</td>
                             <td class="dim">—</td>
-                            <td>✓</td>
-                            <td>✓</td>
-                            <td>✓</td>
-                        </tr>
-                        <tr>
-                            <td>Content languages</td>
-                            <td>English</td>
-                            <td>English</td>
-                            <td>+1 regional</td>
-                            <td>+Hindi +1 regional</td>
+                            <td>Google search</td>
+                            <td>Google + AI search</td>
+                            <td>Google + AI + YouTube</td>
                         </tr>
 
                         <tr class="section-row">
-                            <td colspan="5">Verified Content</td>
+                            <td colspan="5">Content Made For You</td>
                         </tr>
                         <tr>
-                            <td>Social posts / month</td>
-                            <td>2/week</td>
-                            <td>6</td>
-                            <td>8</td>
-                            <td>14</td>
+                            <td>Social posts</td>
+                            <td>1 / week</td>
+                            <td>6 / month</td>
+                            <td>8 / month</td>
+                            <td>14 / month</td>
                         </tr>
                         <tr>
-                            <td>Instagram Reels / month</td>
-                            <td class="dim">—</td>
-                            <td>1</td>
+                            <td>Platforms covered</td>
                             <td>2</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>YouTube Shorts / month</td>
-                            <td class="dim">—</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>Email campaigns / month</td>
-                            <td>1</td>
-                            <td>1</td>
                             <td>3</td>
                             <td>4</td>
+                            <td>5</td>
                         </tr>
                         <tr>
-                            <td>SEO blog posts / month</td>
+                            <td>Reels, Shorts &amp; blogs</td>
                             <td class="dim">—</td>
-                            <td class="dim">—</td>
-                            <td>3</td>
-                            <td>4</td>
+                            <td>2 / month</td>
+                            <td>7 / month</td>
+                            <td>12 / month</td>
+                        </tr>
+                        <tr>
+                            <td>Mailers</td>
+                            <td>1 / month</td>
+                            <td>2 / month</td>
+                            <td>3 / month</td>
+                            <td>4 / month</td>
                         </tr>
 
                         <tr class="section-row">
                             <td colspan="5">Appointments &amp; Referrals</td>
                         </tr>
                         <tr>
-                            <td>Appointment scheduling</td>
-                            <td>Manual listing</td>
-                            <td>Full + payments</td>
-                            <td>Full + payments</td>
-                            <td>Full + payments</td>
+                            <td>Appointment booking</td>
+                            <td>Manual</td>
+                            <td>Online + payments</td>
+                            <td>Online + payments</td>
+                            <td>Online + payments</td>
                         </tr>
                         <tr>
-                            <td>Patient reminders &amp; follow-ups</td>
-                            <td class="dim">—</td>
-                            <td class="dim">—</td>
-                            <td>✓</td>
-                            <td>✓</td>
-                        </tr>
-                        <tr>
-                            <td>Diagnostic referral tracking</td>
-                            <td class="dim">—</td>
-                            <td>✓</td>
-                            <td>✓</td>
-                            <td>✓</td>
-                        </tr>
-                        <tr>
-                            <td>Partner diagnostic centre mapping</td>
+                            <td>Patient reminders</td>
                             <td class="dim">—</td>
                             <td class="dim">—</td>
                             <td>✓</td>
                             <td>✓</td>
                         </tr>
                         <tr>
-                            <td>Referral intelligence reporting</td>
+                            <td>Diagnostic referral network</td>
                             <td class="dim">—</td>
-                            <td class="dim">—</td>
-                            <td class="dim">—</td>
-                            <td>✓</td>
+                            <td>Tracking</td>
+                            <td>+ Partner network</td>
+                            <td>+ Full reporting</td>
                         </tr>
 
                         <tr class="section-row">
-                            <td colspan="5">Thought Leadership</td>
+                            <td colspan="5">Growth Tools</td>
                         </tr>
                         <tr>
-                            <td>Webinars / month</td>
+                            <td>Webinars &amp; patient Q&amp;A</td>
                             <td class="dim">—</td>
                             <td class="dim">—</td>
                             <td class="dim">—</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>Patient Q&amp;A sessions / month</td>
-                            <td class="dim">—</td>
-                            <td class="dim">—</td>
-                            <td class="dim">—</td>
-                            <td>1</td>
-                        </tr>
-
-                        <tr class="section-row">
-                            <td colspan="5">Analytics &amp; Support</td>
+                            <td>3 / month</td>
                         </tr>
                         <tr>
                             <td>Analytics dashboard</td>
@@ -457,11 +433,11 @@
                             <td>Advanced+</td>
                         </tr>
                         <tr>
-                            <td>Support level</td>
+                            <td>Support</td>
                             <td>Community</td>
                             <td>Standard</td>
                             <td>Priority</td>
-                            <td>Priority+</td>
+                            <td>Priority</td>
                         </tr>
                         <tr>
                             <td>Dedicated onboarding call</td>
@@ -504,44 +480,56 @@
 
             <div class="pricing-faq">
                 <h2>Common questions</h2>
-                <div class="pricing-faq-item">
-                    <button class="pricing-faq-q" type="button">Can I switch plans later? <span
-                            class="plus">+</span></button>
-                    <div class="pricing-faq-a">
-                        <p class="pricing-faq-a--dark">Yes. Move between Lite, Classic, Premium and Pro anytime from your dashboard. Upgrades
-                            apply immediately; downgrades apply from your next billing cycle.</p>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">
+                            <span class="faq-q-text">Can I switch plans later?</span>
+                            <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>Yes. Move between Lite, Classic, Premium and Pro anytime from your dashboard. Upgrades
+                                apply immediately; downgrades apply from your next billing cycle.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="pricing-faq-item">
-                    <button class="pricing-faq-q" type="button">How long is the free trial on paid plans? <span
-                            class="plus">+</span></button>
-                    <div class="pricing-faq-a">
-                        <p>Every paid plan includes a full-feature trial before your card is charged. You'll get a
-                            reminder before the trial ends, and you can cancel anytime with no penalty.</p>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">
+                            <span class="faq-q-text">How long is the free trial on paid plans?</span>
+                            <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>Every paid plan includes a full-feature trial before your card is charged. You'll get a
+                                reminder before the trial ends, and you can cancel anytime with no penalty.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="pricing-faq-item">
-                    <button class="pricing-faq-q" type="button">What happens to my profile if I stay on Lite? <span
-                            class="plus">+</span></button>
-                    <div class="pricing-faq-a">
-                        <p>Nothing expires. Lite is free forever — your verified profile, microsite, and content stay
-                            live for as long as you want, with no upgrade requirement.</p>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">
+                            <span class="faq-q-text">What happens to my profile if I stay on Lite?</span>
+                            <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>Nothing expires. Lite is free forever — your verified profile, microsite, and content
+                                stay live for as long as you want, with no upgrade requirement.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="pricing-faq-item">
-                    <button class="pricing-faq-q" type="button">Do the 6-month and 12-month discounts auto-renew?
-                        <span class="plus">+</span></button>
-                    <div class="pricing-faq-a">
-                        <p>Yes, at the same discounted rate you locked in, unless you cancel before renewal. You'll
-                            always see the upcoming charge in your dashboard in advance.</p>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">
+                            <span class="faq-q-text">Do the 6-month and 12-month discounts auto-renew?</span>
+                            <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>Yes, at the same discounted rate you locked in, unless you cancel before renewal.
+                                You'll always see the upcoming charge in your dashboard in advance.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="pricing-faq-item">
-                    <button class="pricing-faq-q" type="button">Is patient data secure and India-compliant? <span
-                            class="plus">+</span></button>
-                    <div class="pricing-faq-a">
-                        <p>Yes. All patient and appointment data is encrypted and stored in compliance with Indian
-                            data protection requirements for healthcare platforms.</p>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">
+                            <span class="faq-q-text">Is patient data secure and India-compliant?</span>
+                            <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>Yes. All patient and appointment data is encrypted and stored in compliance with
+                                Indian data protection requirements for healthcare platforms.</p>
+                        </div>
                     </div>
                 </div>
             </div>

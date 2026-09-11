@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJND0R16D5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-EJND0R16D5');
+    </script>
+
     <title>DigiDr Features</title>
     <meta name="description" content="Explore DigiDr's comprehensive features: AI-powered content creation, appointment management, patient analytics, digital microsites, and more. Transform your medical practice today.">
     <meta name="keywords" content="digidr features, doctor platform features, healthcare technology, digital practice management, AI content creation, appointment scheduling, patient management, clinic analytics, medical website builder">
@@ -126,6 +136,7 @@
     
     <div id="navbar-mount" data-nav-active="features"></div>
     <script src="js/navbar.js"></script>
+    <script src="js/analytics.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
@@ -232,7 +243,7 @@
                 <div class="features-page-mission-content">
                     <h3 class="features-page-mission-title">Our <span class="highlight">Mission</span></h3>
                     <p class="features-page-mission-quote"><span class="features-page-mission-quote-mark">“</span>Every doctor is an expert. Not every doctor exists online. DigiDr exists to change that — by giving every medical professional the digital infrastructure to be found, trusted, and chosen by the patients who need them most.<span class="features-page-mission-quote-mark">”</span></p>
-                    <a class="features-page-mission-btn" data-open-mission-modal href="#">
+                    <a class="features-page-mission-btn" data-open-mission-modal href="#" data-ga="cta_features_mission_modal">
                         Get started
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
