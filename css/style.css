@@ -3741,10 +3741,11 @@ body.page-pricing .pricing-section .section-subtitle {
 .pricing-toggle-wrapper {
     background-color: #f0f1f4;
     border-radius: 50px;
-    padding: 5px;
+    padding: 8px;
     display: flex;
-    width: min(100%, 440px);
-    max-width: 440px;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
     box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.06);
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -3753,9 +3754,9 @@ body.page-pricing .pricing-section .section-subtitle {
 
 .pricing-toggle-thumb {
     position: absolute;
-    top: 4px;
+    top: 6px;
     left: 0;
-    height: calc(100% - 8px);
+    height: calc(100% - 12px);
     width: 0;
     border-radius: 50px;
     background: var(--gradient-blue);
@@ -3791,10 +3792,9 @@ body.page-pricing .pricing-section .section-subtitle {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    flex: 1 1 0;
+    flex: 0 0 auto;
     min-width: 0;
     white-space: nowrap;
-    width: 50%;
     position: relative;
     z-index: 1;
 }
@@ -3884,6 +3884,24 @@ body.page-pricing .pricing-section .section-subtitle {
     display: flex;
     align-items: baseline;
     gap: 0;
+}
+
+.price-value {
+    display: inline-block;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.price-value.price-value-transitioning {
+    opacity: 0;
+    transform: translateY(4px);
+}
+
+.price-annual-save {
+    transition: opacity 0.15s ease;
+}
+
+.price-annual-save.price-save-transitioning {
+    opacity: 0;
 }
 
 .price-annual-save {

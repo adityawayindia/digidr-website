@@ -487,21 +487,34 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!monthlyStr) return;
 
             const discount = discountFor(pv.getAttribute('data-plan'), isTwelve);
-
-            pv.textContent = discountedFromMonthly(monthlyStr, discount);
+            const newValue = discountedFromMonthly(monthlyStr, discount);
 
             const priceTag = pv.closest('.price-tag');
             const wasAmt = priceTag && priceTag.querySelector('.price-was-amount');
-            if (wasAmt) {
-                wasAmt.textContent = monthlyStr;
+            const saveEl = priceTag && priceTag.querySelector('.price-annual-save');
+
+            function applyUpdate() {
+                pv.textContent = newValue;
+                if (wasAmt) {
+                    wasAmt.textContent = monthlyStr;
+                }
+                if (saveEl) {
+                    const base = parseINR(monthlyStr);
+                    const billedTotal = Math.round(base * (1 - discount)) * months;
+                    saveEl.innerHTML = 'Billed ₹' + formatINR(billedTotal) + ' every ' + months + ' months.<br><strong class="price-save-highlight">Save ' + Math.round(discount * 100) + '%</strong>';
+                }
             }
 
-            const saveEl = priceTag && priceTag.querySelector('.price-annual-save');
-            if (saveEl) {
-                const base = parseINR(monthlyStr);
-                const billedTotal = Math.round(base * (1 - discount)) * months;
-                saveEl.innerHTML = 'Billed ₹' + formatINR(billedTotal) + ' every ' + months + ' months.<br><strong class="price-save-highlight">Save ' + Math.round(discount * 100) + '%</strong>';
-            }
+            if (pv.textContent.trim() === newValue) return;
+
+            pv.classList.add('price-value-transitioning');
+            if (saveEl) saveEl.classList.add('price-save-transitioning');
+
+            window.setTimeout(function () {
+                applyUpdate();
+                pv.classList.remove('price-value-transitioning');
+                if (saveEl) saveEl.classList.remove('price-save-transitioning');
+            }, 150);
         });
 
         if (billingNote) {
