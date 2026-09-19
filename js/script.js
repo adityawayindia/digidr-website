@@ -422,7 +422,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const twelveBtn = document.getElementById('twelveMonthBtn');
     const pricingSection = document.getElementById('pricing');
     const priceValues = document.querySelectorAll('.price-value[data-monthly]');
-    const billingNote = document.getElementById('billing-note');
 
     if (!sixBtn || !twelveBtn) return;
 
@@ -441,6 +440,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const base = parseINR(monthlyStr);
         if (!base) return monthlyStr;
         return formatINR(Math.round(base * (1 - discount)));
+    }
+
+    function amountFromMonthly(monthlyStr, discount) {
+        const base = parseINR(monthlyStr);
+        if (!base) return 0;
+        return Math.round(base * (1 - discount));
     }
 
     function updateToggleThumb(activeBtn) {
@@ -465,13 +470,23 @@ document.addEventListener('DOMContentLoaded', function () {
         window.dispatchEvent(new CustomEvent('pricing-mode-changed'));
     }
 
-    // 6-month discount is flat across every plan; 12-month discount cascades
-    // by plan so higher tiers carry a bigger annual saving.
-    var DISCOUNT_12MO_BY_PLAN = { classic: 0.15, premium: 0.20, pro: 0.25 };
+    // LAUNCH OFFER (active): flat discount across every paid plan, for the
+    // first 6 months of the subscription — 40% on 6-month billing, 50% on
+    // 12-month billing. After the launch window, standard rates resume:
+    // a flat 10% on 6-month billing, and a per-plan cascade on 12-month
+    // billing so higher tiers carry a bigger annual saving.
+    var LAUNCH_DISCOUNT_6MO = 0.40;
+    var LAUNCH_DISCOUNT_12MO = 0.50;
+    var STANDARD_DISCOUNT_6MO = 0.10;
+    var STANDARD_DISCOUNT_12MO_BY_PLAN = { classic: 0.15, premium: 0.20, pro: 0.25 };
 
     function discountFor(plan, isTwelve) {
-        if (!isTwelve) return 0.10;
-        return DISCOUNT_12MO_BY_PLAN[plan] || 0.20;
+        return isTwelve ? LAUNCH_DISCOUNT_12MO : LAUNCH_DISCOUNT_6MO;
+    }
+
+    function standardDiscountFor(plan, isTwelve) {
+        if (!isTwelve) return STANDARD_DISCOUNT_6MO;
+        return STANDARD_DISCOUNT_12MO_BY_PLAN[plan] || 0.15;
     }
 
     function setBillingMode(term) {
@@ -486,22 +501,28 @@ document.addEventListener('DOMContentLoaded', function () {
             const monthlyStr = pv.getAttribute('data-monthly');
             if (!monthlyStr) return;
 
-            const discount = discountFor(pv.getAttribute('data-plan'), isTwelve);
+            const plan = pv.getAttribute('data-plan');
+            const discount = discountFor(plan, isTwelve);
+            const stdDiscount = standardDiscountFor(plan, isTwelve);
             const newValue = discountedFromMonthly(monthlyStr, discount);
 
             const priceTag = pv.closest('.price-tag');
             const wasAmt = priceTag && priceTag.querySelector('.price-was-amount');
             const saveEl = priceTag && priceTag.querySelector('.price-annual-save');
+            const saveBadge = priceTag && priceTag.querySelector('.price-save-badge');
 
             function applyUpdate() {
                 pv.textContent = newValue;
                 if (wasAmt) {
                     wasAmt.textContent = monthlyStr;
                 }
+                if (saveBadge) {
+                    saveBadge.textContent = 'Save ' + Math.round(discount * 100) + '%';
+                }
                 if (saveEl) {
-                    const base = parseINR(monthlyStr);
-                    const billedTotal = Math.round(base * (1 - discount)) * months;
-                    saveEl.innerHTML = 'Billed ₹' + formatINR(billedTotal) + ' every ' + months + ' months.<br><strong class="price-save-highlight">Save ' + Math.round(discount * 100) + '%</strong>';
+                    const billedTotal = amountFromMonthly(monthlyStr, discount) * months;
+                    const stdPerMonth = amountFromMonthly(monthlyStr, stdDiscount);
+                    saveEl.innerHTML = '<span class="billed-line">Billed ₹' + formatINR(billedTotal) + ' every ' + months + ' months</span><span class="standard-rate-line">₹' + formatINR(stdPerMonth) + '/mo standard rate after 6 months</span>';
                 }
             }
 
@@ -516,12 +537,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (saveEl) saveEl.classList.remove('price-save-transitioning');
             }, 150);
         });
-
-        if (billingNote) {
-            billingNote.textContent = isTwelve
-                ? 'Prices shown are per month, billed every 12 months — savings grow with your plan, up to 25% on Pro.'
-                : 'Prices shown are per month, billed every 6 months — you save 10% on any plan.';
-        }
     }
 
     sixBtn.addEventListener('click', function () {
@@ -637,8 +652,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const selectors = [
             '.plan-name',
             '.plan-subtitle',
-            '.plan-description',
-            '.price-tag'
+            '.plan-description'
         ];
 
         // Reset heights first so they recalculate naturally

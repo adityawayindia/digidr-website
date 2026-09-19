@@ -84,7 +84,7 @@
             "@type": "AggregateOffer",
             "priceCurrency": "INR",
             "lowPrice": "0",
-            "highPrice": "4949",
+            "highPrice": "3299",
             "offerCount": "4",
             "offers": [
                 {
@@ -98,8 +98,8 @@
                 {
                     "@type": "Offer",
                     "name": "Classic",
-                    "description": "Your first verified, SEO-ready identity.",
-                    "price": "3149",
+                    "description": "Your first verified, SEO-ready identity. Launch price for the first 6 months; standard rate ₹3,149/mo applies after.",
+                    "price": "2099",
                     "priceCurrency": "INR",
                     "billingIncrement": "P1M",
                     "url": "https://digidr.app/pricing.html"
@@ -107,8 +107,8 @@
                 {
                     "@type": "Offer",
                     "name": "Premium",
-                    "description": "Richer content, deeper patient engagement.",
-                    "price": "4049",
+                    "description": "Richer content, deeper patient engagement. Launch price for the first 6 months; standard rate ₹4,049/mo applies after.",
+                    "price": "2699",
                     "priceCurrency": "INR",
                     "billingIncrement": "P1M",
                     "url": "https://digidr.app/pricing.html"
@@ -116,8 +116,8 @@
                 {
                     "@type": "Offer",
                     "name": "Pro",
-                    "description": "Full-stack: content, referrals, analytics.",
-                    "price": "4949",
+                    "description": "Full-stack: content, referrals, analytics. Launch price for the first 6 months; standard rate ₹4,949/mo applies after.",
+                    "price": "3299",
                     "priceCurrency": "INR",
                     "billingIncrement": "P1M",
                     "url": "https://digidr.app/pricing.html"
@@ -141,6 +141,13 @@
     <section class="pricing-section pricing-hero-section" id="pricing"
         style="background: linear-gradient(135deg, #e3f2fd 0%, #fff3e0 100%);">
         <div class="container">
+
+            <div class="pricing-launch-banner">
+                <span class="pricing-launch-banner__tag">Launch offer</span>
+                <span><strong>40% off</strong> on 6-month plans &middot; <strong>50% off</strong> on annual plans
+                    &mdash; for your first 6 months, on Classic, Premium &amp; Pro.</span>
+            </div>
+
             <div class="text-center">
                 <h3 class="section-title">Pricing <span class="text-highlight-blue">& Plans</span></h3>
                 <p class="section-subtitle">Start free. Every doctor gets a verified digital identity at no cost -
@@ -150,18 +157,16 @@
             <div class="pricing-toggle-container">
                 <div class="pricing-toggle-wrapper">
                     <span class="pricing-toggle-thumb" aria-hidden="true"></span>
-                    <button class="toggle-btn" id="sixMonthBtn" type="button">
+                    <button class="toggle-btn active" id="sixMonthBtn" type="button">
                         <span>6 MONTHS</span>
-                        <span class="yearly-badge">Save 10%</span>
+                        <span class="yearly-badge">Save 40%</span>
                     </button>
-                    <button class="toggle-btn toggle-btn-yearly active" id="twelveMonthBtn" type="button">
+                    <button class="toggle-btn toggle-btn-yearly" id="twelveMonthBtn" type="button">
                         <span>12 MONTHS</span>
-                        <span class="yearly-badge">Save upto 25%</span>
+                        <span class="yearly-badge">Save 50%</span>
                     </button>
                 </div>
             </div>
-            <p class="pricing-billing-note" id="billing-note">Prices shown are per month, billed every 12 months -
-                savings grow with your plan, up to 25% on Pro.</p>
 
             <div class="pricing-proof-strip">
                 <div class="proof-avatars">
@@ -182,13 +187,16 @@
             <p class="pricing-carousel-hint">Swipe to compare plans <i class="fa-solid fa-arrow-right-long"
                     aria-hidden="true"></i></p>
 
+            <p class="pricing-shared-note">&#x1F397;&#xFE0F; Every plan, including Lite, gets 1 free health-awareness
+                day post per month &mdash; on us.</p>
+
             <div class="pricing-cards-wrap" id="pricing-cards-wrap">
             <div class="row gy-4 gx-lg-4 align-items-stretch mt-40 pricing-card-deck" data-pricing-card-deck>
                 <div class="col-lg-3">
                     <div class="pricing-card pricing-card--lite">
                         <h3 class="plan-name">Lite</h3>
                         <span class="plan-subtitle">Verified presence</span>
-                        <p class="plan-description">A verified presence online — no cost, no card.</p>
+                        <p class="plan-description">A real digital presence — free for life, no card needed.</p>
 
                         <div class="price-tag">
                             <div class="price-line-with-label">
@@ -196,15 +204,19 @@
                                     <span class="price-free-value">Free</span>
                                 </div>
                             </div>
-                            <p class="price-forever">Free forever.</p>
+                            <p class="price-forever">Free, lifetime.</p>
                         </div>
 
                         <ul class="features-list">
-                            <li><span class="check-icon"></span>Verified doctor profile</li>
-                            <li><span class="check-icon"></span>Basic microsite</li>
+                            <li><span class="check-icon"></span>Verified profile + DigiDr badge</li>
+                            <li><span class="check-icon"></span><span class="feat-with-icons">Permanent microsite <span class="lite-domain">digidr.app/yourname</span></span></li>
+                            <li><span class="check-icon"></span><span class="feat-with-icons"><span class="channel-icons"><span class="channel-icon channel-icon--google"><i class="fa-brands fa-google"></i></span></span>Basic Google indexing</span></li>
                             <li><span class="check-icon"></span><strong>1</strong>&nbsp;weekly post · 2 platforms</li>
                             <li><span class="check-icon"></span><strong>1</strong>&nbsp;mailer / month</li>
-                            <li><span class="check-icon"></span>Manual appointment listing</li>
+                            <li><span class="check-icon"></span><span class="feat-with-icons">Appointment <strong>requests</strong> (no online booking)</span></li>
+                            <li><span class="check-icon"></span>Basic analytics</li>
+                            <li><span class="check-icon"></span>Share your profile anywhere</li>
+                            <li><span class="check-icon"></span>AI Presence Score + upgrade suggestions</li>
                         </ul>
 
                         <button class="btn btn-dark-custom" type="button" data-download-modal-open data-ga="cta_start_free_lite">Create free
@@ -219,14 +231,16 @@
                         <p class="plan-description">Your first verified, SEO-ready identity.</p>
 
                         <div class="price-tag">
+                            <p class="price-was"><span class="price-was-amount">3,499</span>/mo</p>
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="3,499" data-plan="classic">3,149</span>
+                                    <span class="price-value" data-monthly="3,499" data-plan="classic">2,099</span>
                                     <span class="price-period">/month</span>
                                 </div>
+                                <span class="price-save-badge">Save 40%</span>
                             </div>
-                            <p class="price-annual-save">Billed ₹18,895 every 6 months.<br><strong class="price-save-highlight">Save 10%</strong></p>
+                            <p class="price-annual-save"><span class="billed-line">Billed ₹12,594 every 6 months</span><span class="standard-rate-line">₹3,149/mo standard rate after 6 months</span></p>
                         </div>
 
                         <ul class="features-list">
@@ -253,14 +267,16 @@
                         <p class="plan-description">Richer content, deeper patient engagement.</p>
 
                         <div class="price-tag">
+                            <p class="price-was"><span class="price-was-amount">4,499</span>/mo</p>
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="4,499" data-plan="premium">4,049</span>
+                                    <span class="price-value" data-monthly="4,499" data-plan="premium">2,699</span>
                                     <span class="price-period">/month</span>
                                 </div>
+                                <span class="price-save-badge">Save 40%</span>
                             </div>
-                            <p class="price-annual-save">Billed ₹24,295 every 6 months.<br><strong class="price-save-highlight">Save 10%</strong></p>
+                            <p class="price-annual-save"><span class="billed-line">Billed ₹16,194 every 6 months</span><span class="standard-rate-line">₹4,049/mo standard rate after 6 months</span></p>
                         </div>
 
                         <ul class="features-list">
@@ -287,14 +303,16 @@
                         <p class="plan-description">Full-stack: content, referrals, analytics.</p>
 
                         <div class="price-tag">
+                            <p class="price-was"><span class="price-was-amount">5,499</span>/mo</p>
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="5,499" data-plan="pro">4,949</span>
+                                    <span class="price-value" data-monthly="5,499" data-plan="pro">3,299</span>
                                     <span class="price-period">/month</span>
                                 </div>
+                                <span class="price-save-badge">Save 40%</span>
                             </div>
-                            <p class="price-annual-save">Billed ₹29,695 every 6 months.<br><strong class="price-save-highlight">Save 10%</strong></p>
+                            <p class="price-annual-save"><span class="billed-line">Billed ₹19,794 every 6 months</span><span class="standard-rate-line">₹4,949/mo standard rate after 6 months</span></p>
                         </div>
 
                         <ul class="features-list">
@@ -303,7 +321,7 @@
                             <li><span class="check-icon"></span><span class="feat-with-icons"><span class="channel-icons"><span class="channel-icon channel-icon--google"><i class="fa-brands fa-google"></i></span><span class="channel-icon channel-icon--ai"><span class="material-symbols-outlined">auto_awesome</span></span><span class="channel-icon channel-icon--youtube"><i class="fa-brands fa-youtube"></i></span></span>+ YouTube search optimisation</span></li>
                             <li><span class="check-icon"></span><strong>14</strong>&nbsp;posts/mo · 5 platforms</li>
                             <li><span class="check-icon"></span>4 Reels · 4 Shorts · 4 blogs · 4 mailers/mo</li>
-                            <li><span class="check-icon"></span>Full referral reporting + 2 webinars/mo</li>
+                            <li><span class="check-icon"></span>Full referral reporting + 3 webinars/mo</li>
                             <li><span class="check-icon"></span>Advanced+ analytics + priority support</li>
                             <li><span class="check-icon"></span>Dedicated onboarding call</li>
                         </ul>
@@ -352,10 +370,17 @@
                         </tr>
                         <tr>
                             <td>Where you're found</td>
-                            <td class="dim">—</td>
+                            <td>Basic Google indexing</td>
                             <td>Google search</td>
                             <td>Google + AI search</td>
                             <td>Google + AI + YouTube</td>
+                        </tr>
+                        <tr>
+                            <td>AI Presence Score &amp; suggestions</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
                         </tr>
 
                         <tr class="section-row">
@@ -374,6 +399,13 @@
                             <td>3</td>
                             <td>4</td>
                             <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Health-awareness day post</td>
+                            <td>1 / month</td>
+                            <td>1 / month</td>
+                            <td>1 / month</td>
+                            <td>1 / month</td>
                         </tr>
                         <tr>
                             <td>Reels, Shorts &amp; blogs</td>
@@ -395,7 +427,7 @@
                         </tr>
                         <tr>
                             <td>Appointment booking</td>
-                            <td>Manual</td>
+                            <td>Request only</td>
                             <td>Online + payments</td>
                             <td>Online + payments</td>
                             <td>Online + payments</td>
@@ -513,12 +545,13 @@
                     </div>
                     <div class="faq-item">
                         <button class="faq-q" type="button" aria-expanded="false">
-                            <span class="faq-q-text">Do the 6-month and 12-month discounts auto-renew?</span>
+                            <span class="faq-q-text">How does the launch discount work?</span>
                             <span class="material-symbols-outlined faq-icon" aria-hidden="true">expand_more</span>
                         </button>
                         <div class="faq-a">
-                            <p>Yes, at the same discounted rate you locked in, unless you cancel before renewal.
-                                You'll always see the upcoming charge in your dashboard in advance.</p>
+                            <p>New doctors get 40% off (6-month billing) or 50% off (annual billing) for their first
+                                6 months on Classic, Premium or Pro. After that, standard rates apply — 10% off on
+                                6-month plans, and 15–25% off on annual plans depending on tier.</p>
                         </div>
                     </div>
                     <div class="faq-item">

@@ -856,6 +856,13 @@
 
     <section class="pricing-section" id="pricing">
         <div class="container">
+
+            <div class="pricing-launch-banner">
+                <span class="pricing-launch-banner__tag">Launch offer</span>
+                <span><strong>40% off</strong> on 6-month plans &middot; <strong>50% off</strong> on annual plans
+                    &mdash; for your first 6 months, on Classic, Premium &amp; Pro.</span>
+            </div>
+
             <div class="text-center">
                 <h2 class="section-title">Pricing <span class="text-highlight-blue">& Plans</span></h2>
                 <p class="section-subtitle">Start free. Every doctor gets a verified digital identity at no cost —
@@ -865,18 +872,16 @@
             <div class="pricing-toggle-container">
                 <div class="pricing-toggle-wrapper">
                     <span class="pricing-toggle-thumb" aria-hidden="true"></span>
-                    <button class="toggle-btn" id="sixMonthBtn" type="button">
+                    <button class="toggle-btn active" id="sixMonthBtn" type="button">
                         <span>6 MONTHS</span>
-                        <span class="yearly-badge">Save 10%</span>
+                        <span class="yearly-badge">Save 40%</span>
                     </button>
-                    <button class="toggle-btn toggle-btn-yearly active" id="twelveMonthBtn" type="button">
+                    <button class="toggle-btn toggle-btn-yearly" id="twelveMonthBtn" type="button">
                         <span>12 MONTHS</span>
-                        <span class="yearly-badge">Save 20%</span>
+                        <span class="yearly-badge">Save 50%</span>
                     </button>
                 </div>
             </div>
-            <p class="pricing-billing-note" id="billing-note">Prices shown are per month, billed every 12 months —
-                you save 20% vs the base rate.</p>
 
             <div class="pricing-proof-strip">
                 <div class="proof-avatars">
@@ -911,7 +916,7 @@
                             <li><span class="check-icon"></span>Basic microsite</li>
                             <li><span class="check-icon"></span><strong>2</strong>&nbsp;weekly posts · 2 platforms</li>
                             <li><span class="check-icon"></span><strong>1</strong>&nbsp;mailer / month</li>
-                            <li><span class="check-icon"></span>Manual appointment listing</li>
+                            <li><span class="check-icon"></span>Appointment requests (no online booking)</li>
                         </ul>
 
                         <button class="btn btn-dark-custom" type="button" data-download-modal-open data-ga="cta_start_free_lite">Create free
@@ -927,14 +932,16 @@
                             first time.</p>
 
                         <div class="price-tag">
+                            <p class="price-was"><span class="price-was-amount">3,499</span>/mo</p>
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="3,499">2,799</span>
+                                    <span class="price-value" data-monthly="3,499" data-plan="classic">2,099</span>
                                     <span class="price-period">/month</span>
                                 </div>
+                                <span class="price-save-badge">Save 40%</span>
                             </div>
-                            <p class="price-annual-save">Billed ₹33,588 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
+                            <p class="price-annual-save"><span class="billed-line">Billed ₹12,594 every 6 months</span><span class="standard-rate-line">₹3,149/mo standard rate after 6 months</span></p>
                         </div>
 
                         <ul class="features-list">
@@ -960,14 +967,16 @@
                             patient engagement.</p>
 
                         <div class="price-tag">
+                            <p class="price-was"><span class="price-was-amount">4,499</span>/mo</p>
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="4,499">3,599</span>
+                                    <span class="price-value" data-monthly="4,499" data-plan="premium">2,699</span>
                                     <span class="price-period">/month</span>
                                 </div>
+                                <span class="price-save-badge">Save 40%</span>
                             </div>
-                            <p class="price-annual-save">Billed ₹43,188 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
+                            <p class="price-annual-save"><span class="billed-line">Billed ₹16,194 every 6 months</span><span class="standard-rate-line">₹4,049/mo standard rate after 6 months</span></p>
                         </div>
 
                         <ul class="features-list">
@@ -992,21 +1001,23 @@
                             content, referrals, and analytics.</p>
 
                         <div class="price-tag">
+                            <p class="price-was"><span class="price-was-amount">5,499</span>/mo</p>
                             <div class="price-line-with-label">
                                 <div class="price-line">
                                     <span class="price-currency">₹</span>
-                                    <span class="price-value" data-monthly="5,499">4,399</span>
+                                    <span class="price-value" data-monthly="5,499" data-plan="pro">3,299</span>
                                     <span class="price-period">/month</span>
                                 </div>
+                                <span class="price-save-badge">Save 40%</span>
                             </div>
-                            <p class="price-annual-save">Billed ₹52,788 every 12 months.<br><strong class="price-save-highlight">Save 20%</strong></p>
+                            <p class="price-annual-save"><span class="billed-line">Billed ₹19,794 every 6 months</span><span class="standard-rate-line">₹4,949/mo standard rate after 6 months</span></p>
                         </div>
 
                         <ul class="features-list">
                             <li><span class="check-icon"></span>Everything in Premium, plus:</li>
                             <li><span class="check-icon"></span>English + Hindi + 1 regional</li>
                             <li><span class="check-icon"></span><strong>14</strong>&nbsp;posts · 4 blogs · 4 emails/month</li>
-                            <li><span class="check-icon"></span>Full referral intelligence + 2 webinars/month</li>
+                            <li><span class="check-icon"></span>Full referral intelligence + 3 webinars/month</li>
                             <li><span class="check-icon"></span>Advanced+ analytics, dedicated onboarding</li>
                         </ul>
 
