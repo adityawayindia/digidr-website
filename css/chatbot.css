@@ -94,7 +94,9 @@
     color: #0E65D7;
     font-size: var(--font-size-sm);
     font-weight: 700;
-    line-height: 1;
+    /* overflow:hidden drives the collapse animation, so the box must be tall
+       enough to contain descenders (g) or they get clipped. */
+    line-height: 1.35;
     letter-spacing: -0.01em;
     white-space: nowrap;
     position: relative;

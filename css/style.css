@@ -82,6 +82,18 @@ body.page-rounded>main>section:first-of-type {
     animation: hero-aurora-gradient 12s ease-in-out infinite;
 }
 
+/* Subtle dot grid that fades in toward the center, visible around the edges
+.hero-section .hero-aurora::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(15, 40, 90, 0.22) 1px, transparent 1.5px);
+    background-size: 14px 14px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, transparent 0%, #000 100%);
+    mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, transparent 0%, #000 100%);
+}
+*/
+
 .hero-aurora__mesh {
     position: absolute;
     inset: -35%;
@@ -244,6 +256,10 @@ body.page-rounded>main>section:first-of-type {
 .hero-content h1 .highlight,
 .hero-intro__line--2.highlight {
     display: block;
+    /* background-clip:text masks glyphs to the content box, so descenders (g, y)
+       fall outside the gradient and vanish. Extend the box, then pull it back. */
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
 }
 
 .hero-intro__line {
@@ -762,7 +778,11 @@ body.page-rounded>main>section:first-of-type {
 .testimonials-section .section-header,
 .testimonials-section .testimonials-carousel-wrapper,
 .pricing-section .text-center,
+.pricing-section .pricing-launch-banner,
 .pricing-section .pricing-toggle-container,
+.pricing-section .pricing-proof-strip,
+.pricing-section .pricing-view-toggle,
+.pricing-section .pricing-shared-note,
 .pricing-section .pricing-carousel-hint,
 .pricing-section .pricing-card {
     opacity: 0;
@@ -777,9 +797,31 @@ body.page-rounded>main>section:first-of-type {
 .testimonials-section .testimonials-carousel-wrapper.is-visible,
 .pricing-section .text-center.is-visible,
 .pricing-section .pricing-toggle-container.is-visible,
+.pricing-section .pricing-proof-strip.is-visible,
+.pricing-section .pricing-view-toggle.is-visible,
+.pricing-section .pricing-shared-note.is-visible,
 .pricing-section .pricing-carousel-hint.is-visible,
 .pricing-section .pricing-card.is-visible {
     animation: reasonCardIn var(--reveal-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Banner keeps its looping border-spin alongside the reveal */
+.pricing-section .pricing-launch-banner.is-visible {
+    animation:
+        reasonCardIn var(--reveal-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards,
+        launch-border-spin 3s linear infinite;
+}
+
+.pricing-section .pricing-proof-strip.is-visible {
+    animation-delay: 0.25s;
+}
+
+.pricing-section .pricing-shared-note.is-visible {
+    animation-delay: 0.3s;
+}
+
+.pricing-section .pricing-view-toggle.is-visible {
+    animation-delay: 0.35s;
 }
 
 .statistics-card .stat-item.is-visible:nth-of-type(1) {
@@ -2607,7 +2649,11 @@ body.page-rounded>main>section:first-of-type {
     .testimonials-section .section-header,
     .testimonials-section .testimonials-carousel-wrapper,
     .pricing-section .text-center,
+    .pricing-section .pricing-launch-banner,
     .pricing-section .pricing-toggle-container,
+    .pricing-section .pricing-proof-strip,
+    .pricing-section .pricing-view-toggle,
+    .pricing-section .pricing-shared-note,
     .pricing-section .pricing-carousel-hint,
     .pricing-section .pricing-card {
         opacity: 1;
@@ -3669,7 +3715,7 @@ body.page-pricing .pricing-section .section-subtitle {
     border-radius: 999px;
     max-width: 640px;
     width: max-content;
-    margin: 0 auto 32px;
+    margin: 24px auto 0;
     white-space: nowrap;
 }
 
@@ -3981,7 +4027,7 @@ body.page-pricing .pricing-section .section-subtitle {
 .price-line-with-label {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 4px 8px;
 }
 
@@ -3989,6 +4035,45 @@ body.page-pricing .pricing-section .section-subtitle {
     display: flex;
     align-items: baseline;
     gap: 0;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+/* Keep the "Save" badge beside the price on narrow cards: the row wraps when
+   price + badge overflow, and digit widths differ per plan, so one card could
+   wrap while its neighbours didn't. Shrink the price a little instead. */
+.price-tag {
+    container-type: inline-size;
+}
+
+@container (max-width: 275px) {
+    .price-tag .price-currency,
+    .price-tag .price-value {
+        font-size: 34px;
+    }
+
+    .price-tag .price-period {
+        margin-left: 4px;
+    }
+}
+
+@container (max-width: 240px) {
+    .price-tag .price-currency,
+    .price-tag .price-value {
+        font-size: 30px;
+    }
+
+    .price-tag .price-save-badge {
+        font-size: 11px;
+        padding: 3px 7px;
+    }
+}
+
+@container (max-width: 210px) {
+    .price-tag .price-currency,
+    .price-tag .price-value {
+        font-size: 26px;
+    }
 }
 
 .price-value {
@@ -4044,10 +4129,17 @@ body.page-pricing .pricing-section .section-subtitle {
 
 .price-was {
     margin: 0;
-    font-size: 12.5px;
-    color: var(--text-secondary);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #64748b;
     text-decoration: line-through;
-    opacity: 0.75;
+    text-decoration-thickness: 1px;
+    opacity: 1;
+}
+
+.price-was-currency {
+    font-size: 0.9em;
+    margin-right: 1px;
 }
 
 .price-save-badge {
@@ -5163,6 +5255,14 @@ body.page-pricing .pricing-trust-strip__item--green {
 
 .pricing-compare-wrap.is-visible {
     display: block;
+    /* Replays each time the table is switched on (display: none -> block) */
+    animation: reasonCardIn var(--reveal-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pricing-compare-wrap.is-visible {
+        animation: none;
+    }
 }
 
 table.pricing-compare {

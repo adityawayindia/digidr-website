@@ -1,14 +1,25 @@
 (function () {
     function track(name, params) {
         if (typeof gtag === 'function') gtag('event', name, params || {});
+        if (typeof clarity === 'function') clarity('event', name);
     }
     window.digidrTrack = track;
+
+    function tag(key, value) {
+        if (typeof clarity === 'function') clarity('set', key, value);
+    }
+    window.digidrTag = tag;
 
     // Declarative clicks: any element (or dynamically injected element) with data-ga="event_name"
     document.addEventListener('click', function (e) {
         var el = e.target.closest('[data-ga]');
         if (!el) return;
-        track(el.getAttribute('data-ga'));
+        var name = el.getAttribute('data-ga');
+        track(name);
+
+        // Derive a "plan" tag from cta_*_<plan> event names (e.g. cta_start_trial_premium -> premium)
+        var ctaMatch = /^cta_(?:start_free|start_trial)_(.+)$/.exec(name);
+        if (ctaMatch) tag('plan_clicked', ctaMatch[1]);
     });
 
     // Outbound link clicks (any link leaving digidr.app)

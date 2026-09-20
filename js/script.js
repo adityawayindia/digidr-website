@@ -50,7 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
         '.testimonials-section .section-header',
         '.testimonials-section .testimonials-carousel-wrapper',
         '.pricing-section .text-center',
+        '.pricing-section .pricing-launch-banner',
         '.pricing-section .pricing-toggle-container',
+        '.pricing-section .pricing-proof-strip',
+        '.pricing-section .pricing-view-toggle',
+        '.pricing-section .pricing-shared-note',
         '.pricing-section .pricing-carousel-hint',
         '.pricing-section .pricing-card',
         '.hiw-hero-content',
@@ -543,12 +547,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (sixBtn.classList.contains('active')) return;
         setActiveToggle(sixBtn, '6');
         if (window.digidrTrack) window.digidrTrack('pricing_billing_toggle', { period: '6_months' });
+        if (window.digidrTag) window.digidrTag('billing_period', '6_months');
     });
 
     twelveBtn.addEventListener('click', function () {
         if (twelveBtn.classList.contains('active')) return;
         setActiveToggle(twelveBtn, '12');
         if (window.digidrTrack) window.digidrTrack('pricing_billing_toggle', { period: '12_months' });
+        if (window.digidrTag) window.digidrTag('billing_period', '12_months');
     });
 
     var resizeTimer;
