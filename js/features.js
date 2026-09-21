@@ -63,6 +63,16 @@ document.addEventListener('DOMContentLoaded', function () {
         return html;
     }
 
+    function getInlineInner(inline) {
+        let inner = inline.querySelector('.features-page-offers-inline-body-inner');
+        if (!inner) {
+            inner = document.createElement('div');
+            inner.className = 'features-page-offers-inline-body-inner';
+            inline.appendChild(inner);
+        }
+        return inner;
+    }
+
     function renderInlineBody(item) {
         const entry = getEntry(item);
         if (!entry) return;
@@ -70,7 +80,45 @@ document.addEventListener('DOMContentLoaded', function () {
         const inline = entry.querySelector('.features-page-offers-inline-body');
         if (!inline) return;
 
-        inline.innerHTML = buildContentMarkup(item);
+        getInlineInner(inline).innerHTML = buildContentMarkup(item);
+    }
+
+    function onInlineTransitionEnd(event) {
+        if (event.propertyName !== 'max-height') return;
+        const inline = event.currentTarget;
+        if (inline.classList.contains('is-open')) {
+            inline.style.maxHeight = 'none';
+        }
+    }
+
+    function openInline(inline) {
+        if (!inline) return;
+        const inner = getInlineInner(inline);
+
+        inline.hidden = false;
+        inline.setAttribute('aria-hidden', 'false');
+        inline.style.maxHeight = inline.style.maxHeight || '0px';
+        inline.removeEventListener('transitionend', onInlineTransitionEnd);
+        inline.addEventListener('transitionend', onInlineTransitionEnd);
+
+        window.requestAnimationFrame(function () {
+            inline.classList.add('is-open');
+            inline.style.maxHeight = inner.scrollHeight + 'px';
+        });
+    }
+
+    function closeInline(inline) {
+        if (!inline) return;
+        const inner = getInlineInner(inline);
+
+        inline.removeEventListener('transitionend', onInlineTransitionEnd);
+        inline.style.maxHeight = inner.scrollHeight + 'px';
+        inline.classList.remove('is-open');
+        inline.setAttribute('aria-hidden', 'true');
+
+        window.requestAnimationFrame(function () {
+            inline.style.maxHeight = '0px';
+        });
     }
 
     function setExpanded(item, expanded) {
@@ -133,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setExpanded(btn, false);
             }
 
-            if (inline) inline.hidden = true;
+            if (inline) closeInline(inline);
         });
     }
 
@@ -162,9 +210,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (inline) {
                 if (isTarget) {
                     renderInlineBody(item);
-                    inline.hidden = false;
+                    openInline(inline);
                 } else {
-                    inline.hidden = true;
+                    closeInline(inline);
                 }
             }
         });
@@ -232,8 +280,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (isTarget) {
                         renderInlineBody(initial);
                         inline.hidden = false;
+                        inline.classList.add('is-open');
+                        inline.setAttribute('aria-hidden', 'false');
+                        inline.style.maxHeight = 'none';
                     } else {
-                        inline.hidden = true;
+                        inline.classList.remove('is-open');
+                        inline.setAttribute('aria-hidden', 'true');
+                        inline.style.maxHeight = '0px';
                     }
                 }
             });
@@ -250,13 +303,24 @@ document.addEventListener('DOMContentLoaded', function () {
             renderInlineBody(active);
             entries.forEach(function (entry) {
                 const btn = entry.querySelector('.features-page-offers-item');
+                const inline = entry.querySelector('.features-page-offers-inline-body');
                 const isTarget = entry === getEntry(active);
                 if (btn) btn.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
+                if (inline) {
+                    inline.hidden = false;
+                    inline.classList.toggle('is-open', isTarget);
+                    inline.setAttribute('aria-hidden', isTarget ? 'false' : 'true');
+                    inline.style.maxHeight = isTarget ? 'none' : '0px';
+                }
             });
         } else {
             entries.forEach(function (entry) {
                 const inline = entry.querySelector('.features-page-offers-inline-body');
-                if (inline) inline.hidden = true;
+                if (inline) {
+                    inline.classList.remove('is-open');
+                    inline.setAttribute('aria-hidden', 'true');
+                    inline.style.maxHeight = '0px';
+                }
             });
             setActiveNav(active);
         }

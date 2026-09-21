@@ -1,6 +1,6 @@
 
 .features-page-why-love-section {
-    padding: 130px 0 140px;
+    padding: 100px 0 140px;
     position: relative;
     background: transparent;
 }
@@ -246,6 +246,37 @@
     transition:
         opacity 0.32s ease-in-out,
         transform 0.32s ease-in-out;
+}
+
+/* Desktop: keep the detail panel a constant size regardless of its content */
+@media (min-width: 993px) {
+    .features-page-offers-stack-panel {
+        height: 520px;
+        min-height: 520px;
+    }
+
+    .features-page-offers-stack-panel-content {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-gutter: stable;
+        padding-right: 14px;
+        margin-right: -14px;
+    }
+
+    .features-page-offers-stack-panel-content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .features-page-offers-stack-panel-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .features-page-offers-stack-panel-content::-webkit-scrollbar-thumb {
+        background-color: rgba(3, 96, 217, 0.25);
+        border-radius: 10px;
+    }
 }
 
 .features-page-offers-scroll-steps {
@@ -501,6 +532,7 @@
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
         position: relative;
         overflow: hidden;
+        transition: box-shadow 0.35s ease, background 0.35s ease;
     }
 
     .features-page-offers-entry::before {
@@ -509,16 +541,13 @@
 
     .features-page-offers-entry.is-active {
         background: linear-gradient(#ffffff, #ffffff) padding-box, var(--gradient-blue-orange) border-box;
-    }
-
-    .features-page-offers-entry.is-active {
-        background: #ffffff;
         box-shadow: 0 6px 20px rgba(14, 101, 215, 0.1);
     }
 
     .features-page-offers-item {
         padding: 14px 16px;
-        border-radius: 0;
+        border: none;
+        border-radius: 16px;
         box-shadow: none;
         background: transparent;
         transform: none !important;
@@ -572,12 +601,24 @@
         display: block;
         position: relative;
         z-index: 1;
-        padding: 18px 16px 22px;
-        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+            opacity 0.28s ease;
+    }
+
+    .features-page-offers-inline-body.is-open {
+        opacity: 1;
     }
 
     .features-page-offers-inline-body[hidden] {
-        display: none;
+        display: block;
+    }
+
+    .features-page-offers-inline-body-inner {
+        padding: 18px 16px 22px;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .features-page-offers-inline-body {

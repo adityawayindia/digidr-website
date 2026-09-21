@@ -7,7 +7,7 @@
 .ms-hero {
     position: relative;
     overflow: hidden;
-    padding: 130px 24px 80px;
+    padding: 100px 24px 80px;
     text-align: center;
 }
 
@@ -136,13 +136,19 @@
 
 .ms-hero .ms-hero-title {
     font-family: var(--font-family-hero);
-    font-size: var(--font-size-6xl);
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     line-height: 1.2;
     color: #000;
     max-width: 800px;
     margin: 0 auto 16px;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .ms-hero .ms-hero-title {
+        font-size: var(--font-size-3xl);
+    }
 }
 
 .ms-hero-actions {
@@ -1959,10 +1965,6 @@
 
 /* ----- Responsive ----- */
 @media (max-width: 992px) {
-    .ms-hero .ms-hero-title {
-        font-size: var(--font-size-5xl);
-    }
-
     .ms-benefits-title {
         font-size: var(--font-size-3xl);
     }
@@ -2047,10 +2049,6 @@
 
     .ms-hero-actions {
         margin-bottom: 36px;
-    }
-
-    .ms-hero .ms-hero-title {
-        font-size: var(--font-size-3xl);
     }
 
     .ms-showcase-screen {
@@ -2203,6 +2201,11 @@
     .ms-benefit-card--wide .card-infographic {
         min-height: 0;
         height: 124px;
+        margin-bottom: 20px;
+    }
+
+    .ms-benefit-card--wide .ms-benefit-title {
+        margin-bottom: 12px;
     }
 
     /* Infographic layout — tablet / mobile */
@@ -2745,8 +2748,10 @@ body.page-microsite,
     color: #353542 !important;
 }
 
-/* Adjust wide cards layout on medium/large screens to prevent squishing */
-@media (max-width: 1200px) {
+/* Adjust wide cards layout on medium/large screens to prevent squishing.
+   Bounded at 769px so the single-column mobile grid (max-width: 768px) keeps
+   its `grid-column: span 1` and cards stack full width. */
+@media (min-width: 769px) and (max-width: 1200px) {
     .ms-benefit-card--wide {
         grid-column: span 6;
     }

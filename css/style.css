@@ -3592,7 +3592,7 @@ body.page-home #pricing.pricing-section {
 }
 
 .pricing-section.pricing-hero-section {
-    padding-top: 130px;
+    padding-top: 100px;
 }
 
 @media (max-width: 992px) {
@@ -5489,6 +5489,16 @@ body.page-pricing .pricing-section .section-title {
     text-align: center;
 }
 
+@media (max-width: 768px) {
+    h3.features-page-why-love-title,
+    h1.hiw-title,
+    h1.ms-hero-title,
+    .policy-header h1,
+    body.page-pricing .pricing-section .section-title {
+        font-size: var(--font-size-3xl);
+    }
+}
+
 /* Mobile view: show only headings on collapsed pills */
 @media (max-width: 768px) {
     .pill-menu:not(.active) .pill-text p {
@@ -5610,6 +5620,7 @@ body.page-pricing .pricing-section .section-title {
 
 .faq-section .section-title {
     text-align: center;
+    margin-bottom: 16px;
 }
 
 .faq-section .section-subtitle {
@@ -5699,6 +5710,10 @@ body.page-pricing .pricing-section .section-title {
     line-height: 1.6;
     padding: 0 20px 16px;
     margin: 0;
+}
+
+.faq-section .faq-a p {
+    font-size: var(--font-size-base);
 }
 
 @media (max-width: 991px) {
