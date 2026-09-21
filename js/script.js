@@ -198,226 +198,104 @@ function togglePill(header) {
     }
 }
 
-// Posts Carousel — Continuous Super-Smooth Infinite Scroll Engine
-document.addEventListener('DOMContentLoaded', function () {
-    const postsCarousel = document.querySelector('.posts-carousel');
-    if (!postsCarousel) return;
+// Posts Carousel — manual, button-driven paging.
+// Cards hold live Facebook embeds, which must never be cloned (a cloned embed
+// renders blank) nor re-parented (that reloads the iframe). So the DOM is built
+// once and left alone: paging only changes the container's scrollLeft, which
+// the browser handles natively without touching any card.
+function initPostsCarousel() {
+    const carousel = document.querySelector('.posts-carousel');
+    if (!carousel) return;
+    if (carousel.dataset.carouselReady === 'true') return;
 
-    // 1. Prepare infinite loop clones
-    const originalItems = Array.from(postsCarousel.querySelectorAll('.post-item:not(.post-item-clone)'));
-    const originalCount = originalItems.length;
-    if (originalCount === 0) return;
+    const items = Array.from(carousel.querySelectorAll('.post-item'));
+    if (!items.length) return;
 
-    const firstChild = postsCarousel.firstChild;
-    originalItems.forEach(function (item) {
-        const clone = item.cloneNode(true);
-        clone.classList.add('post-item-clone');
-        clone.setAttribute('aria-hidden', 'true');
-        postsCarousel.insertBefore(clone, firstChild);
-    });
-    originalItems.forEach(function (item) {
-        const clone = item.cloneNode(true);
-        clone.classList.add('post-item-clone');
-        clone.setAttribute('aria-hidden', 'true');
-        postsCarousel.appendChild(clone);
-    });
+    carousel.dataset.carouselReady = 'true';
+    carousel.classList.add('is-manual');
 
-    function getAllItems() {
-        return Array.from(postsCarousel.querySelectorAll('.post-item'));
-    }
-    let allItems = getAllItems();
+    const viewport = carousel.parentElement;
+    const prevBtn = viewport.querySelector('.posts-carousel-nav-prev');
+    const nextBtn = viewport.querySelector('.posts-carousel-nav-next');
 
-    // 2. Padding to center the active card perfectly
-    function updatePadding() {
-        const itemWidth = allItems[originalCount].offsetWidth;
-        const pad = Math.max(0, (postsCarousel.clientWidth - itemWidth) / 2);
-        postsCarousel.style.paddingLeft = pad + 'px';
-        postsCarousel.style.paddingRight = pad + 'px';
+    // How far one click moves: a whole "page" of fully visible cards, so the
+    // user never lands mid-card. Falls back to one card on narrow screens.
+    function stepSize() {
+        const card = items[0];
+        const gap = parseFloat(getComputedStyle(carousel).columnGap) || 0;
+        const span = card.offsetWidth + gap;
+        const perPage = Math.max(1, Math.floor(carousel.clientWidth / span));
+        return span * perPage;
     }
 
-    function getBlockWidth() {
-        if (allItems.length < originalCount * 2) return 0;
-        return allItems[originalCount * 2].offsetLeft - allItems[originalCount].offsetLeft;
+    function maxScroll() {
+        return Math.max(0, carousel.scrollWidth - carousel.clientWidth);
     }
 
-    function centreScrollFor(item) {
-        return item.offsetLeft - (postsCarousel.clientWidth - item.offsetWidth) / 2;
+    // Buttons disable at the ends rather than wrapping: with a finite set of
+    // real posts there is nothing to loop to, and a dead-end button that still
+    // looks clickable reads as broken.
+    function syncButtons() {
+        if (!prevBtn || !nextBtn) return;
+        const x = carousel.scrollLeft;
+        const max = maxScroll();
+        const atStart = x <= 1;
+        const atEnd = x >= max - 1;
+
+        prevBtn.disabled = atStart;
+        nextBtn.disabled = atEnd;
+        prevBtn.setAttribute('aria-disabled', String(atStart));
+        nextBtn.setAttribute('aria-disabled', String(atEnd));
+
+        // Hide the controls outright when everything already fits on screen.
+        const overflows = max > 1;
+        viewport.classList.toggle('has-overflow', overflows);
     }
 
-    // 3. Infinite loop seamless repositioning
-    function checkBoundary() {
-        const bw = getBlockWidth();
-        if (bw === 0) return;
-        const midStart = allItems[originalCount].offsetLeft;
-        const midEnd = allItems[originalCount * 2].offsetLeft;
-        const centre = postsCarousel.scrollLeft + postsCarousel.clientWidth / 2;
-
-        if (centre < midStart) {
-            postsCarousel.scrollLeft += bw;
-            if (targetCenterScroll !== null) targetCenterScroll += bw;
-        } else if (centre >= midEnd) {
-            postsCarousel.scrollLeft -= bw;
-            if (targetCenterScroll !== null) targetCenterScroll -= bw;
-        }
-    }
-
-    // 4. Update active card (scales up & glows center card)
-    function updateActiveCard() {
-        const centre = postsCarousel.scrollLeft + postsCarousel.clientWidth / 2;
-        let bestItem = null;
-        let minDistance = Infinity;
-
-        allItems.forEach(function (item) {
-            const itemCenter = item.offsetLeft + item.offsetWidth / 2;
-            const dist = Math.abs(itemCenter - centre);
-            if (dist < minDistance) {
-                minDistance = dist;
-                bestItem = item;
-            }
-        });
-
-        allItems.forEach(function (item) {
-            item.classList.toggle('is-active', item === bestItem);
+    function page(direction) {
+        const target = carousel.scrollLeft + direction * stepSize();
+        carousel.scrollTo({
+            left: Math.max(0, Math.min(target, maxScroll())),
+            behavior: prefersReducedMotion() ? 'auto' : 'smooth'
         });
     }
 
-    // 5. Continuous RAF Animation Loop
-    const baseSpeed = 0.85; // Speed of continuous scroll (px/frame)
-    let currentSpeed = baseSpeed;
-    let isHovered = false;
-    let isDragging = false;
-    let dragVelocity = 0;
-    let targetCenterScroll = null;
-    let isMovedDuringDrag = false;
-
-    function animLoop() {
-        if (isDragging) {
-            // Dragging handled directly by event listeners
-        } else if (targetCenterScroll !== null) {
-            // Easing towards a specific clicked card
-            const diff = targetCenterScroll - postsCarousel.scrollLeft;
-            if (Math.abs(diff) < 0.5) {
-                postsCarousel.scrollLeft = targetCenterScroll;
-                targetCenterScroll = null;
-            } else {
-                postsCarousel.scrollLeft += diff * 0.08;
-            }
-        } else if (Math.abs(dragVelocity) > 0.05) {
-            // Flick momentum coasting
-            postsCarousel.scrollLeft += dragVelocity;
-            dragVelocity *= 0.94; // friction
-        } else {
-            // Continuous auto-glide
-            dragVelocity = 0;
-            const targetSpeed = isHovered ? 0 : baseSpeed;
-            currentSpeed += (targetSpeed - currentSpeed) * 0.08;
-            postsCarousel.scrollLeft += currentSpeed;
-        }
-
-        checkBoundary();
-        updateActiveCard();
-        requestAnimationFrame(animLoop);
+    function prefersReducedMotion() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
-    // 6. Hover detection
-    postsCarousel.addEventListener('mouseenter', function () { isHovered = true; });
-    postsCarousel.addEventListener('mouseleave', function () { isHovered = false; });
+    if (prevBtn) prevBtn.addEventListener('click', function () { page(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { page(1); });
 
-    // 7. Mouse drag handlers
-    let startX = 0;
-    let startScrollLeft = 0;
-    let lastX = 0;
-    let lastTime = 0;
-
-    postsCarousel.addEventListener('mousedown', function (e) {
-        isDragging = true;
-        isMovedDuringDrag = false;
-        targetCenterScroll = null;
-        dragVelocity = 0;
-        startX = e.clientX;
-        lastX = e.clientX;
-        lastTime = performance.now();
-        startScrollLeft = postsCarousel.scrollLeft;
-        postsCarousel.classList.add('is-dragging');
+    // Keyboard paging when the strip itself has focus.
+    carousel.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); page(-1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); page(1); }
     });
 
-    window.addEventListener('mousemove', function (e) {
-        if (!isDragging) return;
-        const dx = e.clientX - startX;
-        if (Math.abs(dx) > 3) isMovedDuringDrag = true;
-
-        postsCarousel.scrollLeft = startScrollLeft - dx;
-
-        const now = performance.now();
-        const dt = Math.max(now - lastTime, 1);
-        dragVelocity = (lastX - e.clientX) / dt * 14;
-        lastX = e.clientX;
-        lastTime = now;
-    });
-
-    window.addEventListener('mouseup', function () {
-        if (!isDragging) return;
-        isDragging = false;
-        postsCarousel.classList.remove('is-dragging');
-    });
-
-    // 8. Touch drag handlers
-    postsCarousel.addEventListener('touchstart', function (e) {
-        isDragging = true;
-        isMovedDuringDrag = false;
-        targetCenterScroll = null;
-        dragVelocity = 0;
-        startX = e.touches[0].clientX;
-        lastX = e.touches[0].clientX;
-        lastTime = performance.now();
-        startScrollLeft = postsCarousel.scrollLeft;
+    // Native scroll (trackpad swipe, touch drag, shift+wheel) stays enabled;
+    // the buttons just drive the same scrollLeft. No drag handlers are needed,
+    // and none are installed, so pointer events reach the embeds untouched.
+    let rafPending = false;
+    carousel.addEventListener('scroll', function () {
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(function () {
+            rafPending = false;
+            syncButtons();
+        });
     }, { passive: true });
 
-    postsCarousel.addEventListener('touchmove', function (e) {
-        if (!isDragging) return;
-        const touchX = e.touches[0].clientX;
-        const dx = touchX - startX;
-        if (Math.abs(dx) > 3) isMovedDuringDrag = true;
+    window.addEventListener('resize', syncButtons);
 
-        postsCarousel.scrollLeft = startScrollLeft - dx;
-
-        const now = performance.now();
-        const dt = Math.max(now - lastTime, 1);
-        dragVelocity = (lastX - touchX) / dt * 14;
-        lastX = touchX;
-        lastTime = now;
-    }, { passive: true });
-
-    postsCarousel.addEventListener('touchend', function () {
-        isDragging = false;
-    });
-
-    // Prevent default browser image drag behavior
-    postsCarousel.addEventListener('dragstart', function (e) { e.preventDefault(); });
-
-    // 9. Click card to center
-    postsCarousel.addEventListener('click', function (e) {
-        if (isMovedDuringDrag) return;
-        const item = e.target.closest('.post-item');
-        if (!item) return;
-        targetCenterScroll = centreScrollFor(item);
-    });
-
-    // 10. Handle window resize
-    window.addEventListener('resize', function () {
-        allItems = getAllItems();
-        updatePadding();
-    });
-
-    // Initialization
-    updatePadding();
-    const initialTarget = allItems[originalCount + Math.floor(originalCount / 2)];
-    if (initialTarget) {
-        postsCarousel.scrollLeft = centreScrollFor(initialTarget);
+    // Embeds resolve their height asynchronously, which changes scrollWidth.
+    if (typeof ResizeObserver === 'function') {
+        const ro = new ResizeObserver(syncButtons);
+        ro.observe(carousel);
     }
-    updateActiveCard();
-    requestAnimationFrame(animLoop);
-});
+
+    syncButtons();
+}
 
 
 // Pricing Toggle (6 months/12 months) — 6mo = 10% off, 12mo = 20% off base monthly rate
@@ -1245,4 +1123,266 @@ document.addEventListener('DOMContentLoaded', function () {
         sessionStorage.setItem(CONTACT_SCROLL_KEY, '1');
         window.location.href = 'index.html';
     }, true);
+})();
+
+// ---------------------------------------------------------------------------
+// Doctor Social Feed — live Facebook post widgets in the posts carousel
+// One card per doctor, each showing that doctor's latest Facebook post.
+// ---------------------------------------------------------------------------
+(function () {
+    const API_BASE = 'https://digidrapi.digidr.app';
+    const MAX_DOCTORS = 20;          // how many doctors to check for posts
+    const POSTS_PER_ACCOUNT = 3;     // posts to request per connected account
+    const MAX_CARDS = 5;             // show one post each from the first 5 doctors who have posts
+    const FB_GRAPH_VERSION = 'v23.0';// must be a supported Graph API version (see FB.init below)
+
+    // Doctors to leave out of the carousel, by API slug. Removing a slug here
+    // brings that doctor back with no other changes.
+    const EXCLUDED_SLUGS = ['dr-samir-shah'];
+
+    // Only surface posts this recent, so the carousel never shows stale activity.
+    const MAX_POST_AGE_DAYS = 30;
+
+    const carousel = document.getElementById('postsCarousel');
+    if (!carousel) return;
+
+    // --- Facebook SDK (loaded lazily, once) ---------------------------------
+    let fbSdkPromise = null;
+    function loadFacebookSdk() {
+        if (fbSdkPromise) return fbSdkPromise;
+        fbSdkPromise = new Promise(function (resolve, reject) {
+            if (window.FB) { resolve(window.FB); return; }
+
+            if (!document.getElementById('fb-root')) {
+                const root = document.createElement('div');
+                root.id = 'fb-root';
+                document.body.insertBefore(root, document.body.firstChild);
+            }
+
+            window.fbAsyncInit = function () {
+                // Keep this on a current Graph API version. Deprecated versions
+                // do not fail loudly: the SDK still builds its iframes, but
+                // facebook.com redirects them to a login page, so every embed
+                // renders as a blank card. v21.0 was retired and did exactly
+                // that. If posts ever go blank again, check this first.
+                window.FB.init({ xfbml: false, version: FB_GRAPH_VERSION });
+                resolve(window.FB);
+            };
+
+            const js = document.createElement('script');
+            js.id = 'facebook-jssdk';
+            js.src = 'https://connect.facebook.net/en_US/sdk.js';
+            js.async = true;
+            js.defer = true;
+            js.crossOrigin = 'anonymous';
+            js.onerror = function () { reject(new Error('Facebook SDK failed to load')); };
+            document.head.appendChild(js);
+        });
+        return fbSdkPromise;
+    }
+
+    // Facebook video-post URLs use /videos/ in the path; photo and text posts
+    // use /posts/. There is no type field in the API response, so the
+    // permalink shape is the only signal available to tell them apart.
+    // True when the post is recent enough to show. Posts with a missing or
+    // unparseable createdAt are treated as too old rather than shown blindly.
+    function isRecent(createdAt) {
+        if (!createdAt) return false;
+        const posted = new Date(createdAt).getTime();
+        if (isNaN(posted)) return false;
+        return (Date.now() - posted) <= MAX_POST_AGE_DAYS * 24 * 60 * 60 * 1000;
+    }
+
+    function isVideoPermalink(url) {
+        return //videos//i.test(url);
+    }
+
+    // --- Data fetching ------------------------------------------------------
+    // Retries once on failure: these calls are the difference between a full
+    // carousel and an empty section, and mobile connections drop requests.
+    function fetchJson(url, attempt) {
+        return fetch(url, { headers: { 'Accept': 'application/json' } }).then(function (res) {
+            if (!res.ok) throw new Error('Request failed: ' + res.status);
+            return res.json();
+        }).catch(function (err) {
+            if ((attempt || 0) >= 1) throw err;
+            return new Promise(function (resolve) { setTimeout(resolve, 1200); })
+                .then(function () { return fetchJson(url, (attempt || 0) + 1); });
+        });
+    }
+
+    function fetchDoctors() {
+        return fetchJson(API_BASE + '/api/MicrositeSocialFeed').then(function (list) {
+            if (!Array.isArray(list)) return [];
+            return list.filter(function (d) {
+                if (!d || !d.slug) return false;
+                return EXCLUDED_SLUGS.indexOf(d.slug) === -1;
+            });
+        });
+    }
+
+    // Resolves to every Facebook post this doctor has, across all their accounts.
+    // Doctors with no posts simply contribute nothing — no blank cards.
+    function fetchDoctorPosts(doctor) {
+        const url = API_BASE + '/api/MicrositeSocialFeed/' +
+            encodeURIComponent(doctor.slug) + '?limit=' + POSTS_PER_ACCOUNT;
+
+        return fetchJson(url).then(function (data) {
+            if (!data || data.success === false || !Array.isArray(data.feeds)) return [];
+
+            const entries = [];
+            data.feeds.forEach(function (feed) {
+                if (!feed || feed.platform !== 'facebook' || !Array.isArray(feed.posts)) return;
+                feed.posts.forEach(function (post) {
+                    if (!post || !post.permalink) return;
+                    // Video posts autoplay inside Facebook's own cross-origin iframe,
+                    // which our page has no way to mute or pause — so they are
+                    // skipped rather than shown playing in a small carousel card.
+                    if (isVideoPermalink(post.permalink)) return;
+                    // Stale posts make the feed look abandoned, so drop anything
+                    // older than the recency window.
+                    if (!isRecent(post.createdAt)) return;
+                    entries.push({
+                        doctorName: (doctor.doctorName || '').trim(),
+                        accountName: (feed.accountName || '').trim(),
+                        permalink: post.permalink,
+                        createdAt: post.createdAt || ''
+                    });
+                });
+            });
+            // Newest first, so the card shows this doctor's most recent post
+            // regardless of the order the API returned their accounts in.
+            entries.sort(function (a, b) {
+                return new Date(b.createdAt) - new Date(a.createdAt);
+            });
+            return entries;
+        }).catch(function () {
+            return [];   // one doctor failing must not break the carousel
+        });
+    }
+
+    // --- Card rendering -----------------------------------------------------
+    // The embed iframe needs an explicit pixel width, so it is read from CSS.
+    function getEmbedWidth() {
+        const raw = getComputedStyle(carousel).getPropertyValue('--post-card-width');
+        const width = parseInt(raw, 10);
+        return isNaN(width) ? 300 : width;
+    }
+
+    function buildCard(entry, width) {
+        const item = document.createElement('div');
+        item.className = 'post-item post-item-social';
+
+        // Rendered by the Facebook JS SDK. The plugin URL cannot be used as a
+        // direct iframe src: it responds with X-Frame-Options: DENY, so the
+        // browser refuses to display it however the request is shaped.
+        const embed = document.createElement('div');
+        embed.className = 'fb-post';
+        embed.setAttribute('data-href', entry.permalink);
+        embed.setAttribute('data-width', String(width));
+        embed.setAttribute('data-show-text', 'true');
+
+        // Shown if the SDK is blocked or the post cannot be embedded.
+        const fallback = document.createElement('blockquote');
+        fallback.className = 'fb-xfbml-parse-ignore';
+        fallback.setAttribute('cite', entry.permalink);
+        const link = document.createElement('a');
+        link.href = entry.permalink;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'View this post on Facebook';
+        fallback.appendChild(link);
+        embed.appendChild(fallback);
+
+        const body = document.createElement('div');
+        body.className = 'post-item-body';
+        body.appendChild(embed);
+        item.appendChild(body);
+
+        return item;
+    }
+
+    function renderCards(entries) {
+        const width = getEmbedWidth();
+        const fragment = document.createDocumentFragment();
+
+        entries.forEach(function (entry) {
+            fragment.appendChild(buildCard(entry, width));
+        });
+
+        carousel.innerHTML = '';
+        carousel.appendChild(fragment);
+        carousel.classList.remove('is-loading');
+        carousel.removeAttribute('aria-busy');
+    }
+
+    function showError() {
+        carousel.classList.remove('is-loading');
+        carousel.classList.add('is-empty');
+        carousel.removeAttribute('aria-busy');
+        carousel.innerHTML =
+            '<div class="posts-carousel-status">Posts are taking a moment to load. Please refresh to try again.</div>';
+    }
+
+    // --- Orchestration ------------------------------------------------------
+    let started = false;
+
+    function start() {
+        if (started) return;
+        started = true;
+
+        fetchDoctors()
+            .then(function (doctors) {
+                const selected = doctors.slice(0, MAX_DOCTORS);
+                return Promise.all(selected.map(fetchDoctorPosts));
+            })
+            .then(function (results) {
+                // One post per doctor — their latest — from the doctors who
+                // posted most recently, so the carousel leads with live activity.
+                const entries = results
+                    .filter(function (g) { return Array.isArray(g) && g.length; })
+                    .map(function (g) { return g[0]; })
+                    .sort(function (a, b) {
+                        return new Date(b.createdAt) - new Date(a.createdAt);
+                    })
+                    .slice(0, MAX_CARDS);
+                if (!entries.length) { showError(); return; }
+
+                renderCards(entries);
+
+                // Cards are sized by CSS, so the carousel can start straight
+                // away; the embeds fill in as the SDK parses them.
+                return loadFacebookSdk()
+                    .then(function (FB) { FB.XFBML.parse(carousel); })
+                    .catch(function () { /* fallback links already rendered */ })
+                    .then(function () {
+                        if (typeof initPostsCarousel === 'function') initPostsCarousel();
+                    });
+            })
+            .catch(function () {
+                showError();
+            });
+    }
+
+    // Only fetch once the carousel is close to the viewport.
+    function observe() {
+        if (!('IntersectionObserver' in window)) { start(); return; }
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    observer.disconnect();
+                    start();
+                }
+            });
+        }, { rootMargin: '400px 0px' });
+
+        observer.observe(carousel);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', observe);
+    } else {
+        observe();
+    }
 })();

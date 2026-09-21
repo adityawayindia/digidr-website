@@ -581,6 +581,7 @@
         </div>
         <div class="posts-carousel-container">
             <div class="posts-carousel-wrapper">
+                <!-- Static post images replaced by live Facebook post widgets (see js/script.js)
                 <div class="posts-carousel">
                     <div class="post-item">
                         <img src="img/twitter.png" alt="Twitter Post">
@@ -600,6 +601,65 @@
                     <div class="post-item">
                         <img src="img/pneumonia.png" alt="Pneumonia Post">
                     </div>
+                </div>
+                -->
+                <div class="posts-carousel is-loading" id="postsCarousel" aria-busy="true"
+                     tabindex="0" role="region" aria-label="Recent posts from DigiDr doctors">
+                    <span class="posts-carousel-status-sr" role="status">Loading posts from our doctors&hellip;</span>
+                    <div class="post-item post-item-skeleton" aria-hidden="true">
+                        <div class="post-item-body">
+                            <div class="skeleton-line skeleton-avatar-row">
+                                <span class="skeleton-avatar"></span>
+                                <span class="skeleton-name"></span>
+                            </div>
+                            <div class="skeleton-block"></div>
+                            <div class="skeleton-line skeleton-text-1"></div>
+                            <div class="skeleton-line skeleton-text-2"></div>
+                        </div>
+                    </div>
+                    <div class="post-item post-item-skeleton" aria-hidden="true">
+                        <div class="post-item-body">
+                            <div class="skeleton-line skeleton-avatar-row">
+                                <span class="skeleton-avatar"></span>
+                                <span class="skeleton-name"></span>
+                            </div>
+                            <div class="skeleton-block"></div>
+                            <div class="skeleton-line skeleton-text-1"></div>
+                            <div class="skeleton-line skeleton-text-2"></div>
+                        </div>
+                    </div>
+                    <div class="post-item post-item-skeleton" aria-hidden="true">
+                        <div class="post-item-body">
+                            <div class="skeleton-line skeleton-avatar-row">
+                                <span class="skeleton-avatar"></span>
+                                <span class="skeleton-name"></span>
+                            </div>
+                            <div class="skeleton-block"></div>
+                            <div class="skeleton-line skeleton-text-1"></div>
+                            <div class="skeleton-line skeleton-text-2"></div>
+                        </div>
+                    </div>
+                    <div class="post-item post-item-skeleton" aria-hidden="true">
+                        <div class="post-item-body">
+                            <div class="skeleton-line skeleton-avatar-row">
+                                <span class="skeleton-avatar"></span>
+                                <span class="skeleton-name"></span>
+                            </div>
+                            <div class="skeleton-block"></div>
+                            <div class="skeleton-line skeleton-text-1"></div>
+                            <div class="skeleton-line skeleton-text-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="posts-carousel-controls">
+                    <button type="button" class="posts-carousel-nav posts-carousel-nav-prev"
+                            aria-label="Previous posts" aria-controls="postsCarousel">
+                        <span aria-hidden="true">&#10094;</span>
+                    </button>
+                    <button type="button" class="posts-carousel-nav posts-carousel-nav-next"
+                            aria-label="Next posts" aria-controls="postsCarousel">
+                        <span aria-hidden="true">&#10095;</span>
+                    </button>
                 </div>
             </div>
         </div>
