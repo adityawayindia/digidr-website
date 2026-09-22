@@ -2051,6 +2051,10 @@
         margin-bottom: 36px;
     }
 
+    .ms-hero-trust-break {
+        display: block;
+    }
+
     .ms-showcase-screen {
         padding: 0;
     }
