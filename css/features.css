@@ -434,8 +434,11 @@
     background: var(--gradient-blue);
     color: #fff;
     text-decoration: none;
+    border: none;
+    font-family: inherit;
     font-weight: 600;
     font-size: var(--font-size-base);
+    cursor: pointer;
     box-shadow: 0 4px 12px rgba(14, 101, 215, 0.24);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
