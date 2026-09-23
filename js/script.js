@@ -371,6 +371,77 @@ document.addEventListener('DOMContentLoaded', function () {
         return STANDARD_DISCOUNT_12MO_BY_PLAN[plan] || 0.15;
     }
 
+    // Replays the scroll-reveal animation on the cards so the switch reads as
+    // "these plans changed", not just a silent number swap.
+    function animatePlanCards() {
+        var cards = pricingSection ? pricingSection.querySelectorAll('.pricing-card.is-visible') : [];
+        cards.forEach(function (card) {
+            card.classList.remove('is-visible');
+            void card.offsetWidth; // restart the animation on rapid toggles
+            card.classList.add('is-visible');
+        });
+    }
+
+    // Brings the cards into view after a toggle: the view tabs (pricing page)
+    // or the proof strip (home) land just below the fixed navbar.
+    function scrollToPlanCards() {
+        if (!pricingSection) return;
+        var anchor = pricingSection.querySelector('#pricing-view-toggle') ||
+            pricingSection.querySelector('.pricing-proof-strip');
+        if (!anchor) return;
+
+        var nav = document.querySelector('.navbar-custom');
+        var navBottom = nav ? Math.max(0, nav.getBoundingClientRect().bottom) : 0;
+        var target = Math.max(0, window.pageYOffset + anchor.getBoundingClientRect().top - navBottom - 16);
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            window.scrollTo({ top: target, behavior: 'instant' });
+            return;
+        }
+
+        smoothScrollTo(target);
+    }
+
+    // Eased scroll with a distance-based duration; the native 'smooth' is too
+    // quick and not tunable. Stops if the user scrolls themselves.
+    var scrollFrame = null;
+    function smoothScrollTo(target) {
+        var start = window.pageYOffset;
+        var distance = target - start;
+        if (Math.abs(distance) < 2) return;
+
+        var duration = Math.min(1100, Math.max(650, Math.abs(distance) * 0.9));
+        var startTime = null;
+
+        function easeInOutCubic(t) {
+            return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function cancel() {
+            if (scrollFrame) cancelAnimationFrame(scrollFrame);
+            scrollFrame = null;
+            window.removeEventListener('wheel', cancel);
+            window.removeEventListener('touchstart', cancel);
+        }
+
+        function step(now) {
+            if (startTime === null) startTime = now;
+            var progress = Math.min(1, (now - startTime) / duration);
+            // 'instant' so the page's CSS scroll-behavior: smooth doesn't fight each frame
+            window.scrollTo({ top: start + distance * easeInOutCubic(progress), behavior: 'instant' });
+            if (progress < 1) {
+                scrollFrame = requestAnimationFrame(step);
+            } else {
+                cancel();
+            }
+        }
+
+        cancel();
+        window.addEventListener('wheel', cancel, { passive: true });
+        window.addEventListener('touchstart', cancel, { passive: true });
+        scrollFrame = requestAnimationFrame(step);
+    }
+
     function setBillingMode(term) {
         const isTwelve = term === '12';
         const months = isTwelve ? 12 : 6;
@@ -424,6 +495,8 @@ document.addEventListener('DOMContentLoaded', function () {
     sixBtn.addEventListener('click', function () {
         if (sixBtn.classList.contains('active')) return;
         setActiveToggle(sixBtn, '6');
+        animatePlanCards();
+        scrollToPlanCards();
         if (window.digidrTrack) window.digidrTrack('pricing_billing_toggle', { period: '6_months' });
         if (window.digidrTag) window.digidrTag('billing_period', '6_months');
     });
@@ -431,6 +504,8 @@ document.addEventListener('DOMContentLoaded', function () {
     twelveBtn.addEventListener('click', function () {
         if (twelveBtn.classList.contains('active')) return;
         setActiveToggle(twelveBtn, '12');
+        animatePlanCards();
+        scrollToPlanCards();
         if (window.digidrTrack) window.digidrTrack('pricing_billing_toggle', { period: '12_months' });
         if (window.digidrTag) window.digidrTag('billing_period', '12_months');
     });
