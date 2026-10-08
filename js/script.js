@@ -1208,7 +1208,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const API_BASE = 'https://digidrapi.digidr.app';
     const MAX_DOCTORS = 20;          // how many doctors to check for posts
     const POSTS_PER_ACCOUNT = 3;     // posts to request per connected account
-    const MAX_CARDS = 5;             // show one post each from the first 5 doctors who have posts
+    const MAX_CARDS = 7;             // total posts shown in the carousel
+    const MAX_POSTS_PER_DOCTOR = 3;  // cap per doctor, across all their accounts
     const FB_GRAPH_VERSION = 'v23.0';// must be a supported Graph API version (see FB.init below)
 
     // Doctors to leave out of the carousel, by API slug. Removing a slug here
@@ -1269,7 +1270,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function isVideoPermalink(url) {
-        return //videos//i.test(url);
+        return /\/(videos|reels?|watch)\/|fb\.watch/i.test(url);
     }
 
     // --- Data fetching ------------------------------------------------------
@@ -1412,15 +1413,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 return Promise.all(selected.map(fetchDoctorPosts));
             })
             .then(function (results) {
-                // One post per doctor — their latest — from the doctors who
-                // posted most recently, so the carousel leads with live activity.
-                const entries = results
-                    .filter(function (g) { return Array.isArray(g) && g.length; })
-                    .map(function (g) { return g[0]; })
-                    .sort(function (a, b) {
-                        return new Date(b.createdAt) - new Date(a.createdAt);
-                    })
-                    .slice(0, MAX_CARDS);
+                // Fill up to MAX_CARDS, taking each doctor's newest post first
+                // (round 1), then their 2nd (round 2), then 3rd, so the mix
+                // stays varied. Each round is newest first. The chosen cards
+                // are finally shown newest first.
+                const groups = results.filter(function (g) { return Array.isArray(g) && g.length; });
+                let picked = [];
+                for (let round = 0; round < MAX_POSTS_PER_DOCTOR && picked.length < MAX_CARDS; round++) {
+                    const roundPosts = groups
+                        .map(function (g) { return g[round]; })
+                        .filter(Boolean)
+                        .sort(function (a, b) {
+                            return new Date(b.createdAt) - new Date(a.createdAt);
+                        });
+                    picked = picked.concat(roundPosts.slice(0, MAX_CARDS - picked.length));
+                }
+                const entries = picked.sort(function (a, b) {
+                    return new Date(b.createdAt) - new Date(a.createdAt);
+                });
                 if (!entries.length) { showError(); return; }
 
                 renderCards(entries);

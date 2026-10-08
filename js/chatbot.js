@@ -308,6 +308,10 @@
         var chip = e.target.closest('.chatbot-suggestion-chip');
         if (!chip) return;
         if (window.digidrTrack) window.digidrTrack('chatbot_suggestion_click', { suggestion: chip.textContent.trim() });
+        if (chip.textContent.trim() === 'Pricing plans') {
+            window.location.href = 'pricing.html';
+            return;
+        }
         sendMessage(chip.textContent);
     });
 

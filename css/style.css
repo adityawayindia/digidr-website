@@ -2462,6 +2462,17 @@ body.page-rounded>main>section:first-of-type {
     cursor: default;
 }
 
+/* Centre the skeleton row like the loaded cards. Auto margins on the outer
+   cards (rather than justify-content: center) keep the left edge reachable
+   when the row is wider than the viewport. */
+.posts-carousel.is-loading .post-item-skeleton:first-of-type {
+    margin-left: auto;
+}
+
+.posts-carousel.is-loading .post-item-skeleton:last-of-type {
+    margin-right: auto;
+}
+
 .posts-carousel.is-empty {
     justify-content: center;
     align-items: center;
@@ -2711,6 +2722,11 @@ body.page-rounded>main>section:first-of-type {
        shadow); a small margin here is enough to separate the row from it. */
     margin-top: -20px;
     padding-bottom: 40px;
+    /* The negative margin tucks the row under the carousel, whose
+       position:relative; z-index:1 would otherwise sit on top of the buttons'
+       upper edge and swallow their clicks. */
+    position: relative;
+    z-index: 2;
 }
 
 .posts-carousel-wrapper.has-overflow .posts-carousel-controls {
@@ -5641,10 +5657,30 @@ table.pricing-compare tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* FAQ accordion */
+/* FAQ accordion — full-width dotted band behind the questions */
+body.page-pricing .pricing-section {
+    overflow-x: clip;
+}
+
 .pricing-faq {
     max-width: 780px;
     margin: 72px auto 0;
+    padding: 48px 0;
+    position: relative;
+    isolation: isolate;
+}
+
+.pricing-faq::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+    background-image: radial-gradient(rgba(14, 101, 215, 0.08) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
 }
 
 .pricing-faq h2 {
@@ -5955,16 +5991,19 @@ body.page-pricing .pricing-section .section-title {
 
 .faq-item {
     background: #ffffff;
-    border: 1px solid rgba(14, 101, 215, 0.1);
+    /* The section background is a near-white lavender, so the card needs a
+       visible edge and a real shadow to separate from it. */
+    border: 1px solid rgba(14, 101, 215, 0.22);
     border-radius: 14px;
-    box-shadow: 0 1px 4px rgba(20, 30, 60, 0.04);
+    box-shadow: 0 4px 14px rgba(20, 30, 60, 0.08),
+                0 1px 3px rgba(20, 30, 60, 0.06);
     transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     overflow: hidden;
 }
 
 .faq-item:hover {
-    border-color: rgba(14, 101, 215, 0.25);
-    box-shadow: 0 6px 18px rgba(20, 30, 60, 0.07);
+    border-color: rgba(14, 101, 215, 0.4);
+    box-shadow: 0 10px 26px rgba(20, 30, 60, 0.12);
     transform: translateY(-1px);
 }
 
